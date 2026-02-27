@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    [SerializeField] private PlayerDataSO playerData;
-    private int HP => playerData.Hp;
-    private int level => playerData.Level;
-    private int exp => playerData.Exp;
+    [SerializeField] private CharacterDataSO characterData;
+    private int HP => characterData.Hp;
+    private int level => characterData.Level;
+    private int exp => characterData.Exp;
+    private float moveSpeed => characterData.MoveSpeed;
+
 
     public int GetHp() { return HP; }
+    public int GetLevel() { return level; }
+    public int GetExp() { return exp; }
+    public float GetMoveSpeed() {  return moveSpeed; }
 }
