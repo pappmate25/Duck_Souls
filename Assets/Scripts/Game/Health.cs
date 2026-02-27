@@ -7,7 +7,8 @@ public class Health : MonoBehaviour
     private int health;
     public static Action<int> OnHpChange;
 
-    private void Start()
+
+    private void Awake()
     {
         characterStats = GetComponent<CharacterStats>();
         health = characterStats.GetHp();
@@ -17,5 +18,11 @@ public class Health : MonoBehaviour
     {
         health -= damage;
         OnHpChange?.Invoke(health);
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            Debug.Log($"RIP {gameObject.name}");
+        }
     }
 }

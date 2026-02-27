@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3197277156941369903}
   - component: {fileID: 7523120710635329068}
-  - component: {fileID: 4145724958418506754}
   - component: {fileID: 2938063402397963995}
   - component: {fileID: -5352181341355673547}
   m_Layer: 0
@@ -80,18 +79,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponStats
   weaponData: {fileID: 11400000, guid: b190a891d85ebb84c8ab59d054933c05, type: 2}
---- !u!114 &4145724958418506754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2090099658614604535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9853c6c8d1cc9804cbdbebdd952ef7d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Attack
 --- !u!114 &2938063402397963995
 MonoBehaviour:
   m_ObjectHideFlags: 0

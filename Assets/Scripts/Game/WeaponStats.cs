@@ -10,5 +10,9 @@ public class WeaponStats : MonoBehaviour
     private WeaponType weaponType => weaponData.WeaponType;
 
     public int GetDamage() { return damage; }
+    public float GetAttackRate() {  return attackRate; }
+    public float GetProjectileSpeed() { return projectileSpeed; }
+    public float GetProjectileLifeSpan() {  return projectileLifeSpan; }
+    public WeaponType GetWeaponType() { return weaponType; }
 
 }

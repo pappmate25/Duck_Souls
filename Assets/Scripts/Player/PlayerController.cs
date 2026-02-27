@@ -57,7 +57,8 @@ public class PlayerController : MonoBehaviour
 
         dodgeAction.performed += OnDodge;
 
-        attackAction.performed += OnAttack;
+        attackAction.performed += OnAttackStart;
+        attackAction.canceled += OnAttackCancel;
     }
     private void OnDisable()
     {
@@ -66,8 +67,8 @@ public class PlayerController : MonoBehaviour
 
         dodgeAction.performed -= OnDodge;
 
-        attackAction.performed -= OnAttack;
-        attackAction.canceled -= OnAttack;
+        attackAction.performed -= OnAttackStart;
+        attackAction.canceled -= OnAttackCancel;
     }
 
     private void Update()
@@ -98,11 +99,18 @@ public class PlayerController : MonoBehaviour
         dodgeRequested = true;
     }
 
-    private void OnAttack(InputAction.CallbackContext context)
+    private void OnAttackStart(InputAction.CallbackContext context)
     {
         if (isDodging) return; // + "|| !isAlive"
 
         attackRequested = true;
+    }
+
+    private void OnAttackCancel(InputAction.CallbackContext context)
+    {
+        if (isDodging) return;
+
+        attackRequested = false;
     }
 
     private void HandleMovement()
@@ -110,7 +118,6 @@ public class PlayerController : MonoBehaviour
         if (isDodging) return;
 
         myRigidbody.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-        //play anim
         GetDodgeDirection();
     }
 
@@ -120,7 +127,6 @@ public class PlayerController : MonoBehaviour
         {
             dodgeDirection = moveDirection.normalized;
         }
-        print(dodgeDirection);
     }
 
     private void HandleDodge()
@@ -141,7 +147,6 @@ public class PlayerController : MonoBehaviour
         dodgeCooldownTimer = dodgeCooldown;
 
         myRigidbody.linearVelocity = dodgeDirection * dodgeForce;
-        //play anim
     }
 
     private void HandleTimers()
@@ -171,6 +176,5 @@ public class PlayerController : MonoBehaviour
         {
             StartAttack?.Invoke();
         }
-        attackRequested = false;
     }
 }

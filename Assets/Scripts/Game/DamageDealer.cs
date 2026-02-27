@@ -5,7 +5,7 @@ public class DamageDealer : MonoBehaviour
     private WeaponStats weaponStats;
     private int damage;
 
-    private void Start()
+    private void Awake()
     {
         weaponStats = GetComponent<WeaponStats>();
         damage = weaponStats.GetDamage();
@@ -13,11 +13,13 @@ public class DamageDealer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Health health = other.gameObject.GetComponent<Health>();
+        Health health = other.GetComponent<Health>();
 
         if (health != null)
         {
             health.TakeDamage(damage);
         }
+
+        Destroy(gameObject, 0.1f);
     }
 }

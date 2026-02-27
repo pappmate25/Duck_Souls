@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9853c6c8d1cc9804cbdbebdd952ef7d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
-  meleeWeaponPrefab: {fileID: 2090099658614604535, guid: 30124264fcfefc84084a1d3d6806b074, type: 3}
+  weaponPrefab: {fileID: 2090099658614604535, guid: 30124264fcfefc84084a1d3d6806b074, type: 3}
 --- !u!1 &2158782247882887599
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ Transform:
   m_GameObject: {fileID: 2158782247882887599}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.508, y: -0.026, z: 0}
+  m_LocalPosition: {x: 1.3, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9853c6c8d1cc9804cbdbebdd952ef7d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
-  meleeWeaponPrefab: {fileID: 2090099658614604535, guid: c2259a7fef48da84baf6373367ffcd08, type: 3}
+  weaponPrefab: {fileID: 2090099658614604535, guid: c2259a7fef48da84baf6373367ffcd08, type: 3}
 --- !u!1 &3571272918730760318
 GameObject:
   m_ObjectHideFlags: 0

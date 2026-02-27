@@ -15,5 +15,5 @@ MonoBehaviour:
   Damage: 20
   AttackRate: 0.2
   ProjectileSpeed: 0
-  ProjectileLifeSpan: 0
+  ProjectileLifeSpan: 2
   WeaponType: 1
