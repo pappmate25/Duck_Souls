@@ -1,16 +1,18 @@
+using System;
 using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] GameObject meleeWeaponPrefab;
+
+    private void Start()
     {
-        
+        PlayerController.StartAttack += StartAttack;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void StartAttack()
     {
-        
+        Instantiate(meleeWeaponPrefab, transform.position, Quaternion.identity);
+        //play anim
     }
 }

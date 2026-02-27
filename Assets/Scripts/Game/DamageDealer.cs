@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
-    
-    void Start()
+    private WeaponStats weaponStats;
+    private int damage;
+
+    private void Start()
     {
-        
+        weaponStats = GetComponent<WeaponStats>();
+        damage = weaponStats.GetDamage();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        Health health = other.gameObject.GetComponent<Health>();
+
+        if (health != null)
+        {
+            health.TakeDamage(damage);
+        }
     }
 }

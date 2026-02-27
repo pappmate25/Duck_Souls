@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     //attack
     private bool attackRequested;
+    public static Action StartAttack;
     [SerializeField] private GameObject bullet;
 
 
@@ -109,6 +110,7 @@ public class PlayerController : MonoBehaviour
         if (isDodging) return;
 
         myRigidbody.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        //play anim
         GetDodgeDirection();
     }
 
@@ -139,6 +141,7 @@ public class PlayerController : MonoBehaviour
         dodgeCooldownTimer = dodgeCooldown;
 
         myRigidbody.linearVelocity = dodgeDirection * dodgeForce;
+        //play anim
     }
 
     private void HandleTimers()
@@ -166,8 +169,7 @@ public class PlayerController : MonoBehaviour
     {
         if (attackRequested)
         {
-            //call attack class
-            print("Tökre nagyot lõtt.");
+            StartAttack?.Invoke();
         }
         attackRequested = false;
     }
