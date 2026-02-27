@@ -3,11 +3,24 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class Movement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    private PlayerInput playerInput;
+    private Rigidbody2D myRigidbody;
+
+    //actions
+    private InputAction moveAction;
+    private InputAction dodgeAction;
+    private InputAction attackAction;
+
+
+    //movement
+    private Vector2 moveDirection;
     private float moveSpeed = 7.0f;
 
+
     //dodge
+    private bool dodgeRequested;
     private float dodgeForce = 25.0f;
     private float dodgeDuration = 0.2f;
     private float dodgeCooldown = 2.0f;
@@ -18,16 +31,12 @@ public class Movement : MonoBehaviour
     private Vector2 dodgeDirection;
 
 
-
-    private PlayerInput playerInput;
-    private Rigidbody2D myRigidbody;
-
-    private InputAction moveAction;
-    private InputAction dodgeAction;
+    //attack
+    private bool attackRequested;
+    [SerializeField] private GameObject bullet;
 
 
-    private Vector2 moveDirection;
-    private bool dodgeRequested;
+
 
 
     private void Awake()
@@ -37,6 +46,7 @@ public class Movement : MonoBehaviour
 
         moveAction = playerInput.actions["Move"];
         dodgeAction = playerInput.actions["Dodge"];
+        attackAction = playerInput.actions["Attack"];
     }
 
     private void OnEnable()
@@ -45,6 +55,9 @@ public class Movement : MonoBehaviour
         moveAction.canceled += OnMove;
 
         dodgeAction.performed += OnDodge;
+
+        attackAction.performed += OnAttack;
+        attackAction.canceled += OnAttack;
     }
     private void OnDisable()
     {
@@ -52,6 +65,9 @@ public class Movement : MonoBehaviour
         moveAction.canceled -= OnMove;
 
         dodgeAction.performed -= OnDodge;
+
+        attackAction.performed -= OnAttack;
+        attackAction.canceled -= OnAttack;
     }
 
     private void Update()
@@ -64,6 +80,7 @@ public class Movement : MonoBehaviour
         //if (alive){}
         HandleMovement();
         HandleDodge();
+        HandleAttack();
     }
 
 
@@ -79,6 +96,13 @@ public class Movement : MonoBehaviour
         if (!canDodge) return;
 
         dodgeRequested = true;
+    }
+
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        if (isDodging) return; // + "|| !isAlive"
+
+        attackRequested = true;
     }
 
     private void HandleMovement()
@@ -137,5 +161,15 @@ public class Movement : MonoBehaviour
                 canDodge = true;
             }
         }
-    }  
+    }
+
+    private void HandleAttack()
+    {
+        if (attackRequested)
+        {
+            //call attack class
+            print("Tökre nagyot lõtt.");
+        }
+        attackRequested = false;
+    }
 }
