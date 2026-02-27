@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour
         dodgeAction.performed += OnDodge;
 
         attackAction.performed += OnAttack;
-        attackAction.canceled += OnAttack;
     }
     private void OnDisable()
     {
