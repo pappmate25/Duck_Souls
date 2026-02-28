@@ -186,7 +186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7722ad9f0464c499319e75588f6d24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrackPlayer
-  playerPosition: {fileID: 0}
 --- !u!114 &1982621368084961305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9853c6c8d1cc9804cbdbebdd952ef7d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 2090099658614604535, guid: c2259a7fef48da84baf6373367ffcd08, type: 3}
 --- !u!114 &4824093277870611025
 MonoBehaviour:
   m_ObjectHideFlags: 0
