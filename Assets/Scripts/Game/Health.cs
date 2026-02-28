@@ -5,7 +5,7 @@ public class Health : MonoBehaviour
 {
     private CharacterStats characterStats;
     private int health;
-    public static Action<int> OnHpChange;
+    public Action<int> OnHpChange;
 
 
     private void Awake()
