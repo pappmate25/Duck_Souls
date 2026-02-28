@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [SerializeField] GameObject weaponPrefab;
+    [SerializeField] private GameObject weaponPrefab;
     private WeaponStats weaponStats;
 
     private bool canAttack = true;
     private float waitForNextAttack;
+
+    [Header("Enemy")]
+    [SerializeField] private bool isAI = false;
 
     private void Awake()
     {
@@ -23,7 +26,7 @@ public class Attack : MonoBehaviour
 
     private void StartAttack()
     {        
-        if (canAttack)
+        if (canAttack && !isAI)
         {
             waitForNextAttack = weaponStats.GetAttackRate();
 
