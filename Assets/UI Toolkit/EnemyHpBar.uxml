@@ -1,0 +1,4 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/EnemyHpBarStyle.uss?fileID=7433441132597879392&amp;guid=ea9a097442a988a43b20a5f22dd933ff&amp;type=3#EnemyHpBarStyle"/>
+    <ui:ProgressBar value="75" title="" name="hp-bar" picking-mode="Ignore" style="position: absolute;"/>
+</ui:UXML>
