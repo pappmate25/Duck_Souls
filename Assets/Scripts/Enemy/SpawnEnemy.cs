@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Transform playerTransform;
-    //[SerializeField] private WaveDataSO waveDataSO;
+    [SerializeField] private WaveSO[] waveSO;
+
+    private WaveSO currentWave;
+    private float delayBetweenWaves = 5f;
 
 
     private void Start()
@@ -15,16 +17,23 @@ public class SpawnEnemy : MonoBehaviour
 
     private void StartNextWave()
     {
-        Spawn();
+        StartCoroutine(Spawn());
     }
 
-    private void Spawn()
+    private IEnumerator Spawn()
     {
-        for (int i = 0; i < 20; i++)
+        foreach (WaveSO wave in waveSO)
         {
-            GameObject enemy = Instantiate(enemyPrefab, GetRandomSpawnPosition(playerTransform), Quaternion.identity);
+            currentWave = wave;
 
-            enemy.GetComponent<TrackPlayer>().InitializePlayerPosition(playerTransform); //set the new clone to track the player
+            for (int i = 0; i < currentWave.GetEnemyCount(); i++)
+            {
+                GameObject enemy = Instantiate(currentWave.GetEnemyPrefab(i), GetRandomSpawnPosition(playerTransform), Quaternion.identity);
+
+                enemy.GetComponent<TrackPlayer>().InitializePlayerPosition(playerTransform);
+                yield return new WaitForSecondsRealtime(currentWave.GetSpawnDelay());
+            }
+            yield return new WaitForSecondsRealtime(delayBetweenWaves);
         }
     }
 

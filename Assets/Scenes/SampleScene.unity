@@ -212,8 +212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa05c1debd4e484ab4a8ac3f1630d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemy
-  enemyPrefab: {fileID: 6068786130715855196, guid: 6de370fb093528c459bdba31cc3d1dcc, type: 3}
   playerTransform: {fileID: 338777793}
+  waveSO:
+  - {fileID: 11400000, guid: 475cd3102d8018e42a2829d7a52ecc14, type: 2}
 --- !u!1 &441549111
 GameObject:
   m_ObjectHideFlags: 0
