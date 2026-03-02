@@ -31,10 +31,12 @@ public class PlayerController : MonoBehaviour
 
 
     //attack
-    [SerializeField] Transform aimDirection;
+    [SerializeField] private Transform aimDirection;
+    private Vector3 playerFacingDirection;
+    private Camera mainCamera;
     private bool attackRequested;
     public static Action StartAttack;
-    Vector3 playerFacingDirection;
+
 
 
 
@@ -44,6 +46,8 @@ public class PlayerController : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         myRigidbody = GetComponent<Rigidbody2D>();
+
+        mainCamera = Camera.main;
 
         moveAction = playerInput.actions["Move"];
         dodgeAction = playerInput.actions["Dodge"];
@@ -115,12 +119,17 @@ public class PlayerController : MonoBehaviour
 
     private void RotatePlayerAim()
     {
+        Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
+        Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(mouseScreenPos);
+
+        Vector2 direction = (mouseWorldPos - (Vector2)transform.position).normalized;
+
         if (moveDirection != Vector2.zero) //player moves
         {
             playerFacingDirection = moveDirection.normalized; 
         }
 
-        aimDirection.rotation = Quaternion.LookRotation(Vector3.forward, playerFacingDirection * -1);
+        aimDirection.rotation = Quaternion.LookRotation(Vector3.forward, direction * -1);
     }
 
     private void HandleMovement()
