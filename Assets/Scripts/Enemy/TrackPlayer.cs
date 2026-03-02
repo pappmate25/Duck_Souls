@@ -18,7 +18,7 @@ public class TrackPlayer : MonoBehaviour
         FollowingPlayer();
     }
 
-    public void Initialize(Transform player)
+    public void InitializePlayerPosition(Transform player)
     {
         playerTransform = player;
     }
