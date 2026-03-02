@@ -28,13 +28,13 @@ public class PlayerController : MonoBehaviour
     private float dodgeCooldownTimer;
     private bool isDodging;
     private bool canDodge = true;
-    private Vector2 dodgeDirection;
 
 
     //attack
+    [SerializeField] Transform aimDirection;
     private bool attackRequested;
     public static Action StartAttack;
-    [SerializeField] private GameObject bullet;
+    Vector3 playerFacingDirection;
 
 
 
@@ -113,20 +113,22 @@ public class PlayerController : MonoBehaviour
         attackRequested = false;
     }
 
+    private void RotatePlayerAim()
+    {
+        if (moveDirection != Vector2.zero) //player moves
+        {
+            playerFacingDirection = moveDirection.normalized; 
+        }
+
+        aimDirection.rotation = Quaternion.LookRotation(Vector3.forward, playerFacingDirection * -1);
+    }
+
     private void HandleMovement()
     {
         if (isDodging) return;
 
         myRigidbody.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-        GetDodgeDirection();
-    }
-
-    private void GetDodgeDirection()
-    {
-        if (moveDirection != Vector2.zero)
-        {
-            dodgeDirection = moveDirection.normalized;
-        }
+        RotatePlayerAim();
     }
 
     private void HandleDodge()
@@ -146,7 +148,7 @@ public class PlayerController : MonoBehaviour
         dodgeActiveTimer = dodgeDuration;
         dodgeCooldownTimer = dodgeCooldown;
 
-        myRigidbody.linearVelocity = dodgeDirection * dodgeForce;
+        myRigidbody.linearVelocity = playerFacingDirection * dodgeForce;
     }
 
     private void HandleTimers()

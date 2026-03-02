@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [SerializeField] private GameObject weaponPrefab;
+    [SerializeField] private GameObject meleeWeapon;
+    [SerializeField] private GameObject rangedWeapon;
+    [SerializeField] private GameObject bulletPrefab;
     private WeaponStats weaponStats;
 
     private bool canAttack = true;
@@ -14,7 +16,7 @@ public class Attack : MonoBehaviour
 
     private void Awake()
     {
-        weaponStats = weaponPrefab.GetComponent<WeaponStats>();
+        weaponStats = meleeWeapon.GetComponent<WeaponStats>();
 
         PlayerController.StartAttack += StartAttack;
     }
@@ -25,19 +27,42 @@ public class Attack : MonoBehaviour
     }
 
     private void StartAttack()
-    {        
-        if (canAttack && !isAI)
+    {
+        if (isAI) { return; }
+
+        if (weaponStats.GetWeaponType() == WeaponType.Melee)
         {
-            waitForNextAttack = weaponStats.GetAttackRate();
+            if (canAttack)
+            {
+                meleeWeapon.SetActive(canAttack);
+                canAttack = false;
+                waitForNextAttack = weaponStats.GetAttackRate();
+            }
+            else
+            {
+                meleeWeapon.SetActive(canAttack);
+            }
+        }
 
-            GameObject clone = Instantiate(weaponPrefab, transform.position, Quaternion.identity);
+        //else
+        //{
+        //    if (canAttack)
+        //    {
+        //        rangedWeapon.SetActive(true);
+        //        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        //        Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+        //        bulletRigidbody.linearVelocity = Vector2.right * weaponStats.GetProjectileSpeed();
 
-            //play anim
+        //        Destroy(bullet, weaponStats.GetProjectileLifeSpan());
 
-            Destroy(clone, weaponStats.GetProjectileLifeSpan());
-
-            canAttack = false;
-        }    
+        //        canAttack = false;
+        //        waitForNextAttack = weaponStats.GetAttackRate();
+        //    }
+        //    else
+        //    {
+        //        rangedWeapon.SetActive(false);
+        //    }
+        //}   
     }
 
     private void HandleTimers()

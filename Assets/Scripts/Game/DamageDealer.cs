@@ -19,7 +19,5 @@ public class DamageDealer : MonoBehaviour
         {
             health.TakeDamage(damage);
         }
-
-        Destroy(gameObject, 0.1f);
     }
 }
