@@ -7,4 +7,5 @@ public class CharacterDataSO : ScriptableObject
     public int Level;
     public int Exp;
     public float MoveSpeed;
+    public WeaponType WeaponType;
 }

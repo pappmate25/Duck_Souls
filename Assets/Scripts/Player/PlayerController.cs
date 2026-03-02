@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerInput playerInput;
     private Rigidbody2D myRigidbody;
+    private CharacterStats characterStats;
 
     //actions
     private InputAction moveAction;
@@ -35,10 +36,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerFacingDirection;
     private Camera mainCamera;
     private bool attackRequested;
-    public static Action StartAttack;
-
-
-
+    public static Action<Vector2, bool> StartAttack;
+    private Vector2 attackDirection;
+    private bool isRanged;
 
 
 
@@ -46,12 +46,15 @@ public class PlayerController : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         myRigidbody = GetComponent<Rigidbody2D>();
+        characterStats = GetComponent<CharacterStats>();
 
         mainCamera = Camera.main;
 
         moveAction = playerInput.actions["Move"];
         dodgeAction = playerInput.actions["Dodge"];
         attackAction = playerInput.actions["Attack"];
+
+        SetRangedOrMelee(characterStats.GetWeaponTpye());
     }
 
     private void OnEnable()
@@ -105,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnAttackStart(InputAction.CallbackContext context)
     {
-        if (isDodging) return; // + "|| !isAlive"
+        if (isDodging) return;
 
         attackRequested = true;
     }
@@ -122,15 +125,17 @@ public class PlayerController : MonoBehaviour
         Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
         Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(mouseScreenPos);
 
-        Vector2 direction = (mouseWorldPos - (Vector2)transform.position).normalized;
+        attackDirection = (mouseWorldPos - (Vector2)transform.position).normalized;
 
         if (moveDirection != Vector2.zero) //player moves
         {
             playerFacingDirection = moveDirection.normalized; 
         }
 
-        aimDirection.rotation = Quaternion.LookRotation(Vector3.forward, direction * -1);
+        aimDirection.rotation = Quaternion.LookRotation(Vector3.forward, attackDirection * -1);
     }
+
+    
 
     private void HandleMovement()
     {
@@ -185,7 +190,21 @@ public class PlayerController : MonoBehaviour
     {
         if (attackRequested)
         {
-            StartAttack?.Invoke();
+            StartAttack?.Invoke(attackDirection, isRanged);
+        }
+    }
+
+    public void SetRangedOrMelee(WeaponType weaponType)
+    {
+        switch (weaponType)
+        {
+            case WeaponType.Ranged:
+                isRanged = true;
+                break;
+
+            default:
+                isRanged = false;
+                break;
         }
     }
 }

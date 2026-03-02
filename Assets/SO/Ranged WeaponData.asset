@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ranged WeaponData
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
   Damage: 25
-  AttackRate: 0.5
-  ProjectileSpeed: 8
+  AttackRate: 0.25
+  ProjectileSpeed: 40
   ProjectileLifeSpan: 5
   WeaponType: 0
