@@ -83,7 +83,6 @@ GameObject:
   - component: {fileID: 894120963914492393}
   - component: {fileID: 5071958131434653994}
   - component: {fileID: 1982621368084961305}
-  - component: {fileID: 2254364268932292289}
   - component: {fileID: 4824093277870611025}
   m_Layer: 6
   m_Name: Enemy
@@ -269,22 +268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
   characterData: {fileID: 11400000, guid: f27bef3042302854b93eceedd8a55ead, type: 2}
---- !u!114 &2254364268932292289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6068786130715855196}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9853c6c8d1cc9804cbdbebdd952ef7d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Attack
-  meleeWeapon: {fileID: 0}
-  rangedWeapon: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  isAI: 1
 --- !u!114 &4824093277870611025
 MonoBehaviour:
   m_ObjectHideFlags: 0

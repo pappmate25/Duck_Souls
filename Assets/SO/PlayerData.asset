@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDataSO
   Hp: 100
   Level: 1
+  Exp: 0
+  MoveSpeed: 0
+  WeaponType: 0

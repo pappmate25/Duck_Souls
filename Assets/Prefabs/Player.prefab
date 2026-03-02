@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1972847762330708944}
-  - component: {fileID: 8361194194447939332}
-  - component: {fileID: 2094849526385904869}
+  - component: {fileID: 3227437792407881289}
   m_Layer: 3
   m_Name: RangedWeapon
   m_TagString: Untagged
@@ -33,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4465053184114985677}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8361194194447939332
+--- !u!114 &3227437792407881289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,18 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponStats
   weaponData: {fileID: 11400000, guid: b190a891d85ebb84c8ab59d054933c05, type: 2}
---- !u!114 &2094849526385904869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 556449681986552581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a29639e8aba96c40a824e0f17cdfe74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
 --- !u!1 &3571272918730760318
 GameObject:
   m_ObjectHideFlags: 0

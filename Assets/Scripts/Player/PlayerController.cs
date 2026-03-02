@@ -86,37 +86,32 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         //if (alive){}
-        HandleMovement();
+        if (!isDodging)
+        {
+            HandleMovement();
+            HandleAttack();
+        }        
         HandleDodge();
-        HandleAttack();
     }
 
 
     private void OnMove(InputAction.CallbackContext context)
     {
-        if (isDodging) return;
-
         moveDirection = context.ReadValue<Vector2>();
     }
 
     private void OnDodge(InputAction.CallbackContext context)
     {
-        if (!canDodge) return;
-
         dodgeRequested = true;
     }
 
     private void OnAttackStart(InputAction.CallbackContext context)
     {
-        if (isDodging) return;
-
         attackRequested = true;
     }
 
     private void OnAttackCancel(InputAction.CallbackContext context)
     {
-        if (isDodging) return;
-
         attackRequested = false;
     }
 
@@ -139,8 +134,6 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        if (isDodging) return;
-
         myRigidbody.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         RotatePlayerAim();
     }
