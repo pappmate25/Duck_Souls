@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fa68d188e8b5c846a5edc2d22e288c0, type: 3}
-  m_Name: Melee WeaponData
+  m_Name: Ranged WeaponData (Enemy)
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
-  Damage: 20
-  AttackRate: 0.2
-  ProjectileSpeed: 0
-  ProjectileLifeSpan: 0
-  WeaponType: 1
+  Damage: 5
+  AttackRate: 0.1
+  ProjectileSpeed: 20
+  ProjectileLifeSpan: 1
+  WeaponType: 0

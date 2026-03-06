@@ -31,6 +31,7 @@ public class SpawnEnemy : MonoBehaviour
                 GameObject enemy = Instantiate(currentWave.GetEnemyPrefab(i), GetRandomSpawnPosition(playerTransform), Quaternion.identity);
 
                 enemy.GetComponent<TrackPlayer>().InitializePlayerPosition(playerTransform);
+                enemy.GetComponent<AimTowardsPlayer>().InitializePlayerTransform(playerTransform);
                 yield return new WaitForSecondsRealtime(currentWave.GetSpawnDelay());
             }
             yield return new WaitForSecondsRealtime(delayBetweenWaves);

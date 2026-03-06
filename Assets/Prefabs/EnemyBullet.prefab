@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6481311771615083133}
   - component: {fileID: 438658308557203612}
   - component: {fileID: -8535297595944021868}
-  m_Layer: 7
-  m_Name: Bullet
+  m_Layer: 8
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d4f73121565a1c40a2d579f660ea36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponStats
-  weaponData: {fileID: 11400000, guid: 9e758201bf67cfd458e671c0a4ccd1b2, type: 2}
+  weaponData: {fileID: 11400000, guid: b190a891d85ebb84c8ab59d054933c05, type: 2}
 --- !u!114 &-8535297595944021868
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,26 +12,36 @@ public class RangedAttack : MonoBehaviour
 
     [Header("Enemy")]
     [SerializeField] private bool isAI = false;
+    private bool startAttack = false;
+    private AimTowardsPlayer aimTowardsPlayer;
 
     private void Awake()
     {
         weaponStats = rangedWeapon.GetComponent<WeaponStats>();
 
         PlayerController.StartAttack += StartAttack;
+
+        aimTowardsPlayer = GetComponentInParent<AimTowardsPlayer>();
     }
 
     private void Update()
     {
         HandleTimers();
+
+        if (isAI && startAttack)
+        {
+            AttackPlayer();
+        }
     }
 
+    #region Player
     private void StartAttack(Vector2 direction, bool isRanged)
     {
         if (isAI) { return; }
 
         if (canAttack && isRanged)
         {
-            rangedWeapon.SetActive(true);
+            rangedWeapon.SetActive(canAttack);
             GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
             BulletBehavior bulletBehavior = bullet.GetComponent<BulletBehavior>();
@@ -46,9 +56,57 @@ public class RangedAttack : MonoBehaviour
         }
         else
         {
-            rangedWeapon.SetActive(false);
+            rangedWeapon.SetActive(canAttack);
         }        
     }
+    #endregion
+
+    #region Enemy
+    private void AttackPlayer()
+    {
+        if (canAttack)
+        {
+            rangedWeapon.SetActive(canAttack);
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+            BulletBehavior bulletBehavior = bullet.GetComponent<BulletBehavior>();
+
+            bulletBehavior.ShootBullet(bulletRigidbody, aimTowardsPlayer.GetAimDirection() * -1, weaponStats.GetProjectileSpeed());
+
+
+            Destroy(bullet, weaponStats.GetProjectileLifeSpan());
+
+            canAttack = false;
+            waitForNextAttack = weaponStats.GetAttackRate();
+        }
+        else
+        {
+            rangedWeapon.SetActive(canAttack);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        int layerIndex = LayerMask.NameToLayer("Player");
+
+        if (other.gameObject.layer == layerIndex)
+        {
+            startAttack = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        int layerIndex = LayerMask.NameToLayer("Player");
+
+        if (other.gameObject.layer == layerIndex)
+        {
+            startAttack = false;
+        }
+    }
+    #endregion
+
+    #region Timers
 
     private void HandleTimers()
     {
@@ -61,4 +119,5 @@ public class RangedAttack : MonoBehaviour
             }
         }
     }
+    #endregion
 }

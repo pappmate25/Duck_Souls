@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
+    //both
     [SerializeField] private GameObject meleeWeapon;
 
     private WeaponStats weaponStats;
@@ -10,8 +11,10 @@ public class MeleeAttack : MonoBehaviour
     private bool canAttack = true;
     private float waitForNextAttack;
 
+    //enemy
     [Header("Enemy")]
     [SerializeField] private bool isAI = false;
+    private bool startAttack = false;
 
     private void Awake()
     {
@@ -23,8 +26,14 @@ public class MeleeAttack : MonoBehaviour
     private void Update()
     {
         HandleTimers();
+
+        if(isAI && startAttack)
+        {
+            AttackPlayer();
+        }
     }
 
+    #region Player
     private void StartAttack(Vector2 direction, bool isRanged)
     {
         if (isAI || isRanged) { return; }
@@ -40,7 +49,48 @@ public class MeleeAttack : MonoBehaviour
             meleeWeapon.SetActive(canAttack);
         }      
     }
+    #endregion
 
+    #region Enemy
+    //enemy
+    private void AttackPlayer()
+    {
+        if (canAttack)
+        {
+            meleeWeapon.SetActive(canAttack);
+            canAttack = false;
+            waitForNextAttack = weaponStats.GetAttackRate();
+        }
+        else
+        {
+            meleeWeapon.SetActive(canAttack);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        int layerIndex = LayerMask.NameToLayer("Player");
+
+        if (other.gameObject.layer == layerIndex)
+        {
+            startAttack = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        int layerIndex = LayerMask.NameToLayer("Player");
+
+        if (other.gameObject.layer == layerIndex)
+        {
+            startAttack = false;
+        }
+    }
+    #endregion
+
+
+    #region Timers
+    //both
     private void HandleTimers()
     {
         if (!canAttack)
@@ -52,4 +102,5 @@ public class MeleeAttack : MonoBehaviour
             }
         }
     }
+    #endregion
 }

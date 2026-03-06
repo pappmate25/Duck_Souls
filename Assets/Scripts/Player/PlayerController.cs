@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private bool dodgeRequested;
     private float dodgeForce = 25.0f;
     private float dodgeDuration = 0.2f;
-    private float dodgeCooldown = 2.0f;
+    private float dodgeCooldown = 0f;
     private float dodgeActiveTimer;
     private float dodgeCooldownTimer;
     private bool isDodging;
