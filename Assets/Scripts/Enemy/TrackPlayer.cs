@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class TrackPlayer : MonoBehaviour
@@ -13,7 +14,7 @@ public class TrackPlayer : MonoBehaviour
         enemyRigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         FollowingPlayer();
     }
@@ -25,7 +26,9 @@ public class TrackPlayer : MonoBehaviour
 
     private void FollowingPlayer()
     {
-        transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, characterStats.GetMoveSpeed() * Time.deltaTime);
-        enemyRigidbody.linearVelocity = Vector2.zero; // hogy ne lõjje ki a enemy-t a player mikor nekimegy
+        Vector2 direction = (playerTransform.position - transform.position).normalized; //irányvektor
+
+        enemyRigidbody.linearVelocity = direction * characterStats.GetMoveSpeed();
+        //enemyRigidbody.linearVelocity = Vector2.zero; // hogy ne lõjje ki a enemy-t a player mikor nekimegy
     }
 }
