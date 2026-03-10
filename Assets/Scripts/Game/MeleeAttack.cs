@@ -23,6 +23,11 @@ public class MeleeAttack : MonoBehaviour
         PlayerController.StartAttack += StartAttack;
     }
 
+    private void OnDestroy()
+    {
+        PlayerController.StartAttack -= StartAttack;
+    }
+
     private void Update()
     {
         HandleTimers();

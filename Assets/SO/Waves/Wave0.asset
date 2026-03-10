@@ -14,7 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveSO
   enemyPrefabs:
   - {fileID: 6068786130715855196, guid: 6de370fb093528c459bdba31cc3d1dcc, type: 3}
-  - {fileID: 6068786130715855196, guid: 6de370fb093528c459bdba31cc3d1dcc, type: 3}
-  - {fileID: 4149669099040673152, guid: 9b08bbf679afd754bbf58ac26147df6f, type: 3}
-  - {fileID: 4149669099040673152, guid: 9b08bbf679afd754bbf58ac26147df6f, type: 3}
   delayBetweenEnemySpawn: 0.2
