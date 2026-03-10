@@ -557,6 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a29639e8aba96c40a824e0f17cdfe74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
+  damagePopup: {fileID: 8568171167377439116, guid: 0219ebd1c7e31c14e9baaba02a949a27, type: 3}
 --- !u!1 &8698789636927314459
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +569,7 @@ GameObject:
   - component: {fileID: 8222083891519924567}
   - component: {fileID: 1872233891441915368}
   - component: {fileID: 4613860356687738946}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: HpBarUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}

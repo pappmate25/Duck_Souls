@@ -1,0 +1,3 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Label text="20" name="damage-number-label" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; position: absolute; color: rgb(255, 235, 0); font-size: 50px; -unity-font-style: bold; -unity-text-outline-width: 3px; -unity-text-outline-color: rgb(0, 0, 0); align-self: center;"/>
+</ui:UXML>
