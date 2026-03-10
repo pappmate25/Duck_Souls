@@ -9,6 +9,7 @@ public class CameraShake : MonoBehaviour
     private float intensity = 3f;
     private float duration = 0.2f;
 
+    private Coroutine shakeCoroutine;
 
     private void Awake()
     {
@@ -28,7 +29,12 @@ public class CameraShake : MonoBehaviour
 
     public void Shake()
     {
-        StartCoroutine(ShakeRoutine());
+        if(shakeCoroutine != null)
+        {
+            StopCoroutine(shakeCoroutine);
+        }
+
+        shakeCoroutine = StartCoroutine(ShakeRoutine());
     }
 
     private IEnumerator ShakeRoutine()
@@ -38,5 +44,7 @@ public class CameraShake : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         noise.AmplitudeGain = 0;
+
+        shakeCoroutine = null;
     }
 }
