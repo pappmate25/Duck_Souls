@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
-    [SerializeField] private GameObject damagePopup;
+    [SerializeField] private DamagePopup Manager;
+
     private WeaponStats weaponStats;
 
     public static Action OnPlayerHit;
+    public static Action<Vector3, int> OnEnemyHit;
 
 
     private void Awake()
@@ -27,9 +29,7 @@ public class DamageDealer : MonoBehaviour
 
             if(other.gameObject.layer == enemyLayerIndex)
             {
-                GameObject popup = Instantiate(damagePopup, transform.position + Vector3.up * 2f, Quaternion.identity);
-
-                popup.GetComponent<DamagePopup>().SetupDamage(weaponStats.GetDamage());
+                OnEnemyHit?.Invoke(transform.position + Vector3.up * 2f, weaponStats.GetDamage());
             }
 
             if (other.gameObject.layer == playerLayerIndex)
