@@ -1,3 +1,4 @@
+using System;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -5,17 +6,13 @@ public class DamageDealer : MonoBehaviour
 {
     [SerializeField] private GameObject damagePopup;
     private WeaponStats weaponStats;
-    private int damage;
-    private CinemachineCamera cmCam;
-    private CameraShake cameraShake;
+
+    public static Action OnPlayerHit;
+
 
     private void Awake()
     {
         weaponStats = GetComponent<WeaponStats>();
-        damage = weaponStats.GetDamage();
-
-        cmCam = FindFirstObjectByType<CinemachineCamera>();
-        cameraShake = cmCam.GetComponent<CameraShake>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -26,19 +23,18 @@ public class DamageDealer : MonoBehaviour
 
         if (health != null)
         {
-            health.TakeDamage(damage);
+            health.TakeDamage(weaponStats.GetDamage());
 
             if(other.gameObject.layer == enemyLayerIndex)
             {
                 GameObject popup = Instantiate(damagePopup, transform.position + Vector3.up * 2f, Quaternion.identity);
 
-                popup.GetComponent<DamagePopup>().SetupDamage(damage);
+                popup.GetComponent<DamagePopup>().SetupDamage(weaponStats.GetDamage());
             }
 
-            if (other.gameObject.layer == playerLayerIndex && cameraShake != null)
+            if (other.gameObject.layer == playerLayerIndex)
             {
-                cameraShake.Shake();
-                print("alma");
+                OnPlayerHit?.Invoke();
             }
         }
     }

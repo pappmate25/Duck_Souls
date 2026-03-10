@@ -23,8 +23,8 @@ public class PlayerController : MonoBehaviour
     //dodge
     private bool dodgeRequested;
     private float dodgeForce = 25.0f;
-    private float dodgeDuration = 0.2f;
-    private float dodgeCooldown = 0f;
+    private float dodgeDuration = 0.3f;
+    private float dodgeCooldown = 0.2f;
     private float dodgeActiveTimer;
     private float dodgeCooldownTimer;
     private bool isDodging;
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerFacingDirection;
     private Camera mainCamera;
     private bool attackRequested;
-    public static Action<Vector2, bool> StartAttack;
+    public Action<Vector2, bool> StartAttack;
     private Vector2 attackDirection;
     private bool isRanged;
 

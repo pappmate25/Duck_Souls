@@ -10,6 +10,8 @@ public class RangedAttack : MonoBehaviour
     private bool canAttack = true;
     private float waitForNextAttack;
 
+    private PlayerController playerController;
+
     [Header("Enemy")]
     [SerializeField] private bool isAI = false;
     private bool startAttack = false;
@@ -19,9 +21,25 @@ public class RangedAttack : MonoBehaviour
     {
         weaponStats = rangedWeapon.GetComponent<WeaponStats>();
 
-        PlayerController.StartAttack += StartAttack;
-
         aimTowardsPlayer = GetComponentInParent<AimTowardsPlayer>();
+
+        playerController = GetComponentInParent<PlayerController>();
+    }
+
+    private void OnEnable()
+    {
+        if (playerController != null)
+        {
+            playerController.StartAttack += StartAttack;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (playerController != null)
+        {
+            playerController.StartAttack -= StartAttack;
+        }
     }
 
     private void Update()

@@ -11,6 +11,8 @@ public class MeleeAttack : MonoBehaviour
     private bool canAttack = true;
     private float waitForNextAttack;
 
+    PlayerController playerController;
+
     //enemy
     [Header("Enemy")]
     [SerializeField] private bool isAI = false;
@@ -19,13 +21,23 @@ public class MeleeAttack : MonoBehaviour
     private void Awake()
     {
         weaponStats = meleeWeapon.GetComponent<WeaponStats>();
-
-        PlayerController.StartAttack += StartAttack;
+        playerController = GetComponentInParent<PlayerController>();
     }
 
-    private void OnDestroy()
+    private void OnEnable()
     {
-        PlayerController.StartAttack -= StartAttack;
+        if( playerController != null)
+        {
+            playerController.StartAttack += StartAttack;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (playerController != null)
+        {
+            playerController.StartAttack -= StartAttack;
+        }
     }
 
     private void Update()

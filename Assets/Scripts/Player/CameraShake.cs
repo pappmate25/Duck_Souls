@@ -15,7 +15,17 @@ public class CameraShake : MonoBehaviour
         cmCam = GetComponent<CinemachineCamera>();
         noise = cmCam.GetComponent<CinemachineBasicMultiChannelPerlin>();
     }
-    
+
+    private void OnEnable()
+    {
+        DamageDealer.OnPlayerHit += Shake;
+    }
+
+    private void OnDisable()
+    {
+        DamageDealer.OnPlayerHit -= Shake;
+    }
+
     public void Shake()
     {
         StartCoroutine(ShakeRoutine());

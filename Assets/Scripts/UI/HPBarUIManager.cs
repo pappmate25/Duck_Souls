@@ -7,6 +7,17 @@ public class HPBarUIManager : MonoBehaviour
     private ProgressBar healthBar;
     [SerializeField] Health health;
 
+
+    private void OnEnable()
+    {
+        health.OnHpChange += UpdateHpBar;
+    }
+
+    private void OnDisable()
+    {
+        health.OnHpChange -= UpdateHpBar;
+    }
+
     private void Start()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -14,7 +25,6 @@ public class HPBarUIManager : MonoBehaviour
 
 
         healthBar.value = healthBar.highValue;
-        health.OnHpChange += UpdateHpBar;
     }
 
     private void UpdateHpBar(int currentHealth)
