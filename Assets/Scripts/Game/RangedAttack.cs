@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RangedAttack : BaseAttack
@@ -7,12 +9,23 @@ public class RangedAttack : BaseAttack
 
     private AimTowardsPlayer aimTowardsPlayer;
 
+    //bullet pool
+    private int poolSize = 8;
+    private Queue<GameObject> pool = new Queue<GameObject>();
+
     protected override void Awake()
     {
         base.Awake();
 
         weaponStats = rangedWeapon.GetComponent<WeaponStats>();
-        aimTowardsPlayer = GetComponentInParent<AimTowardsPlayer>();       
+        aimTowardsPlayer = GetComponentInParent<AimTowardsPlayer>();
+
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, transform);
+            bullet.SetActive(false);
+            pool.Enqueue(bullet);
+        }
     }
 
     protected override void OnEnable()
@@ -43,16 +56,27 @@ public class RangedAttack : BaseAttack
     {
         rangedWeapon.SetActive(true);
 
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        GameObject bullet = pool.Dequeue();
+        bullet.SetActive(true);
+
+        bullet.transform.position = transform.position;
 
         Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
         BulletBehavior bulletBehavior = bullet.GetComponent<BulletBehavior>();
 
         bulletBehavior.ShootBullet(bulletRB, direction, weaponStats.GetProjectileSpeed());
 
-        Destroy(bullet, weaponStats.GetProjectileLifeSpan());
+        StartCoroutine(ReturnToPool(bullet));
 
         StartCooldown();
+    }
+
+    private IEnumerator ReturnToPool(GameObject bullet)
+    {
+        yield return new WaitForSecondsRealtime(weaponStats.GetProjectileLifeSpan());
+
+        bullet.SetActive(false);
+        pool.Enqueue(bullet);
     }
 
    
