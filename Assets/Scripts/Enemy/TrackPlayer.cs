@@ -29,6 +29,5 @@ public class TrackPlayer : MonoBehaviour
         Vector2 direction = (playerTransform.position - transform.position).normalized; //irányvektor
 
         enemyRigidbody.linearVelocity = direction * characterStats.GetMoveSpeed();
-        //enemyRigidbody.linearVelocity = Vector2.zero; // hogy ne lõjje ki a enemy-t a player mikor nekimegy
     }
 }

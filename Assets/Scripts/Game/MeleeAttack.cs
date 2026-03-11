@@ -1,89 +1,59 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
-public class MeleeAttack : MonoBehaviour
+public class MeleeAttack : BaseAttack
 {
-    //both
     [SerializeField] private GameObject meleeWeapon;
 
-    private WeaponStats weaponStats;
-
-    private bool canAttack = true;
-    private float waitForNextAttack;
-
-    PlayerController playerController;
-
-    //enemy
-    [Header("Enemy")]
-    [SerializeField] private bool isAI = false;
-    private bool startAttack = false;
-
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         weaponStats = meleeWeapon.GetComponent<WeaponStats>();
-        playerController = GetComponentInParent<PlayerController>();
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        if( playerController != null)
-        {
-            playerController.StartAttack += StartAttack;
-        }
+        base.OnEnable();
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
-        if (playerController != null)
-        {
-            playerController.StartAttack -= StartAttack;
-        }
+        base.OnDisable();
     }
 
-    private void Update()
+    protected override void HandlePlayerAttack(Vector2 direction, bool isRanged)
     {
-        HandleTimers();
+        if (isAI || isRanged || !canAttack) return;
 
-        if(isAI && startAttack)
-        {
-            AttackPlayer();
-        }
+        Attack();
     }
 
-    #region Player
-    private void StartAttack(Vector2 direction, bool isRanged)
+    protected override void AttackAI()
     {
-        if (isAI || isRanged) { return; }
+        if(!canAttack) return;
 
-        if (canAttack)
-        {
-            meleeWeapon.SetActive(canAttack);
-            canAttack = false;
-            waitForNextAttack = weaponStats.GetAttackRate();
-        }
-        else
-        {
-            meleeWeapon.SetActive(canAttack);
-        }      
+        Attack();
     }
-    #endregion
 
-    #region Enemy
-    //enemy
-    private void AttackPlayer()
+    private void Attack()
     {
-        if (canAttack)
-        {
-            meleeWeapon.SetActive(canAttack);
-            canAttack = false;
-            waitForNextAttack = weaponStats.GetAttackRate();
-        }
-        else
-        {
-            meleeWeapon.SetActive(canAttack);
-        }
+        if (!canAttack) return;
+
+        StartCooldown();
+        StartCoroutine(MeleeRoutine());
     }
 
+    private IEnumerator MeleeRoutine()
+    {
+        meleeWeapon.SetActive(true);
+
+        yield return new WaitForSecondsRealtime(0.15f); //lower then the attackRate
+
+        meleeWeapon.SetActive(false);
+    }
+
+    //Check if the player is in attack range
     private void OnTriggerEnter2D(Collider2D other)
     {
         int layerIndex = LayerMask.NameToLayer("Player");
@@ -103,21 +73,4 @@ public class MeleeAttack : MonoBehaviour
             startAttack = false;
         }
     }
-    #endregion
-
-
-    #region Timers
-    //both
-    private void HandleTimers()
-    {
-        if (!canAttack)
-        {
-            waitForNextAttack -= Time.deltaTime;
-            if(waitForNextAttack <= 0)
-            {
-                canAttack = true;
-            }
-        }
-    }
-    #endregion
 }

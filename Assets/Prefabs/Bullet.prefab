@@ -196,4 +196,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a29639e8aba96c40a824e0f17cdfe74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
-  damagePopup: {fileID: 8568171167377439116, guid: 0219ebd1c7e31c14e9baaba02a949a27, type: 3}
+  Manager: {fileID: 3916982952554351055, guid: 0219ebd1c7e31c14e9baaba02a949a27, type: 3}

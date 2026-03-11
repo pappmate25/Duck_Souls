@@ -1,108 +1,62 @@
 using UnityEngine;
 
-public class RangedAttack : MonoBehaviour
+public class RangedAttack : BaseAttack
 {
     [SerializeField] private GameObject rangedWeapon;
     [SerializeField] private GameObject bulletPrefab;
 
-    private WeaponStats weaponStats;
-
-    private bool canAttack = true;
-    private float waitForNextAttack;
-
-    private PlayerController playerController;
-
-    [Header("Enemy")]
-    [SerializeField] private bool isAI = false;
-    private bool startAttack = false;
     private AimTowardsPlayer aimTowardsPlayer;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         weaponStats = rangedWeapon.GetComponent<WeaponStats>();
-
-        aimTowardsPlayer = GetComponentInParent<AimTowardsPlayer>();
-
-        playerController = GetComponentInParent<PlayerController>();
+        aimTowardsPlayer = GetComponentInParent<AimTowardsPlayer>();       
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
-        if (playerController != null)
-        {
-            playerController.StartAttack += StartAttack;
-        }
+        base.OnEnable();
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
-        if (playerController != null)
-        {
-            playerController.StartAttack -= StartAttack;
-        }
+        base.OnEnable();
     }
 
-    private void Update()
+    protected override void HandlePlayerAttack(Vector2 direction, bool isRanged)
     {
-        HandleTimers();
+        if (isAI || !isRanged || !canAttack) return;
 
-        if (isAI && startAttack)
-        {
-            AttackPlayer();
-        }
+        Shoot(direction);
     }
 
-    #region Player
-    private void StartAttack(Vector2 direction, bool isRanged)
+    protected override void AttackAI()
     {
-        if (isAI) { return; }
+        if(!canAttack) return;
 
-        if (canAttack && isRanged)
-        {
-            rangedWeapon.SetActive(canAttack);
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
-            BulletBehavior bulletBehavior = bullet.GetComponent<BulletBehavior>();
-
-            bulletBehavior.ShootBullet(bulletRigidbody, direction, weaponStats.GetProjectileSpeed());
-
-
-            Destroy(bullet, weaponStats.GetProjectileLifeSpan());
-
-            canAttack = false;
-            waitForNextAttack = weaponStats.GetAttackRate();
-        }
-        else
-        {
-            rangedWeapon.SetActive(canAttack);
-        }        
+        Shoot(aimTowardsPlayer.GetAimDirection() * -1);
     }
-    #endregion
 
-    #region Enemy
-    private void AttackPlayer()
+    private void Shoot(Vector2 direction)
     {
-        if (canAttack)
-        {
-            rangedWeapon.SetActive(canAttack);
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
-            BulletBehavior bulletBehavior = bullet.GetComponent<BulletBehavior>();
+        rangedWeapon.SetActive(true);
 
-            bulletBehavior.ShootBullet(bulletRigidbody, aimTowardsPlayer.GetAimDirection() * -1, weaponStats.GetProjectileSpeed());
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
 
+        Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
+        BulletBehavior bulletBehavior = bullet.GetComponent<BulletBehavior>();
 
-            Destroy(bullet, weaponStats.GetProjectileLifeSpan());
+        bulletBehavior.ShootBullet(bulletRB, direction, weaponStats.GetProjectileSpeed());
 
-            canAttack = false;
-            waitForNextAttack = weaponStats.GetAttackRate();
-        }
-        else
-        {
-            rangedWeapon.SetActive(canAttack);
-        }
+        Destroy(bullet, weaponStats.GetProjectileLifeSpan());
+
+        StartCooldown();
     }
 
+   
+    //Check if the player is in attack range
     private void OnTriggerEnter2D(Collider2D other)
     {
         int layerIndex = LayerMask.NameToLayer("Player");
@@ -122,20 +76,4 @@ public class RangedAttack : MonoBehaviour
             startAttack = false;
         }
     }
-    #endregion
-
-    #region Timers
-
-    private void HandleTimers()
-    {
-        if (!canAttack)
-        {
-            waitForNextAttack -= Time.deltaTime;
-            if (waitForNextAttack <= 0)
-            {
-                canAttack = true;
-            }
-        }
-    }
-    #endregion
 }

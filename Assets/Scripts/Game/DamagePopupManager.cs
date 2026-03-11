@@ -4,7 +4,7 @@ using UnityEngine;
 public class DamagePopupManager : MonoBehaviour
 {
     [SerializeField] private DamagePopup popupPrefab;
-    private int poolSize = 32;
+    private int poolSize = 64;
 
     private Queue<DamagePopup> pool = new Queue<DamagePopup>();
 
