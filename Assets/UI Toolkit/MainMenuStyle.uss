@@ -1,0 +1,40 @@
+.main-title-label {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 100px;
+    color: rgb(190, 0, 0);
+    -unity-text-align: middle-center;
+    position: absolute;
+    -unity-font-style: bold;
+    top: 80px;
+    align-self: center;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 150px;
+    width: 400px;
+    height: 80px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: 42px;
+    -unity-text-align: middle-center;
+    background-color: rgb(255, 255, 255);
+    left: 120px;
+}
+
+.buttons:active {
+    background-color: rgb(190, 0, 0);
+}
