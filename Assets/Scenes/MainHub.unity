@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &406913771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,12 +383,12 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
-  m_PanelSettings: {fileID: 11400000, guid: 243f62c2bf0b7bc42b0e05d228af9a3c, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 13e45260bbc6b8647b4141156952ece6, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 24f41b582f702ea428ec8b1dfba5d7c0, type: 3}
   m_SortingOrder: 0
   m_Position: 0
-  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceSizeMode: 0
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
   m_PivotReferenceSize: 0
@@ -403,7 +403,7 @@ Transform:
   m_GameObject: {fileID: 1007518517}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.9, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -429,6 +429,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 68b52a89-2c78-4b5c-b0ec-12c001d5f4c4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: 04f319c6-b9d7-4ac0-a4ed-1ca46b20d51b
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 5443f6fd-57d8-4ddc-b7a6-3cc9561c68b7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: 'Hub/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: 'Hub/Interact[/Keyboard/e]'
+      objectReference: {fileID: 0}
     - target: {fileID: 4911312269886537592, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
       propertyPath: m_Name
       value: Player
