@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     private int currentSceneIndex;
+    private int hubIndex = 1;
 
     private void Awake()
     {
@@ -14,6 +15,8 @@ public class SceneLoader : MonoBehaviour
     {
         MainMenuUIController.OnStartGame += StartGame;
         MainMenuUIController.OnExitGame += ExitGame;
+
+        DungeonSelectUI.OnDungeonSelect += LoadDungeon;
     }
 
     private void OnDisable()
@@ -41,5 +44,15 @@ public class SceneLoader : MonoBehaviour
     {
         Debug.Log("Exiting game...");
         Application.Quit();
+    }
+
+    private void LoadHub()
+    {
+        SceneManager.LoadScene(hubIndex);
+    }
+
+    private void LoadDungeon(int dungeonIndex)
+    {
+        SceneManager.LoadScene(currentSceneIndex + dungeonIndex);
     }
 }
