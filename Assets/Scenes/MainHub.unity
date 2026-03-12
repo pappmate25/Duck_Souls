@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &406913771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
   m_PanelSettings: {fileID: 11400000, guid: 243f62c2bf0b7bc42b0e05d228af9a3c, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 093d6d38ce70ca34ba1cc514d797d58f, type: 3}
   m_SortingOrder: 0
   m_Position: 0
   m_WorldSpaceSizeMode: 1
@@ -302,11 +302,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3337824868252292582, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3337824868252292582, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3337824868252292582, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -326,11 +326,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8436558867440584643, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8436558867440584643, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8436558867440584643, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -370,7 +370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1007518518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,11 +459,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5025069978868516384, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5025069978868516384, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5025069978868516384, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
       propertyPath: m_LocalPosition.z

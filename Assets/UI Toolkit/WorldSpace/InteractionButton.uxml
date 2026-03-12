@@ -1,3 +1,3 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="floating-E-button" style="position: absolute; background-image: url(&quot;project://database/Assets/Sprites/05.png?fileID=-2276259661975475453&amp;guid=4d3852a0e49ba2643ad0f7b02132c2c2&amp;type=3#05_0&quot;); width: 100px; height: 100px;"/>
+    <ui:VisualElement name="floating-E-button" style="position: absolute; background-image: url(&quot;project://database/Assets/Sprites/05.png?fileID=-2276259661975475453&amp;guid=4d3852a0e49ba2643ad0f7b02132c2c2&amp;type=3#05_0&quot;); width: 100px; height: 120px;"/>
 </ui:UXML>

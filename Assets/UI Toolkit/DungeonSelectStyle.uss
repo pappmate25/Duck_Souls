@@ -1,0 +1,21 @@
+
+
+.dungeon-buttons {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    left: 150px;
+    top: 400px;
+    font-size: 40px;
+}
+
+.dungeon-buttons:active {
+}

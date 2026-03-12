@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/DungeonSelectStyle.uss?fileID=7433441132597879392&amp;guid=fc8e3ca56fcb96a4bb3b417640654755&amp;type=3#DungeonSelectStyle"/>
+    <ui:VisualElement name="background" style="position: absolute; width: 100%; height: 100%; background-color: rgba(75, 0, 0, 0.78);"/>
+    <ui:Button text="dungeon1" name="dungeon-button-1" class="dungeon-buttons" style="left: 200px;"/>
+    <ui:Button text="dungeon2" name="dungeon-button-2" class="dungeon-buttons" style="left: 820px;"/>
+    <ui:Button text="dungeon3" name="dungeon-button-3" class="dungeon-buttons" style="left: 1440px;"/>
+</ui:UXML>
