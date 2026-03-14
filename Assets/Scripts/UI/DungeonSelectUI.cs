@@ -20,13 +20,13 @@ public class DungeonSelectUI : MonoBehaviour
         dungeonButton2 = root.Q<Button>("dungeon-button-2");
         dungeonButton3 = root.Q<Button>("dungeon-button-3");
 
-        gameObject.SetActive(false);
+
+        root.style.display = DisplayStyle.None;
     }
 
     private void OnEnable()
     {
-        //PlayerController.OnInteraction += ActivateDungeonUI;
-        //PlayerController.CloseWindows += DeactivateDungeonUI;
+        NPC.OnInteraction += ActivateDungeonUI;
 
         dungeonButton1.clicked += Dungeon1;
         dungeonButton2.clicked += Dungeon2;
@@ -35,8 +35,6 @@ public class DungeonSelectUI : MonoBehaviour
 
     private void OnDisable()
     {
-        //PlayerController.OnInteraction -= ActivateDungeonUI;
-        //PlayerController.CloseWindows -= DeactivateDungeonUI;
 
         dungeonButton1.clicked -= Dungeon1;
         dungeonButton2.clicked -= Dungeon2;
@@ -45,13 +43,13 @@ public class DungeonSelectUI : MonoBehaviour
 
     private void ActivateDungeonUI()
     {
-        gameObject.SetActive(true);
+        root.style.display = DisplayStyle.Flex;
     }
 
-    private void DeactivateDungeonUI()
-    {
-        gameObject.SetActive(false);
-    }
+    //private void DeactivateDungeonUI()
+    //{
+    //    gameObject.SetActive(false);
+    //}
 
     private void Dungeon1() => DungeonSelect(1);
     private void Dungeon2() => DungeonSelect(2);

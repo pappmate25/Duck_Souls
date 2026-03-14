@@ -374,6 +374,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 8d79c60c-0c9a-43ee-9497-07de47039b0e
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: 04f319c6-b9d7-4ac0-a4ed-1ca46b20d51b
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 5443f6fd-57d8-4ddc-b7a6-3cc9561c68b7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: 'Hub/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: 'Hub/Interact[/Keyboard/e]'
+      objectReference: {fileID: 0}
     - target: {fileID: 4911312269886537592, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
       propertyPath: m_Name
       value: Player

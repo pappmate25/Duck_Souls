@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction dodgeAction;
     private InputAction attackAction;
+    private InputAction interactAction;
+    private InputAction interactCancelAction;
 
 
     //movement
@@ -40,6 +42,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 attackDirection;
     private bool isRanged;
 
+    //interact
+    private PlayerInteraction playerInteraction;
+    private bool interactRequested;
+    //public Action OnCloseWindow;
+
 
 
     private void Awake()
@@ -47,12 +54,15 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         myRigidbody = GetComponent<Rigidbody2D>();
         characterStats = GetComponent<CharacterStats>();
+        playerInteraction = GetComponent<PlayerInteraction>();
 
         mainCamera = Camera.main;
 
         moveAction = playerInput.actions["Move"];
         dodgeAction = playerInput.actions["Dodge"];
         attackAction = playerInput.actions["Attack"];
+        interactAction = playerInput.actions["Interact"];
+        //interactCancelAction = playerInput.actions["InteractCancel"];
 
         SetRangedOrMelee(characterStats.GetWeaponTpye());
     }
@@ -66,6 +76,9 @@ public class PlayerController : MonoBehaviour
 
         attackAction.performed += OnAttackStart;
         attackAction.canceled += OnAttackCancel;
+
+        interactAction.performed += OnInteract;
+        //interactCancelAction.performed += OnInteractCanceled;
     }
     private void OnDisable()
     {
@@ -76,6 +89,9 @@ public class PlayerController : MonoBehaviour
 
         attackAction.performed -= OnAttackStart;
         attackAction.canceled -= OnAttackCancel;
+
+        interactAction.performed -= OnInteract;
+        //interactCancelAction.performed -= OnInteractCanceled;
     }
 
     private void Update()
@@ -92,6 +108,7 @@ public class PlayerController : MonoBehaviour
             HandleAttack();
         }        
         HandleDodge();
+        HandleInteraction();
     }
 
 
@@ -115,6 +132,16 @@ public class PlayerController : MonoBehaviour
         attackRequested = false;
     }
 
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        interactRequested = true;
+    }
+
+    private void OnInteractCanceled(InputAction.CallbackContext context)
+    {
+        interactRequested = false;
+    }
+
     private void RotatePlayerAim()
     {
         Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
@@ -129,8 +156,7 @@ public class PlayerController : MonoBehaviour
 
         aimDirection.rotation = Quaternion.LookRotation(Vector3.forward, attackDirection * -1);
     }
-
-    
+   
 
     private void HandleMovement()
     {
@@ -185,6 +211,21 @@ public class PlayerController : MonoBehaviour
         {
             StartAttack?.Invoke(attackDirection, isRanged);
         }
+    }
+
+    private void HandleInteraction()
+    {
+        if (interactRequested)
+        {
+            playerInteraction.Interact();
+        }
+
+        interactRequested = false;
+
+        //if (!interactRequested)
+        //{
+        //    OnCloseWindow?.Invoke();
+        //}
     }
 
     public void SetRangedOrMelee(WeaponType weaponType)

@@ -4,18 +4,27 @@ using UnityEngine.UIElements;
 
 public class InteractionUI : MonoBehaviour
 {
-    //this UI popsup if close enough to a interactable
-    //E button image popup
+    private VisualElement root;
 
+    private void Awake()
+    {
+        root = GetComponent<UIDocument>().rootVisualElement;
+        root.style.display = DisplayStyle.None;
+    }
 
-    //OnTriggerEnter/Exit???
-    //if (close enough to a interactable)
-    //{
-    //  transform.position = position(át kell adni)
-    //  gameObject.SetActive(true);
-    //}
-    //else
-    //{
-    //    gameObject.SetActive(false);
-    //}
+    private void OnEnable()
+    {
+        PlayerInteraction.OnShowInteractUI += ShowUI;
+    }
+
+    private void OnDisable()
+    {
+        PlayerInteraction.OnShowInteractUI -= ShowUI;
+    }
+
+    private void ShowUI(bool value)
+    {
+        if (value) root.style.display = DisplayStyle.Flex;
+        else root.style.display = DisplayStyle.None;
+    }
 }

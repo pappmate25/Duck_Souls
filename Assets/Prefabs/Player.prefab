@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 870189037480326252}
   - component: {fileID: 2830815064534910962}
   - component: {fileID: 565913702919865477}
+  - component: {fileID: -4153233448134383914}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -219,9 +220,17 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 1d4851f2-1402-4b39-a7f3-f6993d659edb
     m_ActionName: 'Player/Attack[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 04f319c6-b9d7-4ac0-a4ed-1ca46b20d51b
+    m_ActionName: 'Hub/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5443f6fd-57d8-4ddc-b7a6-3cc9561c68b7
+    m_ActionName: 'Hub/Interact[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!70 &8752794180743627072
@@ -355,6 +364,18 @@ MonoBehaviour:
   isAI: 0
   rangedWeapon: {fileID: 556449681986552581}
   bulletPrefab: {fileID: 7966790304177398272, guid: 38bd2d2b2de579349b79f9f8e23b998f, type: 3}
+--- !u!114 &-4153233448134383914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4911312269886537592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389fa28f1bbaace41ab4e40b7c9dd2e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &5247917424298839590
 GameObject:
   m_ObjectHideFlags: 0
