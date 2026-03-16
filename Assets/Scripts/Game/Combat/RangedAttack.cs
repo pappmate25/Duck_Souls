@@ -73,7 +73,7 @@ public class RangedAttack : BaseAttack
 
     private IEnumerator ReturnToPool(GameObject bullet)
     {
-        yield return new WaitForSecondsRealtime(weaponStats.GetProjectileLifeSpan());
+        yield return new WaitForSeconds(weaponStats.GetProjectileLifeSpan());
 
         bullet.SetActive(false);
         pool.Enqueue(bullet);

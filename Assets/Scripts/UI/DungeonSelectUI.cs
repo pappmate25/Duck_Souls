@@ -46,11 +46,6 @@ public class DungeonSelectUI : MonoBehaviour
         root.style.display = DisplayStyle.Flex;
     }
 
-    //private void DeactivateDungeonUI()
-    //{
-    //    gameObject.SetActive(false);
-    //}
-
     private void Dungeon1() => DungeonSelect(1);
     private void Dungeon2() => DungeonSelect(2);
     private void Dungeon3() => DungeonSelect(3);

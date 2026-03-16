@@ -17,12 +17,20 @@ public class SceneLoader : MonoBehaviour
         MainMenuUIController.OnExitGame += ExitGame;
 
         DungeonSelectUI.OnDungeonSelect += LoadDungeon;
+
+        PauseMenuController.OnLeaveDungeon += LoadHub;
+        PauseMenuController.OnExitGame += ExitGame;
     }
 
     private void OnDisable()
     {
         MainMenuUIController.OnStartGame -= StartGame;
         MainMenuUIController.OnExitGame -= ExitGame;
+
+        DungeonSelectUI.OnDungeonSelect -= LoadDungeon;
+
+        PauseMenuController.OnLeaveDungeon -= LoadHub;
+        PauseMenuController.OnExitGame -= ExitGame;
     }
 
     private void StartGame()

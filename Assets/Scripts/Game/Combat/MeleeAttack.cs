@@ -48,7 +48,7 @@ public class MeleeAttack : BaseAttack
     {
         meleeWeapon.SetActive(true);
 
-        yield return new WaitForSecondsRealtime(0.15f); //lower then the attackRate
+        yield return new WaitForSeconds(0.15f); //lower then the attackRate
 
         meleeWeapon.SetActive(false);
     }

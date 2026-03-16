@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MenuStyle.uss?fileID=7433441132597879392&amp;guid=368b4281cdd40d64eaae542ed2f13e33&amp;type=3#MenuStyle"/>
+    <ui:VisualElement name="Background" style="width: 100%; height: 100%; position: absolute; background-color: rgba(0, 0, 0, 0.67);"/>
+    <ui:Label text="Duck Duck Duck" class="main-title-label" style="left: 30px; top: 200px; font-size: 70px;"/>
+    <ui:Button text="Return To Game" name="pause-continue-button" class="buttons" style="bottom: 510px;"/>
+    <ui:Button text="Options" name="pause-options-button" class="buttons" style="bottom: 390px;"/>
+    <ui:Button text="Leave Dungeon" name="pause-leave-dungeon-button" class="buttons" style="bottom: 270px;"/>
+    <ui:Button text="Exit" name="pause-exit-button" class="buttons"/>
+</ui:UXML>

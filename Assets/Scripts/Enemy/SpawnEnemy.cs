@@ -32,9 +32,9 @@ public class SpawnEnemy : MonoBehaviour
 
                 enemy.GetComponent<TrackPlayer>().InitializePlayerPosition(playerTransform);
                 enemy.GetComponent<AimTowardsPlayer>().InitializePlayerTransform(playerTransform);
-                yield return new WaitForSecondsRealtime(currentWave.GetSpawnDelay());
+                yield return new WaitForSeconds(currentWave.GetSpawnDelay());
             }
-            yield return new WaitForSecondsRealtime(delayBetweenWaves);
+            yield return new WaitForSeconds(delayBetweenWaves);
         }
     }
 
