@@ -62,7 +62,6 @@ public class PlayerController : MonoBehaviour
         dodgeAction = playerInput.actions["Dodge"];
         attackAction = playerInput.actions["Attack"];
         interactAction = playerInput.actions["Interact"];
-        //interactCancelAction = playerInput.actions["InteractCancel"];
 
         SetRangedOrMelee(characterStats.GetWeaponTpye());
     }
@@ -78,7 +77,6 @@ public class PlayerController : MonoBehaviour
         attackAction.canceled += OnAttackCancel;
 
         interactAction.performed += OnInteract;
-        //interactCancelAction.performed += OnInteractCanceled;
     }
     private void OnDisable()
     {
@@ -91,7 +89,6 @@ public class PlayerController : MonoBehaviour
         attackAction.canceled -= OnAttackCancel;
 
         interactAction.performed -= OnInteract;
-        //interactCancelAction.performed -= OnInteractCanceled;
     }
 
     private void Update()
@@ -137,11 +134,6 @@ public class PlayerController : MonoBehaviour
         interactRequested = true;
     }
 
-    private void OnInteractCanceled(InputAction.CallbackContext context)
-    {
-        interactRequested = false;
-    }
-
     private void RotatePlayerAim()
     {
         Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
@@ -157,7 +149,6 @@ public class PlayerController : MonoBehaviour
         aimDirection.rotation = Quaternion.LookRotation(Vector3.forward, attackDirection * -1);
     }
    
-
     private void HandleMovement()
     {
         myRigidbody.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
@@ -221,11 +212,6 @@ public class PlayerController : MonoBehaviour
         }
 
         interactRequested = false;
-
-        //if (!interactRequested)
-        //{
-        //    OnCloseWindow?.Invoke();
-        //}
     }
 
     public void SetRangedOrMelee(WeaponType weaponType)

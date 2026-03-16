@@ -13,13 +13,14 @@ public class DungeonSelectUI : MonoBehaviour
 
     public static Action<int> OnDungeonSelect;
 
+    [SerializeField] private UIManager uiManager;
+
     private void Awake()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         dungeonButton1 = root.Q<Button>("dungeon-button-1");
         dungeonButton2 = root.Q<Button>("dungeon-button-2");
         dungeonButton3 = root.Q<Button>("dungeon-button-3");
-
 
         root.style.display = DisplayStyle.None;
     }
@@ -31,10 +32,12 @@ public class DungeonSelectUI : MonoBehaviour
         dungeonButton1.clicked += Dungeon1;
         dungeonButton2.clicked += Dungeon2;
         dungeonButton3.clicked += Dungeon3;
+
     }
 
     private void OnDisable()
     {
+        NPC.OnInteraction -= ActivateDungeonUI;
 
         dungeonButton1.clicked -= Dungeon1;
         dungeonButton2.clicked -= Dungeon2;
@@ -43,7 +46,7 @@ public class DungeonSelectUI : MonoBehaviour
 
     private void ActivateDungeonUI()
     {
-        root.style.display = DisplayStyle.Flex;
+        uiManager.OpenUI(root, false);
     }
 
     private void Dungeon1() => DungeonSelect(1);

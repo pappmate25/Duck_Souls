@@ -1,71 +1,103 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class UIController : MonoBehaviour
 {
-    public static Action<bool> OnOpenUI;
+    [SerializeField] private UIManager uiManager;
+
+    public static Action OnPauseGame;
 
     private PlayerInput playerInput;
-    private InputActionMap currentMap;
     private InputAction pauseAction;
-    private bool isPaused;
+    private InputAction cancelAction;
+
+    private int lastCancelFrame = -1;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
 
         pauseAction = playerInput.actions["Pause"];
+        cancelAction = playerInput.actions["Cancel"];
     }
-
 
     private void OnEnable()
     {
-        pauseAction.performed += TogglePause;
-
-        PauseMenuController.OnContinueGame += Resume;
+        pauseAction.performed += OnCancel;
+        cancelAction.performed += OnCancel;
     }
 
     private void OnDisable()
     {
-        pauseAction.performed -= TogglePause;
-
-        PauseMenuController.OnContinueGame -= Resume;
+        pauseAction.performed -= OnCancel;
+        cancelAction.performed -= OnCancel;
     }
 
-    private void TogglePause(InputAction.CallbackContext context)
+    private void OnCancel(InputAction.CallbackContext context)
     {
-        if (isPaused)
+        if (lastCancelFrame == Time.frameCount) return;
+        lastCancelFrame = Time.frameCount;
+
+
+        if (uiManager.HasOpenUI())
         {
-            Resume();
+            uiManager.CloseTopUI();
+            return;
         }
-        else
-        {
-            Pause();
-        }
+        OnPauseGame?.Invoke();    
     }
 
-    private void Pause()
-    {
-        isPaused = true;
 
-        Time.timeScale = 0f;
 
-        OnOpenUI?.Invoke(true);
+    //private void CloseUI(InputAction.CallbackContext context)
+    //{
+    //    if (isPaused && !isOtherUIOpened) return;
 
-        currentMap = playerInput.currentActionMap;
-        playerInput.SwitchCurrentActionMap("UI");
-    }
+    //    HandleClose();
+    //}
 
-    private void Resume()
-    {
-        isPaused = false;
+    //private void HandleClose()
+    //{
+    //    OnOpenUI?.Invoke(false);
+    //    isOtherUIOpened = false;
+    //}
 
-        Time.timeScale = 1f;
+    //private void TogglePause(InputAction.CallbackContext context)
+    //{
+    //    if (isOtherUIOpened) return;
 
-        OnOpenUI?.Invoke(false);
+    //    if (isPaused)
+    //    {
+    //        Resume();
+    //    }
+    //    else
+    //    {
+    //        Pause();
+    //    }
+    //}
 
-        playerInput.SwitchCurrentActionMap(currentMap.name);
-    }
+    //private void Pause()
+    //{
+    //    isPaused = true;
+
+    //    Time.timeScale = 0f;
+
+    //    OnOpenUI?.Invoke(true);
+
+    //    currentMap = playerInput.currentActionMap;
+    //    playerInput.SwitchCurrentActionMap("UI");
+    //}
+
+    //private void Resume()
+    //{
+    //    isPaused = false;
+
+    //    Time.timeScale = 1f;
+
+    //    OnOpenUI?.Invoke(false);
+
+    //    playerInput.SwitchCurrentActionMap(currentMap.name);
+    //}
 }

@@ -5,6 +5,8 @@ using UnityEngine.UIElements;
 public class PauseMenuController : MonoBehaviour
 {
     private VisualElement root;
+    public VisualElement Root => root;
+
     private Button continueButton;
     private Button optionsButton;
     private Button leaveDungeonButton;
@@ -14,6 +16,8 @@ public class PauseMenuController : MonoBehaviour
     public static Action OnPauseOptions;
     public static Action OnLeaveDungeon;
     public static Action OnExitGame;
+
+    [SerializeField] private UIManager uiManager;
 
 
     private void Awake()
@@ -45,7 +49,7 @@ public class PauseMenuController : MonoBehaviour
         leaveDungeonButton.clicked += LeaveDungeonButton_clicked;
         exitButton.clicked += ExitButton_clicked;
 
-        UIController.OnOpenUI += OnPause;
+        UIController.OnPauseGame += ActivatePauseUI;
     }
 
     private void OnDisable()
@@ -55,12 +59,12 @@ public class PauseMenuController : MonoBehaviour
         leaveDungeonButton.clicked -= LeaveDungeonButton_clicked;
         exitButton.clicked -= ExitButton_clicked;
 
-        UIController.OnOpenUI -= OnPause;
+        UIController.OnPauseGame -= ActivatePauseUI;
     }
 
     private void ContinueButton_clicked()
     {
-        OnContinueGame?.Invoke();
+        uiManager.CloseTopUI();
     }
 
     private void OptionsButton_clicked()
@@ -78,8 +82,8 @@ public class PauseMenuController : MonoBehaviour
         OnExitGame?.Invoke();
     }
 
-    private void OnPause(bool isPaused)
+    private void ActivatePauseUI()
     {
-        root.style.display = isPaused ? DisplayStyle.Flex : DisplayStyle.None;
+        uiManager.OpenUI(root, true);
     }
 }
