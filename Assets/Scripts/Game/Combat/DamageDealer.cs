@@ -6,7 +6,7 @@ public class DamageDealer : MonoBehaviour
 {
     [SerializeField] private DamagePopup Manager;
 
-    private WeaponStats weaponStats;
+    private Weapon weapon;
 
     public static Action OnPlayerHit;
     public static Action<Vector3, int> OnEnemyHit;
@@ -14,7 +14,7 @@ public class DamageDealer : MonoBehaviour
 
     private void Awake()
     {
-        weaponStats = GetComponent<WeaponStats>();
+        weapon = GetComponent<Weapon>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -25,11 +25,11 @@ public class DamageDealer : MonoBehaviour
 
         if (health != null)
         {
-            health.TakeDamage(weaponStats.GetDamage());
+            health.TakeDamage(weapon.Data.Damage);
 
             if(other.gameObject.layer == enemyLayerIndex)
             {
-                OnEnemyHit?.Invoke(transform.position + Vector3.up * 2f, weaponStats.GetDamage());
+                OnEnemyHit?.Invoke(transform.position + Vector3.up * 2f, weapon.Data.Damage);
             }
 
             if (other.gameObject.layer == playerLayerIndex)

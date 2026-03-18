@@ -9,7 +9,6 @@ public class UIManager : MonoBehaviour
     public void OpenUI(VisualElement root, bool pauseGame)
     {
         root.style.display = DisplayStyle.Flex;
-        print(root);
         uiStack.Push(root);
 
         if (pauseGame)

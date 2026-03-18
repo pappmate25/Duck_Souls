@@ -629,47 +629,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
       propertyPath: m_DefaultActionMap
-      value: Hub
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
-      propertyPath: m_NotificationBehavior
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
-      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
-      value: 04f319c6-b9d7-4ac0-a4ed-1ca46b20d51b
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
-      value: 5443f6fd-57d8-4ddc-b7a6-3cc9561c68b7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
-      value: 322c0acb-5c1a-4e6a-9f71-39cf5f2b9eda
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
-      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
-      value: 742f2c7d-0ec0-4d35-8ec3-c9f1e83764e6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
-      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
-      value: 'Hub/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
-      value: 'Hub/Interact[/Keyboard/e]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
-      value: 'UI/Pause[/Keyboard/escape]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088397815275302406, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
-      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
-      value: 'UI/Cancel[/Keyboard/escape]'
+      value: 68b52a89-2c78-4b5c-b0ec-12c001d5f4c4
       objectReference: {fileID: 0}
     - target: {fileID: 4911312269886537592, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
       propertyPath: m_Name

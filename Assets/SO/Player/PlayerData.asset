@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d34fe733881ac4bb5fa65da35fe822, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDataSO
-  Hp: 100
-  Level: 1
-  Exp: 0
-  MoveSpeed: 0
-  WeaponType: 0
+  hp: 100
+  level: 1
+  exp: 0
+  moveSpeed: 7
+  weaponType: 0

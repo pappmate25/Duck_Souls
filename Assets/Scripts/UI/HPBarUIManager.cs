@@ -5,7 +5,7 @@ public class HPBarUIManager : MonoBehaviour
 {
     private VisualElement root;
     private ProgressBar healthBar;
-    [SerializeField] Health health;
+    [SerializeField] private Health health;
 
 
     private void OnEnable()
@@ -31,6 +31,4 @@ public class HPBarUIManager : MonoBehaviour
     {
         healthBar.value = currentHealth;
     }
-
-
 }

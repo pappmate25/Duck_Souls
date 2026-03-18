@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1972847762330708944}
-  - component: {fileID: 3227437792407881289}
+  - component: {fileID: 4835492262672844734}
   m_Layer: 7
   m_Name: RangedWeapon
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4465053184114985677}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3227437792407881289
+--- !u!114 &4835492262672844734
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +41,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 556449681986552581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d4f73121565a1c40a2d579f660ea36f, type: 3}
+  m_Script: {fileID: 11500000, guid: db99b813421a10e4485e6caf03300642, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponStats
+  m_EditorClassIdentifier: Assembly-CSharp::Weapon
   weaponData: {fileID: 11400000, guid: b190a891d85ebb84c8ab59d054933c05, type: 2}
 --- !u!1 &3571272918730760318
 GameObject:
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8752794180743627072}
   - component: {fileID: 1746612254479410184}
   - component: {fileID: 6091564000891125887}
-  - component: {fileID: 2681384072631707144}
+  - component: {fileID: 8179460314725518454}
   - component: {fileID: 870189037480326252}
   - component: {fileID: 2830815064534910962}
   - component: {fileID: 565913702919865477}
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
   m_Actions: {fileID: -944628639613478452, guid: 92364d0ebef23fb4da2285d96e4c1acd, type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -228,6 +228,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 5443f6fd-57d8-4ddc-b7a6-3cc9561c68b7
     m_ActionName: 'Hub/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 322c0acb-5c1a-4e6a-9f71-39cf5f2b9eda
+    m_ActionName: 'UI/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 742f2c7d-0ec0-4d35-8ec3-c9f1e83764e6
+    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -310,7 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   aimDirection: {fileID: 4465053184114985677}
---- !u!114 &2681384072631707144
+--- !u!114 &8179460314725518454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,9 +327,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4911312269886537592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 778c2c559318e7646b21b09b71a13e26, type: 3}
+  m_Script: {fileID: 11500000, guid: 08ff21b1bde259548a0c259a3f7cdd2b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  m_EditorClassIdentifier: Assembly-CSharp::Character
   characterData: {fileID: 11400000, guid: 3f9299c6c38ff5c4d996e66c6c7b2f25, type: 2}
 --- !u!114 &870189037480326252
 MonoBehaviour:
@@ -420,7 +428,7 @@ GameObject:
   - component: {fileID: 8411093211040293581}
   - component: {fileID: 8162890861807491853}
   - component: {fileID: 5131319263681845234}
-  - component: {fileID: 3354302371818110064}
+  - component: {fileID: 6150775989729065360}
   - component: {fileID: 6987616529118932303}
   m_Layer: 7
   m_Name: MeleeWeapon
@@ -553,7 +561,7 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 1
---- !u!114 &3354302371818110064
+--- !u!114 &6150775989729065360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -562,9 +570,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8080916466512507507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d4f73121565a1c40a2d579f660ea36f, type: 3}
+  m_Script: {fileID: 11500000, guid: db99b813421a10e4485e6caf03300642, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponStats
+  m_EditorClassIdentifier: Assembly-CSharp::Weapon
   weaponData: {fileID: 11400000, guid: b9a3814a79e0e444283b26e31b91c891, type: 2}
 --- !u!114 &6987616529118932303
 MonoBehaviour:

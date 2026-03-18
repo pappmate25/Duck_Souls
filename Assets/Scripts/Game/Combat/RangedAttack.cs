@@ -17,7 +17,7 @@ public class RangedAttack : BaseAttack
     {
         base.Awake();
 
-        weaponStats = rangedWeapon.GetComponent<WeaponStats>();
+        weapon = rangedWeapon.GetComponent<Weapon>();
         aimTowardsPlayer = GetComponentInParent<AimTowardsPlayer>();
 
         for (int i = 0; i < poolSize; i++)
@@ -64,7 +64,7 @@ public class RangedAttack : BaseAttack
         Rigidbody2D bulletRB = bullet.GetComponent<Rigidbody2D>();
         BulletBehavior bulletBehavior = bullet.GetComponent<BulletBehavior>();
 
-        bulletBehavior.ShootBullet(bulletRB, direction, weaponStats.GetProjectileSpeed());
+        bulletBehavior.ShootBullet(bulletRB, direction, weapon.Data.ProjectileSpeed);
 
         StartCoroutine(ReturnToPool(bullet));
 
@@ -73,7 +73,7 @@ public class RangedAttack : BaseAttack
 
     private IEnumerator ReturnToPool(GameObject bullet)
     {
-        yield return new WaitForSeconds(weaponStats.GetProjectileLifeSpan());
+        yield return new WaitForSeconds(weapon.Data.ProjectileLifespan);
 
         bullet.SetActive(false);
         pool.Enqueue(bullet);

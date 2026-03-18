@@ -22,6 +22,6 @@ public class DungeonManager : MonoBehaviour
 
         currentRoomIndex = index;
 
-        RoomData room = dungeonData.rooms[index];
+        RoomData room = dungeonData.Rooms[index];
     }
 }

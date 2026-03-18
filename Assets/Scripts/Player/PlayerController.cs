@@ -2,12 +2,13 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.TextCore.Text;
 
 public class PlayerController : MonoBehaviour
 {
     private PlayerInput playerInput;
     private Rigidbody2D myRigidbody;
-    private CharacterStats characterStats;
+    private Character character;
 
     //actions
     private InputAction moveAction;
@@ -19,7 +20,6 @@ public class PlayerController : MonoBehaviour
 
     //movement
     private Vector2 moveDirection;
-    private float moveSpeed = 7.0f;
 
 
     //dodge
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         myRigidbody = GetComponent<Rigidbody2D>();
-        characterStats = GetComponent<CharacterStats>();
+        character = GetComponent<Character>();
         playerInteraction = GetComponent<PlayerInteraction>();
 
         mainCamera = Camera.main;
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         attackAction = playerInput.actions["Attack"];
         interactAction = playerInput.actions["Interact"];
 
-        SetRangedOrMelee(characterStats.GetWeaponTpye());
+        SetRangedOrMelee(character.Data.WeaponType);
     }
 
     private void OnEnable()
@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviour
    
     private void HandleMovement()
     {
-        myRigidbody.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        myRigidbody.linearVelocity = new Vector2(moveDirection.x * character.Data.MoveSpeed, moveDirection.y * character.Data.MoveSpeed);
         RotatePlayerAim();
     }
 

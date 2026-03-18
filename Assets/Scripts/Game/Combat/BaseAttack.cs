@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class BaseAttack : MonoBehaviour
 {
-    protected WeaponStats weaponStats;
+    protected Weapon weapon;
 
     protected bool canAttack = true;
     protected float waitForNextAttack;
@@ -64,6 +64,6 @@ public abstract class BaseAttack : MonoBehaviour
     protected void StartCooldown()
     {
         canAttack = false;
-        waitForNextAttack = weaponStats.GetAttackRate();
+        waitForNextAttack = weapon.Data.AttackRate;
     }
 }

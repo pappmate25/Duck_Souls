@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private CharacterStats characterStats;
+    private Character character;
     private int health;
     public Action<int> OnHpChange;
 
 
     private void Awake()
     {
-        characterStats = GetComponent<CharacterStats>();
-        health = characterStats.GetHp();
+        character = GetComponent<Character>();
+        health = character.Data.HP;
     }
 
     public void TakeDamage(int damage)
@@ -22,7 +22,6 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            Debug.Log($"RIP {gameObject.name}");
         }
     }
 }

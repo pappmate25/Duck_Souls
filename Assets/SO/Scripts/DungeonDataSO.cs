@@ -6,5 +6,4 @@ public class DungeonDataSO : ScriptableObject
     [SerializeField] private RoomData[] rooms;
 
     public RoomData[] Rooms => rooms;
-
 }

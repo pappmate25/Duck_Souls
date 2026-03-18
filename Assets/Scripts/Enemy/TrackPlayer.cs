@@ -4,13 +4,13 @@ using UnityEngine;
 public class TrackPlayer : MonoBehaviour
 {
     private Transform playerTransform;
-    private CharacterStats characterStats;
+    private Character character;
     private Rigidbody2D enemyRigidbody;
 
 
     private void Start()
     {
-        characterStats = GetComponent<CharacterStats>();
+        character = GetComponent<Character>();
         enemyRigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -28,6 +28,6 @@ public class TrackPlayer : MonoBehaviour
     {
         Vector2 direction = (playerTransform.position - transform.position).normalized; //irányvektor
 
-        enemyRigidbody.linearVelocity = direction * characterStats.GetMoveSpeed();
+        enemyRigidbody.linearVelocity = direction * character.Data.MoveSpeed;
     }
 }

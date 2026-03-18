@@ -9,7 +9,7 @@ public class MeleeAttack : BaseAttack
     {
         base.Awake();
 
-        weaponStats = meleeWeapon.GetComponent<WeaponStats>();
+        weapon = meleeWeapon.GetComponent<Weapon>();
     }
 
     protected override void OnEnable()
