@@ -16,4 +16,4 @@ MonoBehaviour:
   level: 1
   exp: 0
   moveSpeed: 7
-  weaponType: 0
+  weaponType: 1

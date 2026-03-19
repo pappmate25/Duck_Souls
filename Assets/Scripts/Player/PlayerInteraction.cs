@@ -21,7 +21,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if( other.GetComponentInParent<IInteractable>() == currentInteractable)
+        if (other.GetComponentInParent<IInteractable>() == currentInteractable && currentInteractable != null)
         {
             currentInteractable = null;
             Debug.Log("Viszlát NPC");

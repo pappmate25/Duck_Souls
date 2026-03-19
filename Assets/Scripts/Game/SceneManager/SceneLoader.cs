@@ -20,6 +20,8 @@ public class SceneLoader : MonoBehaviour
 
         PauseMenuController.OnLeaveDungeon += LoadHub;
         PauseMenuController.OnExitGame += ExitGame;
+
+        ExitDoor.OnReturnToHub += LoadHub;
     }
 
     private void OnDisable()
@@ -31,6 +33,8 @@ public class SceneLoader : MonoBehaviour
 
         PauseMenuController.OnLeaveDungeon -= LoadHub;
         PauseMenuController.OnExitGame -= ExitGame;
+
+        ExitDoor.OnReturnToHub -= LoadHub;
     }
 
     private void StartGame()

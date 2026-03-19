@@ -7,6 +7,21 @@ public class DungeonManager : MonoBehaviour
     private int currentRoomIndex;
     private GameObject currentRoomInstance;
 
+
+    private void Start()
+    {
+        StartDungeon();
+    }
+    //private void OnEnable()
+    //{
+    //    DungeonSelectUI.OnDungeonSelect += StartDungeon;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    DungeonSelectUI.OnDungeonSelect -= StartDungeon;
+    //}
+
     public void StartDungeon()
     {
         currentRoomIndex = 0;
@@ -17,11 +32,29 @@ public class DungeonManager : MonoBehaviour
     {
         if (currentRoomInstance != null)
         {
-            Destroy(currentRoomInstance);
+            //currentRoomInstance.SetActive(true);
         }
 
         currentRoomIndex = index;
 
         RoomData room = dungeonData.Rooms[index];
+        currentRoomInstance = room.RoomPrefab;
+        Instantiate(currentRoomInstance);
+        print("sziamizu");
+    }
+
+    public void LoadNextRoom()
+    {
+        int[] connections = dungeonData.Rooms[currentRoomIndex].ConnectedRooms;
+
+        if (connections.Length > 0)
+        {
+            LoadRoom(connections[0]);
+        }
+    }
+
+    public bool IsBoosRoom()
+    {
+        return dungeonData.Rooms[currentRoomIndex].RoomType == RoomType.Boss;
     }
 }
