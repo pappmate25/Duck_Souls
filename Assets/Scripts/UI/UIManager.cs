@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -5,6 +6,8 @@ using UnityEngine.UIElements;
 public class UIManager : MonoBehaviour
 {
     private Stack<VisualElement> uiStack = new Stack<VisualElement>();
+
+    public static Action OnPauseClosed;
     
     public void OpenUI(VisualElement root, bool pauseGame)
     {
@@ -25,11 +28,12 @@ public class UIManager : MonoBehaviour
         top.style.display = DisplayStyle.None;
 
         //pause is not avaiable if any ui is open like dungeon select UI
-        //So if pause if open uiStack.Count == 1
+        //So if pause is open uiStack.Count == 1
         //On close pause pops --> uiStack.Count == 0 --> Time.timeScale = 1f;
         if (uiStack.Count == 0)
         {
             Time.timeScale = 1f;
+            OnPauseClosed?.Invoke();
         }
     }
 
