@@ -675,6 +675,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8731090846994134166, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -953,6 +957,10 @@ PrefabInstance:
       propertyPath: uiManager
       value: 
       objectReference: {fileID: 333687724}
+    - target: {fileID: 4352925814455606912, guid: a39682e4a6410ca4ca080242b1b6acdb, type: 3}
+      propertyPath: onPauseGame
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b5a61461b233d74f95ec331a64c8e65, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -970,6 +978,10 @@ PrefabInstance:
       propertyPath: uiManager
       value: 
       objectReference: {fileID: 333687724}
+    - target: {fileID: 2323950520899205415, guid: ad19063069bb4bc46b65b2bc74049017, type: 3}
+      propertyPath: onPauseGame
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b5a61461b233d74f95ec331a64c8e65, type: 2}
     - target: {fileID: 4506082378451922711, guid: ad19063069bb4bc46b65b2bc74049017, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -25,13 +25,13 @@ public class ActionMapController : MonoBehaviour
 
     private void OnEnable()
     {
-        UIController.OnPauseGame += SetToUI;
+        //UIController.OnPauseGame += SetToUI;
         UIManager.OnPauseClosed += SetToPrevious;
     }
 
     private void OnDisable()
     {
-        UIController.OnPauseGame -= SetToUI;
+        //UIController.OnPauseGame -= SetToUI;
         UIManager.OnPauseClosed -= SetToPrevious;
     }
 

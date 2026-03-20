@@ -1,13 +1,11 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class UIController : MonoBehaviour
 {
     [SerializeField] private UIManager uiManager;
 
-    public static Action OnPauseGame;
+    [SerializeField] private GameEventSO onPauseGame;
 
     private PlayerInput playerInput;
     private InputAction pauseAction;
@@ -46,6 +44,6 @@ public class UIController : MonoBehaviour
             uiManager.CloseTopUI();
             return;
         }
-        OnPauseGame?.Invoke();    
+        onPauseGame.Invoke();    
     }
 }

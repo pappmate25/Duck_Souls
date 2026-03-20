@@ -18,6 +18,7 @@ public class PauseMenuController : MonoBehaviour
     public static Action OnExitGame;
 
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private GameEventSO onPauseGame;
 
 
     private void Awake()
@@ -49,7 +50,7 @@ public class PauseMenuController : MonoBehaviour
         leaveDungeonButton.clicked += LeaveDungeonButton_clicked;
         exitButton.clicked += ExitButton_clicked;
 
-        UIController.OnPauseGame += ActivatePauseUI;
+        onPauseGame.Subscribe(ActivatePauseUI);
     }
 
     private void OnDisable()
@@ -59,7 +60,7 @@ public class PauseMenuController : MonoBehaviour
         leaveDungeonButton.clicked -= LeaveDungeonButton_clicked;
         exitButton.clicked -= ExitButton_clicked;
 
-        UIController.OnPauseGame -= ActivatePauseUI;
+        onPauseGame.UnSubscribe(ActivatePauseUI);
     }
 
     private void ContinueButton_clicked()
