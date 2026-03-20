@@ -24,4 +24,9 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public int GetMaxHealth()
+    {
+        return health;
+    }
 }

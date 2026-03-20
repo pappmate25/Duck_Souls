@@ -35,7 +35,7 @@ public class RangedAttack : BaseAttack
 
     protected override void OnDisable()
     {
-        base.OnEnable();
+        base.OnDisable();
     }
 
     protected override void HandlePlayerAttack(Vector2 direction, bool isRanged)

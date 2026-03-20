@@ -22,7 +22,7 @@ public class HPBarUIManager : MonoBehaviour
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         healthBar = root.Q<ProgressBar>("hp-bar");
-
+        healthBar.highValue = health.GetMaxHealth();
 
         healthBar.value = healthBar.highValue;
     }
