@@ -5,7 +5,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     private IInteractable currentInteractable;
 
-    public static Action<bool> OnShowInteractUI;
+    [SerializeField] private GameEventBoolSO onShowInteractUI;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,7 +15,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             currentInteractable = interactable;
             Debug.Log("uuu egy NPC");
-            OnShowInteractUI?.Invoke(true);
+            onShowInteractUI.Invoke(true);
         }
     }
 
@@ -25,7 +25,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             currentInteractable = null;
             Debug.Log("Viszlát NPC");
-            OnShowInteractUI?.Invoke(false);
+            onShowInteractUI.Invoke(false);
         }
     }
 

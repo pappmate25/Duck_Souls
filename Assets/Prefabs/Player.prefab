@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0803cda9952f64db5565e0ec3b02d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
+  onStartAttack: {fileID: 11400000, guid: 3c215d2dc4353554292457c382577109, type: 2}
   aimDirection: {fileID: 4465053184114985677}
 --- !u!114 &8731090846994134166
 MonoBehaviour:
@@ -331,6 +332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caafd0e5948c9454f951214c8825bf5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActionMapController
+  onPauseGame: {fileID: 11400000, guid: 0b5a61461b233d74f95ec331a64c8e65, type: 2}
+  onPauseClosed: {fileID: 11400000, guid: e32880c77c156f5489f35647c9a842a5, type: 2}
 --- !u!114 &8179460314725518454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a12b5a1d4544b44c9d86875381fc3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
+  onHpChange: {fileID: 11400000, guid: 986ce9447ea8e9543b6e2776e55629c5, type: 2}
 --- !u!114 &2830815064534910962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9853c6c8d1cc9804cbdbebdd952ef7d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Attack
+  onStartAttack: {fileID: 11400000, guid: 3c215d2dc4353554292457c382577109, type: 2}
   isAI: 0
   meleeWeapon: {fileID: 8080916466512507507}
 --- !u!114 &565913702919865477
@@ -382,6 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433dc1623d9566a4ab8e74ba6d63cb19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RangedAttack
+  onStartAttack: {fileID: 11400000, guid: 3c215d2dc4353554292457c382577109, type: 2}
   isAI: 0
   rangedWeapon: {fileID: 556449681986552581}
   bulletPrefab: {fileID: 7966790304177398272, guid: 38bd2d2b2de579349b79f9f8e23b998f, type: 3}
@@ -397,6 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389fa28f1bbaace41ab4e40b7c9dd2e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  onShowInteractUI: {fileID: 11400000, guid: 9aef925802c71654b89520581e2167e7, type: 2}
 --- !u!1 &5247917424298839590
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,6 +607,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
   Manager: {fileID: 3916982952554351055, guid: 0219ebd1c7e31c14e9baaba02a949a27, type: 3}
+  onPlayerHit: {fileID: 11400000, guid: ad1c46c0e88653147bcc073e79f959ce, type: 2}
+  onEnemyHit: {fileID: 11400000, guid: b57dfb9cc28af084d8fdfcc838055b26, type: 2}
 --- !u!1 &8698789636927314459
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,4 +677,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09852f4fe0af7245b4f10f607606ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  onHpChange: {fileID: 11400000, guid: 986ce9447ea8e9543b6e2776e55629c5, type: 2}
   health: {fileID: 870189037480326252}

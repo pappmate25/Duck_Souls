@@ -69,3 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenuController
   uiManager: {fileID: 0}
+  onPauseGame: {fileID: 11400000, guid: 0b5a61461b233d74f95ec331a64c8e65, type: 2}
+  onPauseOptions: {fileID: 11400000, guid: 0e33d3eb2ea5f6d41886b23ddbf2ef96, type: 2}
+  onLeaveDungeon: {fileID: 11400000, guid: cedfa38085825884aa9bacee915857c1, type: 2}
+  onPauseExitGame: {fileID: 11400000, guid: 9f5b208a335451245bf87157e29d1baa, type: 2}

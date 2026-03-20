@@ -8,6 +8,7 @@ public abstract class BaseAttack : MonoBehaviour
     protected float waitForNextAttack;
 
     protected PlayerController playerController;
+    [SerializeField] protected GameEventVector2BoolSO onStartAttack;
 
     //enemy
     [Header("Enemy")]
@@ -24,7 +25,7 @@ public abstract class BaseAttack : MonoBehaviour
     {
         if (playerController != null)
         {
-            playerController.StartAttack += HandlePlayerAttack;
+            onStartAttack.Subscribe(data => HandlePlayerAttack(data.Item1, data.Item2));
         }
     }
 
@@ -32,7 +33,7 @@ public abstract class BaseAttack : MonoBehaviour
     {
         if (playerController != null)
         {
-            playerController.StartAttack -= HandlePlayerAttack;
+            onStartAttack.UnSubscribe(data => HandlePlayerAttack(data.Item1, data.Item2));
         }
     }
 

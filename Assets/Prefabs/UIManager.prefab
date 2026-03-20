@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f03a3dd2cf2da24595de0dfd045962e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  onPauseClosed: {fileID: 11400000, guid: e32880c77c156f5489f35647c9a842a5, type: 2}

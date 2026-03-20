@@ -10,6 +10,9 @@ public enum ActionMaps
 
 public class ActionMapController : MonoBehaviour
 {
+    [SerializeField] private GameEventSO onPauseGame;
+    [SerializeField] private GameEventSO onPauseClosed;
+
     private PlayerInput playerInput;
     private InputActionMap previousActionMap;
 
@@ -25,14 +28,14 @@ public class ActionMapController : MonoBehaviour
 
     private void OnEnable()
     {
-        //UIController.OnPauseGame += SetToUI;
-        UIManager.OnPauseClosed += SetToPrevious;
+        onPauseGame.Subscribe(SetToUI);
+        onPauseGame.Subscribe(SetToPrevious);
     }
 
     private void OnDisable()
     {
-        //UIController.OnPauseGame -= SetToUI;
-        UIManager.OnPauseClosed -= SetToPrevious;
+        onPauseGame.UnSubscribe(SetToUI);
+        onPauseClosed.UnSubscribe(SetToPrevious);
     }
 
     private void SetToUI()

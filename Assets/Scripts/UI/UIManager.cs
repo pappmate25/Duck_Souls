@@ -5,9 +5,10 @@ using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private GameEventSO onPauseClosed;
+
     private Stack<VisualElement> uiStack = new Stack<VisualElement>();
 
-    public static Action OnPauseClosed;
     
     public void OpenUI(VisualElement root, bool pauseGame)
     {
@@ -33,7 +34,7 @@ public class UIManager : MonoBehaviour
         if (uiStack.Count == 0)
         {
             Time.timeScale = 1f;
-            OnPauseClosed?.Invoke();
+            onPauseClosed.Invoke();
         }
     }
 

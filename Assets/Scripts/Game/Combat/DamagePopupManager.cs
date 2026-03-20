@@ -4,6 +4,8 @@ using UnityEngine;
 public class DamagePopupManager : MonoBehaviour
 {
     [SerializeField] private DamagePopup popupPrefab;
+    [SerializeField] private GameEventVector3IntSO onEnemyHit;
+
     private int poolSize = 64;
 
     private Queue<DamagePopup> pool = new Queue<DamagePopup>();
@@ -20,12 +22,12 @@ public class DamagePopupManager : MonoBehaviour
 
     private void OnEnable()
     {
-        DamageDealer.OnEnemyHit += ShowPopup;
+        onEnemyHit.Subscribe(data => ShowPopup(data.Item1, data.Item2));
     }
 
     private void OnDisable()
     {
-        DamageDealer.OnEnemyHit -= ShowPopup;
+        onEnemyHit.UnSubscribe(data => ShowPopup(data.Item1, data.Item2));
     }
 
     public void ShowPopup(Vector3 position, int damage)

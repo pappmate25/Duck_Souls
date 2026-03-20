@@ -44,3 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8748186b20ae16d40bde35c550b69d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
+  onStartGame: {fileID: 11400000, guid: 25f869a8f91212744810830f61103bb4, type: 2}
+  onExitGame: {fileID: 11400000, guid: c79530a41b41d9c4085641b9b102cc5a, type: 2}
+  onDungeonSelect: {fileID: 11400000, guid: f032fbe7e05ed9f4e8784bf861f85f27, type: 2}
+  onLeaveDungeon: {fileID: 11400000, guid: cedfa38085825884aa9bacee915857c1, type: 2}
+  onPauseExitGame: {fileID: 11400000, guid: 9f5b208a335451245bf87157e29d1baa, type: 2}

@@ -3,19 +3,22 @@ using UnityEngine.UIElements;
 
 public class HPBarUIManager : MonoBehaviour
 {
+    [SerializeField] private GameEventIntSO onHpChange;
+    [SerializeField] private Health health;
+
     private VisualElement root;
     private ProgressBar healthBar;
-    [SerializeField] private Health health;
+
 
 
     private void OnEnable()
     {
-        health.OnHpChange += UpdateHpBar;
+        onHpChange.Subscribe(UpdateHpBar);
     }
 
     private void OnDisable()
     {
-        health.OnHpChange -= UpdateHpBar;
+        onHpChange.UnSubscribe(UpdateHpBar);
     }
 
     private void Start()

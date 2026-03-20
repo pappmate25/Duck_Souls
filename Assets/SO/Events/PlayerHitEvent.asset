@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38d34fe733881ac4bb5fa65da35fe822, type: 3}
-  m_Name: PlayerData
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerDataSO
-  hp: 100
-  level: 1
-  exp: 0
-  moveSpeed: 7
-  weaponType: 1
+  m_Script: {fileID: 11500000, guid: 947c7358f3fc3264e94822baa1165163, type: 3}
+  m_Name: PlayerHitEvent
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventSO

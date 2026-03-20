@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09852f4fe0af7245b4f10f607606ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HPBarUIManager
+  onHpChange: {fileID: 0}
   health: {fileID: 4824093277870611025}
 --- !u!1 &2885560022084772237
 GameObject:
@@ -386,6 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a12b5a1d4544b44c9d86875381fc3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
+  onHpChange: {fileID: 11400000, guid: 986ce9447ea8e9543b6e2776e55629c5, type: 2}
 --- !u!114 &5071958131434653994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,3 +583,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
   Manager: {fileID: 0}
+  onPlayerHit: {fileID: 0}
+  onEnemyHit: {fileID: 0}

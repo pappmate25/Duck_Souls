@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
+    [SerializeField] private GameEventSO onPlayerHit;
     private CinemachineCamera cmCam;
     private CinemachineBasicMultiChannelPerlin noise;
     private float intensity = 3f;
@@ -19,12 +20,12 @@ public class CameraShake : MonoBehaviour
 
     private void OnEnable()
     {
-        DamageDealer.OnPlayerHit += Shake;
+        onPlayerHit.Subscribe(Shake);
     }
 
     private void OnDisable()
     {
-        DamageDealer.OnPlayerHit -= Shake;
+        onPlayerHit.Subscribe(Shake);
     }
 
     public void Shake()

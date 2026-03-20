@@ -11,9 +11,11 @@ public class DungeonSelectUI : MonoBehaviour
     private Button dungeonButton2;
     private Button dungeonButton3;
 
-    public static Action<int> OnDungeonSelect;
-
     [SerializeField] private UIManager uiManager;
+
+    //events
+    [SerializeField] private GameEventIntSO onDungeonSelect;
+    [SerializeField] private GameEventSO onInteraction;
 
     private void Awake()
     {
@@ -27,7 +29,7 @@ public class DungeonSelectUI : MonoBehaviour
 
     private void OnEnable()
     {
-        NPC.OnInteraction += ActivateDungeonUI;
+        onInteraction.Subscribe(ActivateDungeonUI);
 
         dungeonButton1.clicked += Dungeon1;
         dungeonButton2.clicked += Dungeon2;
@@ -37,7 +39,7 @@ public class DungeonSelectUI : MonoBehaviour
 
     private void OnDisable()
     {
-        NPC.OnInteraction -= ActivateDungeonUI;
+        onInteraction.UnSubscribe(ActivateDungeonUI);
 
         dungeonButton1.clicked -= Dungeon1;
         dungeonButton2.clicked -= Dungeon2;
@@ -54,6 +56,6 @@ public class DungeonSelectUI : MonoBehaviour
     private void Dungeon3() => DungeonSelect(3);
     private void DungeonSelect(int dungeonIndex)
     {
-        OnDungeonSelect?.Invoke(dungeonIndex);
+        onDungeonSelect.Invoke(dungeonIndex);
     }
 }

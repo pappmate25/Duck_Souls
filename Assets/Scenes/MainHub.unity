@@ -275,6 +275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DungeonSelectUI
   uiManager: {fileID: 333687724}
+  onDungeonSelect: {fileID: 11400000, guid: f032fbe7e05ed9f4e8784bf861f85f27, type: 2}
+  onInteraction: {fileID: 11400000, guid: 404c82aa41b201d46959cfdf151e4b58, type: 2}
 --- !u!1 &415165946
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,54 +427,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3337824868252292582, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3337824868252292582, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3337824868252292582, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3337824868252292582, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3337824868252292582, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3337824868252292582, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8436558867440584643, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8436558867440584643, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8436558867440584643, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8436558867440584643, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8436558867440584643, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8436558867440584643, guid: 2b6c5b2ed8ed8814391094670773bda9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -619,6 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6374f2665544257418f3a7666a4c1bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DungeonSelectUI
+  onShowInteractUI: {fileID: 11400000, guid: 9aef925802c71654b89520581e2167e7, type: 2}
 --- !u!1001 &1316538811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -673,10 +628,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5025069978868516384, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8731090846994134166, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -803,6 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635d21db587e03a46beac5837588fbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  onInteraction: {fileID: 11400000, guid: 404c82aa41b201d46959cfdf151e4b58, type: 2}
 --- !u!4 &1931346417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1279882421358245559, guid: 16da4251eaf859143b250bb76551304d, type: 3}
@@ -957,10 +909,6 @@ PrefabInstance:
       propertyPath: uiManager
       value: 
       objectReference: {fileID: 333687724}
-    - target: {fileID: 4352925814455606912, guid: a39682e4a6410ca4ca080242b1b6acdb, type: 3}
-      propertyPath: onPauseGame
-      value: 
-      objectReference: {fileID: 11400000, guid: 0b5a61461b233d74f95ec331a64c8e65, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -978,10 +926,6 @@ PrefabInstance:
       propertyPath: uiManager
       value: 
       objectReference: {fileID: 333687724}
-    - target: {fileID: 2323950520899205415, guid: ad19063069bb4bc46b65b2bc74049017, type: 3}
-      propertyPath: onPauseGame
-      value: 
-      objectReference: {fileID: 11400000, guid: 0b5a61461b233d74f95ec331a64c8e65, type: 2}
     - target: {fileID: 4506082378451922711, guid: ad19063069bb4bc46b65b2bc74049017, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

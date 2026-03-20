@@ -4,14 +4,14 @@ using UnityEngine.UIElements;
 
 public class MainMenuUIController : MonoBehaviour
 {
+    [SerializeField] private GameEventSO onStartGame;
+    [SerializeField] private GameEventSO onOptions;
+    [SerializeField] private GameEventSO onExitGame;
+
     private VisualElement root;
     private Button startButton;
     private Button optionsButton;
     private Button exitButton;
-
-    public static Action OnStartGame;
-    public static Action OnOptions;
-    public static Action OnExitGame;
 
 
     private void Awake()
@@ -38,16 +38,16 @@ public class MainMenuUIController : MonoBehaviour
 
     private void StartButton_clicked()
     {
-        OnStartGame?.Invoke();
+        onStartGame.Invoke();
     }
     private void OptionsButton_clicked()
     {
-        OnOptions?.Invoke();
+        onOptions.Invoke();
         Debug.Log("Options are not implemented yet.");
     }
 
     private void ExitButton_clicked()
     {
-        OnExitGame?.Invoke();
+        onExitGame.Invoke();
     }
 }

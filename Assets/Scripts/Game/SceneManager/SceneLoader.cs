@@ -4,6 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    //Events
+    [SerializeField] private GameEventSO onStartGame;
+    [SerializeField] private GameEventSO onExitGame;
+
+    [SerializeField] private GameEventIntSO onDungeonSelect;
+
+    [SerializeField] private GameEventSO onLeaveDungeon;
+    [SerializeField] private GameEventSO onPauseExitGame;
+
     private int currentSceneIndex;
     private int hubIndex = 1;
 
@@ -14,28 +23,28 @@ public class SceneLoader : MonoBehaviour
 
     private void OnEnable()
     {
-        MainMenuUIController.OnStartGame += StartGame;
-        MainMenuUIController.OnExitGame += ExitGame;
+        onStartGame.Subscribe(StartGame);
+        onExitGame.Subscribe(ExitGame);
 
-        DungeonSelectUI.OnDungeonSelect += LoadDungeon;
+        onDungeonSelect.Subscribe(LoadDungeon);
 
-        PauseMenuController.OnLeaveDungeon += LoadHub;
-        PauseMenuController.OnExitGame += ExitGame;
+        onLeaveDungeon.Subscribe(LoadHub);
+        onPauseExitGame.Subscribe(ExitGame);
 
-        ExitDoor.OnReturnToHub += LoadHub;
+        //ExitDoor.OnReturnToHub += LoadHub;
     }
 
     private void OnDisable()
     {
-        MainMenuUIController.OnStartGame -= StartGame;
-        MainMenuUIController.OnExitGame -= ExitGame;
+        onStartGame.UnSubscribe(StartGame);
+        onExitGame.UnSubscribe(ExitGame);
 
-        DungeonSelectUI.OnDungeonSelect -= LoadDungeon;
+        onDungeonSelect.UnSubscribe(LoadDungeon);
 
-        PauseMenuController.OnLeaveDungeon -= LoadHub;
-        PauseMenuController.OnExitGame -= ExitGame;
+        onLeaveDungeon.UnSubscribe(LoadHub);
+        onPauseExitGame.UnSubscribe(ExitGame);
 
-        ExitDoor.OnReturnToHub -= LoadHub;
+        //ExitDoor.OnReturnToHub -= LoadHub;
     }
 
     private void StartGame()

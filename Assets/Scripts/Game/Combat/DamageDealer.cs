@@ -5,12 +5,10 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     [SerializeField] private DamagePopup Manager;
+    [SerializeField] private GameEventSO onPlayerHit;
+    [SerializeField] private GameEventVector3IntSO onEnemyHit;
 
     private Weapon weapon;
-
-    public static Action OnPlayerHit;
-    public static Action<Vector3, int> OnEnemyHit;
-
 
     private void Awake()
     {
@@ -29,12 +27,12 @@ public class DamageDealer : MonoBehaviour
 
             if(other.gameObject.layer == enemyLayerIndex)
             {
-                OnEnemyHit?.Invoke(transform.position + Vector3.up * 2f, weapon.Data.Damage);
+                onEnemyHit?.Invoke((transform.position + Vector3.up * 2f, weapon.Data.Damage));
             }
 
             if (other.gameObject.layer == playerLayerIndex)
             {
-                OnPlayerHit?.Invoke();
+                onPlayerHit?.Invoke();
             }
         }
     }

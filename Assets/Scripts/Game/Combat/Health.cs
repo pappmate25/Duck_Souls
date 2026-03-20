@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] private GameEventIntSO onHpChange;
     private Character character;
     private int health;
-    public Action<int> OnHpChange;
 
 
     private void Awake()
@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        OnHpChange?.Invoke(health);
+        onHpChange.Invoke(health);
 
         if (health <= 0)
         {

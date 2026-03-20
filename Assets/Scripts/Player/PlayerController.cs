@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     private InputAction dodgeAction;
     private InputAction attackAction;
     private InputAction interactAction;
-    private InputAction interactCancelAction;
 
 
     //movement
@@ -34,18 +33,17 @@ public class PlayerController : MonoBehaviour
 
 
     //attack
+    [SerializeField] private GameEventVector2BoolSO onStartAttack;
     [SerializeField] private Transform aimDirection;
     private Vector3 playerFacingDirection;
     private Camera mainCamera;
     private bool attackRequested;
-    public Action<Vector2, bool> StartAttack;
     private Vector2 attackDirection;
     private bool isRanged;
 
     //interact
     private PlayerInteraction playerInteraction;
     private bool interactRequested;
-    //public Action OnCloseWindow;
 
 
 
@@ -200,7 +198,7 @@ public class PlayerController : MonoBehaviour
     {
         if (attackRequested)
         {
-            StartAttack?.Invoke(attackDirection, isRanged);
+            onStartAttack.Invoke((attackDirection, isRanged));
         }
     }
 
