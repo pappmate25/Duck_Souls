@@ -1,8 +1,5 @@
-using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.TextCore.Text;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,23 +20,16 @@ public class PlayerController : MonoBehaviour
 
     //dodge
     private bool dodgeRequested;
-    private float dodgeForce = 25.0f;
-    private float dodgeDuration = 0.3f;
-    private float dodgeCooldown = 0.2f;
-    private float dodgeActiveTimer;
-    private float dodgeCooldownTimer;
-    private bool isDodging;
-    private bool canDodge = true;
+    private DodgeController dodgeController;
 
 
     //attack
     [SerializeField] private GameEventVector2BoolSO onStartAttack;
-    [SerializeField] private Transform aimDirection;
-    private Vector3 playerFacingDirection;
-    private Camera mainCamera;
+
+    private AimController aimController;
     private bool attackRequested;
-    private Vector2 attackDirection;
     private bool isRanged;
+
 
     //interact
     private PlayerInteraction playerInteraction;
@@ -53,8 +43,9 @@ public class PlayerController : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         character = GetComponent<Character>();
         playerInteraction = GetComponent<PlayerInteraction>();
+        dodgeController = GetComponent<DodgeController>();
+        aimController = GetComponent<AimController>();
 
-        mainCamera = Camera.main;
 
         moveAction = playerInput.actions["Move"];
         dodgeAction = playerInput.actions["Dodge"];
@@ -89,140 +80,63 @@ public class PlayerController : MonoBehaviour
         interactAction.performed -= OnInteract;
     }
 
-    private void Update()
-    {
-        HandleTimers();
-    }
-
     private void FixedUpdate()
     {
         //if (alive){}
-        if (!isDodging)
+        if (!dodgeController.IsDodging)
         {
             HandleMovement();
-            HandleAttack();
-        }        
-        HandleDodge();
-        HandleInteraction();
-    }
 
-
-    private void OnMove(InputAction.CallbackContext context)
-    {
-        moveDirection = context.ReadValue<Vector2>();
-    }
-
-    private void OnDodge(InputAction.CallbackContext context)
-    {
-        dodgeRequested = true;
-    }
-
-    private void OnAttackStart(InputAction.CallbackContext context)
-    {
-        attackRequested = true;
-    }
-
-    private void OnAttackCancel(InputAction.CallbackContext context)
-    {
-        attackRequested = false;
-    }
-
-    private void OnInteract(InputAction.CallbackContext context)
-    {
-        interactRequested = true;
-    }
-
-    private void RotatePlayerAim()
-    {
-        Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
-        Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(mouseScreenPos);
-
-        attackDirection = (mouseWorldPos - (Vector2)transform.position).normalized;
-
-        if (moveDirection != Vector2.zero) //player moves
-        {
-            playerFacingDirection = moveDirection.normalized; 
+            if(attackRequested)
+                HandleAttack();
         }
 
-        aimDirection.rotation = Quaternion.LookRotation(Vector3.forward, attackDirection * -1);
+        if(dodgeRequested)
+            HandleDodge();
+
+        if (interactRequested)
+            HandleInteraction();
     }
+
+
+    private void OnMove(InputAction.CallbackContext context) => moveDirection = context.ReadValue<Vector2>();
+
+    private void OnDodge(InputAction.CallbackContext context) => dodgeRequested = true;
+
+    private void OnAttackStart(InputAction.CallbackContext context) => attackRequested = true;
+
+    private void OnAttackCancel(InputAction.CallbackContext context) => attackRequested = false;
+
+    private void OnInteract(InputAction.CallbackContext context) => interactRequested = true;
+
    
     private void HandleMovement()
     {
-        myRigidbody.linearVelocity = new Vector2(moveDirection.x * character.Data.MoveSpeed, moveDirection.y * character.Data.MoveSpeed);
-        RotatePlayerAim();
+        myRigidbody.linearVelocity = new Vector2(moveDirection.x * character.Data.MoveSpeed,
+                                                 moveDirection.y * character.Data.MoveSpeed);
+
+        aimController.UpdateAim(moveDirection);
     }
 
     private void HandleDodge()
     {
-        if (dodgeRequested && canDodge)
-        {
-            StartDodge();
-        }
-
+        dodgeController.TryDodge(aimController.PlayerFacingDirection);
         dodgeRequested = false;
-    }
-
-    private void StartDodge()
-    {
-        isDodging = true;
-        canDodge = false;
-        dodgeActiveTimer = dodgeDuration;
-        dodgeCooldownTimer = dodgeCooldown;
-
-        myRigidbody.linearVelocity = playerFacingDirection * dodgeForce;
-    }
-
-    private void HandleTimers()
-    {
-        if (isDodging)
-        {
-            dodgeActiveTimer -= Time.deltaTime;
-            if (dodgeActiveTimer <= 0)
-            {
-                isDodging = false;
-            }
-        }
-
-        if (!canDodge && !isDodging)
-        {
-            dodgeCooldownTimer -= Time.deltaTime;
-            if (dodgeCooldownTimer <= 0)
-            {
-                canDodge = true;
-            }
-        }
     }
 
     private void HandleAttack()
     {
-        if (attackRequested)
-        {
-            onStartAttack.Invoke((attackDirection, isRanged));
-        }
+        onStartAttack.Invoke((aimController.AttackDirection, isRanged));
     }
 
     private void HandleInteraction()
     {
-        if (interactRequested)
-        {
-            playerInteraction.Interact();
-        }
-
+        playerInteraction.Interact();
         interactRequested = false;
     }
 
     public void SetRangedOrMelee(WeaponType weaponType)
     {
-        switch (weaponType)
-        {
-            case WeaponType.Ranged:
-                isRanged = true;
-                break;
-
-            default:
-                isRanged = false;
-                break;
-        }
+        isRanged = weaponType == WeaponType.Ranged;
     }
 }

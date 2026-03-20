@@ -90,6 +90,8 @@ GameObject:
   - component: {fileID: 8752794180743627072}
   - component: {fileID: 1746612254479410184}
   - component: {fileID: 6091564000891125887}
+  - component: {fileID: 5444043488151404850}
+  - component: {fileID: 3113900341583008683}
   - component: {fileID: 8731090846994134166}
   - component: {fileID: 8179460314725518454}
   - component: {fileID: 870189037480326252}
@@ -319,7 +321,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   onStartAttack: {fileID: 11400000, guid: 3c215d2dc4353554292457c382577109, type: 2}
-  aimDirection: {fileID: 4465053184114985677}
+--- !u!114 &5444043488151404850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4911312269886537592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1668e551d1f144e81f56dda09b8e9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DodgeController
+--- !u!114 &3113900341583008683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4911312269886537592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2182ede50dcd2e14aa9129e7e01d22f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AimController
+  aimPivot: {fileID: 4465053184114985677}
 --- !u!114 &8731090846994134166
 MonoBehaviour:
   m_ObjectHideFlags: 0
