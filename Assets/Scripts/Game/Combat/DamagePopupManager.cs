@@ -36,7 +36,7 @@ public class DamagePopupManager : MonoBehaviour
         {
             DamagePopup extra = Instantiate(popupPrefab, transform);
             pool.Enqueue(extra);
-            Debug.Log("\"DamagePopupManager pool exhausted — consider increasing pool size.");
+            Debug.Log("DamagePopupManager pool exhausted — consider increasing pool size.");
         }
 
         DamagePopup popup = pool.Dequeue();

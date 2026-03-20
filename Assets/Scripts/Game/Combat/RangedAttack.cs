@@ -56,6 +56,13 @@ public class RangedAttack : BaseAttack
     {
         rangedWeapon.SetActive(true);
 
+        if(pool.Count == 0)
+        {
+            GameObject extraBullet = Instantiate(bulletPrefab, transform);
+            pool.Enqueue(extraBullet);
+            Debug.Log($"RangedAttack pool {gameObject} exhausted — consider increasing pool size.");
+        }
+
         GameObject bullet = pool.Dequeue();
         bullet.SetActive(true);
 
