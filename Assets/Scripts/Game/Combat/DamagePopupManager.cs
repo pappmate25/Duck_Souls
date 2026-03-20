@@ -32,6 +32,13 @@ public class DamagePopupManager : MonoBehaviour
 
     public void ShowPopup(Vector3 position, int damage)
     {
+        if(pool.Count == 0)
+        {
+            DamagePopup extra = Instantiate(popupPrefab, transform);
+            pool.Enqueue(extra);
+            Debug.Log("\"DamagePopupManager pool exhausted — consider increasing pool size.");
+        }
+
         DamagePopup popup = pool.Dequeue();
 
         popup.transform.position = position;
