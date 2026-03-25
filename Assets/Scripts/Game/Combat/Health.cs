@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private GameEventIntSO onHpChange;
+    //[SerializeField] private GameEventIntSO onHpChange;
+    public Action<int> OnHpChange;
+
     private Character character;
     private int health;
 
@@ -17,7 +19,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        onHpChange.Invoke(health);
+        OnHpChange.Invoke(health);
 
         if (health <= 0)
         {
@@ -27,6 +29,6 @@ public class Health : MonoBehaviour
 
     public int GetMaxHealth()
     {
-        return health;
+        return character.Data.HP;
     }
 }

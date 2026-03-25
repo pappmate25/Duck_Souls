@@ -3,7 +3,6 @@ using UnityEngine.UIElements;
 
 public class HPBarUIManager : MonoBehaviour
 {
-    [SerializeField] private GameEventIntSO onHpChange;
     [SerializeField] private Health health;
 
     private VisualElement root;
@@ -13,20 +12,20 @@ public class HPBarUIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        onHpChange.Subscribe(UpdateHpBar);
+        health.OnHpChange += UpdateHpBar;
     }
 
     private void OnDisable()
     {
-        onHpChange.UnSubscribe(UpdateHpBar);
+        health.OnHpChange +=UpdateHpBar;
     }
 
     private void Start()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         healthBar = root.Q<ProgressBar>("hp-bar");
-        healthBar.highValue = health.GetMaxHealth();
 
+        healthBar.highValue = health.GetMaxHealth();
         healthBar.value = healthBar.highValue;
     }
 
