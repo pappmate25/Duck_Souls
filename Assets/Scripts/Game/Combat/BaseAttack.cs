@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class BaseAttack : MonoBehaviour
@@ -10,6 +11,8 @@ public abstract class BaseAttack : MonoBehaviour
     protected PlayerController playerController;
     [SerializeField] protected GameEventVector2BoolSO onStartAttack;
 
+    private Action<(Vector2, bool)> attackHandler;
+
     //enemy
     [Header("Enemy")]
     [SerializeField] protected bool isAI = false;
@@ -19,13 +22,14 @@ public abstract class BaseAttack : MonoBehaviour
     protected virtual void Awake()
     {
         playerController = GetComponentInParent<PlayerController>();
+        attackHandler = data => HandlePlayerAttack(data.Item1, data.Item2);
     }
 
     protected virtual void OnEnable()
     {
         if (playerController != null)
         {
-            onStartAttack.Subscribe(data => HandlePlayerAttack(data.Item1, data.Item2));
+            onStartAttack.Subscribe(attackHandler);
         }
     }
 
@@ -33,7 +37,7 @@ public abstract class BaseAttack : MonoBehaviour
     {
         if (playerController != null)
         {
-            onStartAttack.UnSubscribe(data => HandlePlayerAttack(data.Item1, data.Item2));
+            onStartAttack.UnSubscribe(attackHandler);
         }
     }
 
