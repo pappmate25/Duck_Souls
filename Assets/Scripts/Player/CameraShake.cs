@@ -25,7 +25,7 @@ public class CameraShake : MonoBehaviour
 
     private void OnDisable()
     {
-        onPlayerHit.Subscribe(Shake);
+        onPlayerHit.UnSubscribe(Shake);
     }
 
     public void Shake()

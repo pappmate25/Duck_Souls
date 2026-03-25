@@ -33,6 +33,7 @@ public class DamageDealer : MonoBehaviour
             if (other.gameObject.layer == playerLayerIndex)
             {
                 onPlayerHit?.Invoke();
+                print("alma");
             }
         }
     }
