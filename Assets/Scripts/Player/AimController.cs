@@ -23,7 +23,7 @@ public class AimController : MonoBehaviour
 
         AttackDirection = (mouseWorldPos - (Vector2)transform.position).normalized;
 
-        if (moveDirection != Vector2.zero) //player moves
+        if (moveDirection != Vector2.zero) //if player moves
         {
             PlayerFacingDirection = moveDirection.normalized;
         }

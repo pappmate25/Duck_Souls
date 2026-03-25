@@ -4,12 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] private SceneDataSO sceneData;
+
     //Events
+    //MainMenuUIController
     [SerializeField] private GameEventSO onStartGame;
     [SerializeField] private GameEventSO onExitGame;
 
+    //DungeonSelectUI
     [SerializeField] private GameEventIntSO onDungeonSelect;
 
+    //PauseMenuController
     [SerializeField] private GameEventSO onLeaveDungeon;
     [SerializeField] private GameEventSO onPauseExitGame;
 
@@ -49,16 +54,21 @@ public class SceneLoader : MonoBehaviour
 
     private void StartGame()
     {
-        int nextScene = currentSceneIndex + 1;
+        SceneManager.LoadScene(sceneData.HubScene);
+    }
 
-        if(nextScene <= SceneManager.loadedSceneCount)
+    private void LoadHub()
+    {
+        SceneManager.LoadScene(sceneData.HubScene);
+    }
+
+    private void LoadDungeon(int dungeonIndex)
+    {
+        string scene = sceneData.GetDungeonScene(dungeonIndex);
+
+        if(scene != null)
         {
-            SceneManager.LoadScene(nextScene);
-        }
-        else
-        {
-            Debug.Log("ERROR: Could not find the next Scene!");
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(scene);
         }
     }
 
@@ -66,15 +76,5 @@ public class SceneLoader : MonoBehaviour
     {
         Debug.Log("Exiting game...");
         Application.Quit();
-    }
-
-    private void LoadHub()
-    {
-        SceneManager.LoadScene(hubIndex);
-    }
-
-    private void LoadDungeon(int dungeonIndex)
-    {
-        SceneManager.LoadScene(currentSceneIndex + dungeonIndex);
     }
 }

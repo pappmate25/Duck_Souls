@@ -19,6 +19,7 @@ public class ActionMapController : MonoBehaviour
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+        Debug.Log(ActionMaps.Hub.ToString());
     }
 
     private void Update()
@@ -47,7 +48,7 @@ public class ActionMapController : MonoBehaviour
     private void SetToPrevious()
     {
         if(previousActionMap.name == ActionMaps.Hub.ToString())
-        {
+        {            
             playerInput.SwitchCurrentActionMap(ActionMaps.Hub.ToString());
         }
         else
