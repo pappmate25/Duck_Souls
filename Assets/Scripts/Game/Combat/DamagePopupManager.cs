@@ -5,7 +5,7 @@ using UnityEngine;
 public class DamagePopupManager : MonoBehaviour
 {
     [SerializeField] private DamagePopup popupPrefab;
-    [SerializeField] private GameEventVector3IntSO onEnemyHit;
+    [SerializeField] private GameEventVector3IntSO DamageDealer_onEnemyHit;
 
     private int poolSize = 64;
 
@@ -27,12 +27,12 @@ public class DamagePopupManager : MonoBehaviour
 
     private void OnEnable()
     {
-        onEnemyHit.Subscribe(enemyHitHandler);
+        DamageDealer_onEnemyHit.Subscribe(enemyHitHandler);
     }
 
     private void OnDisable()
     {
-        onEnemyHit.UnSubscribe(enemyHitHandler);
+        DamageDealer_onEnemyHit.UnSubscribe(enemyHitHandler);
     }
 
     public void ShowPopup(Vector3 position, int damage)

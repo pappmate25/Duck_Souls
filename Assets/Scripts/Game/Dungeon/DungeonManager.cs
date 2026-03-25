@@ -40,7 +40,6 @@ public class DungeonManager : MonoBehaviour
         RoomData room = dungeonData.Rooms[index];
         currentRoomInstance = room.RoomPrefab;
         Instantiate(currentRoomInstance);
-        print("sziamizu");
     }
 
     public void LoadNextRoom()

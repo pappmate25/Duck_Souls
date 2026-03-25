@@ -7,11 +7,11 @@ public class PauseMenuController : MonoBehaviour
 
     [SerializeField] private UIManager uiManager;
     //events
-    [SerializeField] private GameEventSO onPauseGame;
+    [SerializeField] private GameEventSO UIController_onPauseGame;
     //[SerializeField] private GameEventSO onContinueGame;
-    [SerializeField] private GameEventSO onPauseOptions;
-    [SerializeField] private GameEventSO onLeaveDungeon;
-    [SerializeField] private GameEventSO onPauseExitGame;
+    [SerializeField] private GameEventSO PauseMenuController_onOptions;
+    [SerializeField] private GameEventSO PauseMenuController_onLeaveDungeon;
+    [SerializeField] private GameEventSO PauseMenuController_onExitGame;
 
     private VisualElement root;
     public VisualElement Root => root;
@@ -52,7 +52,7 @@ public class PauseMenuController : MonoBehaviour
         leaveDungeonButton.clicked += LeaveDungeonButton_clicked;
         exitButton.clicked += ExitButton_clicked;
 
-        onPauseGame.Subscribe(ActivatePauseUI);
+        UIController_onPauseGame.Subscribe(ActivatePauseUI);
     }
 
     private void OnDisable()
@@ -62,7 +62,7 @@ public class PauseMenuController : MonoBehaviour
         leaveDungeonButton.clicked -= LeaveDungeonButton_clicked;
         exitButton.clicked -= ExitButton_clicked;
 
-        onPauseGame.UnSubscribe(ActivatePauseUI);
+        UIController_onPauseGame.UnSubscribe(ActivatePauseUI);
     }
 
     private void ContinueButton_clicked()
@@ -72,17 +72,17 @@ public class PauseMenuController : MonoBehaviour
 
     private void OptionsButton_clicked()
     {
-        onPauseOptions.Invoke();
+        PauseMenuController_onOptions.Invoke();
     }
 
     private void LeaveDungeonButton_clicked()
     {
-        onLeaveDungeon.Invoke();
+        PauseMenuController_onLeaveDungeon.Invoke();
     }
 
     private void ExitButton_clicked()
     {
-        onPauseExitGame.Invoke();
+        PauseMenuController_onExitGame.Invoke();
     }
 
     private void ActivatePauseUI()

@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 public class InteractionUI : MonoBehaviour
 {
-    [SerializeField] private GameEventBoolSO onShowInteractUI;
+    [SerializeField] private GameEventBoolSO PlayerInteraction_onShowInteractUI;
     private VisualElement root;
 
     private void Awake()
@@ -15,12 +15,12 @@ public class InteractionUI : MonoBehaviour
 
     private void OnEnable()
     {
-        onShowInteractUI.Subscribe(ShowUI);
+        PlayerInteraction_onShowInteractUI.Subscribe(ShowUI);
     }
 
     private void OnDisable()
     {
-        onShowInteractUI.UnSubscribe(ShowUI);
+        PlayerInteraction_onShowInteractUI.UnSubscribe(ShowUI);
     }
 
     private void ShowUI(bool value)

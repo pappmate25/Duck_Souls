@@ -8,46 +8,39 @@ public class SceneLoader : MonoBehaviour
 
     //Events
     //MainMenuUIController
-    [SerializeField] private GameEventSO onStartGame;
-    [SerializeField] private GameEventSO onExitGame;
+    [SerializeField] private GameEventSO MainMenuUIController_onStartGame;
+    [SerializeField] private GameEventSO MainMenuUIController_onExitGame;
 
     //DungeonSelectUI
-    [SerializeField] private GameEventIntSO onDungeonSelect;
+    [SerializeField] private GameEventIntSO DungeonSelectUI_onDungeonSelect;
 
     //PauseMenuController
-    [SerializeField] private GameEventSO onLeaveDungeon;
-    [SerializeField] private GameEventSO onPauseExitGame;
+    [SerializeField] private GameEventSO PauseMenuController_onLeaveDungeon;
+    [SerializeField] private GameEventSO PauseMenuController_onExitGame;
 
-    private int currentSceneIndex;
-    private int hubIndex = 1;
-
-    private void Awake()
-    {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-    }
 
     private void OnEnable()
     {
-        onStartGame.Subscribe(StartGame);
-        onExitGame.Subscribe(ExitGame);
+        MainMenuUIController_onStartGame.Subscribe(StartGame);
+        MainMenuUIController_onExitGame.Subscribe(ExitGame);
 
-        onDungeonSelect.Subscribe(LoadDungeon);
+        DungeonSelectUI_onDungeonSelect.Subscribe(LoadDungeon);
 
-        onLeaveDungeon.Subscribe(LoadHub);
-        onPauseExitGame.Subscribe(ExitGame);
+        PauseMenuController_onLeaveDungeon.Subscribe(LoadHub);
+        PauseMenuController_onExitGame.Subscribe(ExitGame);
 
         //ExitDoor.OnReturnToHub += LoadHub;
     }
 
     private void OnDisable()
     {
-        onStartGame.UnSubscribe(StartGame);
-        onExitGame.UnSubscribe(ExitGame);
+        MainMenuUIController_onStartGame.UnSubscribe(StartGame);
+        MainMenuUIController_onExitGame.UnSubscribe(ExitGame);
 
-        onDungeonSelect.UnSubscribe(LoadDungeon);
+        DungeonSelectUI_onDungeonSelect.UnSubscribe(LoadDungeon);
 
-        onLeaveDungeon.UnSubscribe(LoadHub);
-        onPauseExitGame.UnSubscribe(ExitGame);
+        PauseMenuController_onLeaveDungeon.UnSubscribe(LoadHub);
+        PauseMenuController_onExitGame.UnSubscribe(ExitGame);
 
         //ExitDoor.OnReturnToHub -= LoadHub;
     }

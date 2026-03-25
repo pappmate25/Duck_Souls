@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private GameEventSO onPauseClosed;
+    [SerializeField] private GameEventSO UIManager_onPauseClosed;
 
     private Stack<VisualElement> uiStack = new Stack<VisualElement>();
 
@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
         if (uiStack.Count == 0)
         {
             Time.timeScale = 1f;
-            onPauseClosed.Invoke();
+            UIManager_onPauseClosed.Invoke();
         }
     }
 

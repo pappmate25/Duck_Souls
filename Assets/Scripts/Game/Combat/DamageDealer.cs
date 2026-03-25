@@ -5,8 +5,8 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     [SerializeField] private DamagePopup Manager;
-    [SerializeField] private GameEventSO onPlayerHit;
-    [SerializeField] private GameEventVector3IntSO onEnemyHit;
+    [SerializeField] private GameEventSO DamageDealer_onPlayerHit;
+    [SerializeField] private GameEventVector3IntSO DamageDealer_onEnemyHit;
 
     private Weapon weapon;
 
@@ -27,13 +27,12 @@ public class DamageDealer : MonoBehaviour
 
             if(other.gameObject.layer == enemyLayerIndex)
             {
-                onEnemyHit?.Invoke((transform.position + Vector3.up * 2f, weapon.Data.Damage));
+                DamageDealer_onEnemyHit.Invoke((transform.position + Vector3.up * 2f, weapon.Data.Damage));
             }
 
             if (other.gameObject.layer == playerLayerIndex)
             {
-                onPlayerHit?.Invoke();
-                print("alma");
+                DamageDealer_onPlayerHit.Invoke();
             }
         }
     }

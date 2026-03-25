@@ -9,7 +9,7 @@ public abstract class BaseAttack : MonoBehaviour
     protected float waitForNextAttack;
 
     protected PlayerController playerController;
-    [SerializeField] protected GameEventVector2BoolSO onStartAttack;
+    [SerializeField] protected GameEventVector2BoolSO PlayerController_onStartAttack;
 
     private Action<(Vector2, bool)> attackHandler;
 
@@ -29,7 +29,7 @@ public abstract class BaseAttack : MonoBehaviour
     {
         if (playerController != null)
         {
-            onStartAttack.Subscribe(attackHandler);
+            PlayerController_onStartAttack.Subscribe(attackHandler);
         }
     }
 
@@ -37,7 +37,7 @@ public abstract class BaseAttack : MonoBehaviour
     {
         if (playerController != null)
         {
-            onStartAttack.UnSubscribe(attackHandler);
+            PlayerController_onStartAttack.UnSubscribe(attackHandler);
         }
     }
 

@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour, IInteractable
 {
-    [SerializeField] GameEventSO onInteraction;
+    [SerializeField] GameEventSO NPC_onInteraction;
 
     public void DungeonInteract()
     {
         Debug.Log("Talking with dungeon guardian");
-        onInteraction?.Invoke();
+        NPC_onInteraction.Invoke();
     }
 }

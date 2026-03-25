@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
 
     //attack
-    [SerializeField] private GameEventVector2BoolSO onStartAttack;
+    [SerializeField] private GameEventVector2BoolSO PlayerController_onStartAttack;
 
     private AimController aimController;
     private bool attackRequested;
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleAttack()
     {
-        onStartAttack.Invoke((aimController.AttackDirection, isRanged));
+        PlayerController_onStartAttack.Invoke((aimController.AttackDirection, isRanged));
     }
 
     private void HandleInteraction()

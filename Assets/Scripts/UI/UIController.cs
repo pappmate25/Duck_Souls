@@ -5,7 +5,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] private UIManager uiManager;
 
-    [SerializeField] private GameEventSO onPauseGame;
+    [SerializeField] private GameEventSO UIController_onPauseGame;
 
     private PlayerInput playerInput;
     private InputAction pauseAction;
@@ -44,6 +44,6 @@ public class UIController : MonoBehaviour
             uiManager.CloseTopUI();
             return;
         }
-        onPauseGame.Invoke();    
+        UIController_onPauseGame.Invoke();    
     }
 }

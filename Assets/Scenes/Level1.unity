@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamagePopupManager
   popupPrefab: {fileID: 3916982952554351055, guid: 0219ebd1c7e31c14e9baaba02a949a27, type: 3}
-  onEnemyHit: {fileID: 11400000, guid: b57dfb9cc28af084d8fdfcc838055b26, type: 2}
+  DamageDealer_onEnemyHit: {fileID: 11400000, guid: b57dfb9cc28af084d8fdfcc838055b26, type: 2}
 --- !u!4 &118731748
 Transform:
   m_ObjectHideFlags: 0

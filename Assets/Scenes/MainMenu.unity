@@ -219,9 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85ff33649e9f244ca5f289a860b3ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
-  onStartGame: {fileID: 11400000, guid: 25f869a8f91212744810830f61103bb4, type: 2}
-  onOptions: {fileID: 11400000, guid: 482c3aca87abb1e4f9a677450911d661, type: 2}
-  onExitGame: {fileID: 11400000, guid: c79530a41b41d9c4085641b9b102cc5a, type: 2}
+  MainMenuUIController_onStartGame: {fileID: 11400000, guid: 25f869a8f91212744810830f61103bb4, type: 2}
+  MainMenuUIController_onOptions: {fileID: 11400000, guid: 482c3aca87abb1e4f9a677450911d661, type: 2}
+  MainMenuUIController_onExitGame: {fileID: 11400000, guid: c79530a41b41d9c4085641b9b102cc5a, type: 2}
 --- !u!1 &1284810496
 GameObject:
   m_ObjectHideFlags: 0

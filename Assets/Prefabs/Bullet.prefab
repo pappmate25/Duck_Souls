@@ -197,5 +197,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
   Manager: {fileID: 3916982952554351055, guid: 0219ebd1c7e31c14e9baaba02a949a27, type: 3}
-  onPlayerHit: {fileID: 11400000, guid: ad1c46c0e88653147bcc073e79f959ce, type: 2}
-  onEnemyHit: {fileID: 11400000, guid: b57dfb9cc28af084d8fdfcc838055b26, type: 2}
+  DamageDealer_onPlayerHit: {fileID: 11400000, guid: ad1c46c0e88653147bcc073e79f959ce, type: 2}
+  DamageDealer_onEnemyHit: {fileID: 11400000, guid: b57dfb9cc28af084d8fdfcc838055b26, type: 2}

@@ -76,4 +76,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIController
   uiManager: {fileID: 0}
-  onPauseGame: {fileID: 11400000, guid: 0b5a61461b233d74f95ec331a64c8e65, type: 2}
+  UIController_onPauseGame: {fileID: 11400000, guid: 0b5a61461b233d74f95ec331a64c8e65, type: 2}
