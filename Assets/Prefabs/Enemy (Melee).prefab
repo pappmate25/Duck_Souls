@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c09852f4fe0af7245b4f10f607606ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HPBarUIManager
-  onHpChange: {fileID: 0}
+  onHpChange: {fileID: 11400000, guid: 986ce9447ea8e9543b6e2776e55629c5, type: 2}
   health: {fileID: 4824093277870611025}
 --- !u!1 &2885560022084772237
 GameObject:
@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9853c6c8d1cc9804cbdbebdd952ef7d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeAttack
+  onStartAttack: {fileID: 0}
   isAI: 1
   meleeWeapon: {fileID: 6158486223108631647}
 --- !u!1 &3006349158880349705
