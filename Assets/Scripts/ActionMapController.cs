@@ -30,7 +30,7 @@ public class ActionMapController : MonoBehaviour
     private void OnEnable()
     {
         onPauseGame.Subscribe(SetToUI);
-        onPauseGame.Subscribe(SetToPrevious);
+        onPauseClosed.Subscribe(SetToPrevious);
     }
 
     private void OnDisable()
