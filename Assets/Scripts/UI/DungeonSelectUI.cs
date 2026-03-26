@@ -12,8 +12,9 @@ public class DungeonSelectUI : MonoBehaviour
     private Button dungeonButton3;
 
     [SerializeField] private UIManager uiManager;
+    [SerializeField] private DungeonProgressSO dungeonProgress;
 
-    //events
+    [Header("Events")]
     [SerializeField] private GameEventIntSO DungeonSelectUI_onDungeonSelect;
     [SerializeField] private GameEventSO NPC_onInteraction;
 
@@ -48,14 +49,38 @@ public class DungeonSelectUI : MonoBehaviour
 
     private void ActivateDungeonUI()
     {
+        UpdateButtonStates();
         uiManager.OpenUI(root, false);
     }
+
+    private void UpdateButtonStates()
+    {
+        SetButtonLock(dungeonButton1, !dungeonProgress.IsDungeonUnlocked(1));
+        SetButtonLock(dungeonButton2, !dungeonProgress.IsDungeonUnlocked(2));
+        SetButtonLock(dungeonButton3, !dungeonProgress.IsDungeonUnlocked(3));
+    }
+
+    private void SetButtonLock(Button button, bool locked)
+    {
+        button.SetEnabled(!locked);
+        if (locked)
+        {
+            button.AddToClassList("locked");
+        }
+        else
+        {
+            button.RemoveFromClassList("locked");
+        }
+    }
+
 
     private void Dungeon1() => DungeonSelect(1);
     private void Dungeon2() => DungeonSelect(2);
     private void Dungeon3() => DungeonSelect(3);
     private void DungeonSelect(int dungeonIndex)
     {
+        if (!dungeonProgress.IsDungeonUnlocked(dungeonIndex)) return;
+
         DungeonSelectUI_onDungeonSelect.Invoke(dungeonIndex);
     }
 }

@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a12b5a1d4544b44c9d86875381fc3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  Health_onDeath: {fileID: 11400000, guid: 66bca97f9a53e654ca0f533dfcd8ac6d, type: 2}
+  deathEvent: {fileID: 11400000, guid: 66bca97f9a53e654ca0f533dfcd8ac6d, type: 2}
   destroyOnDeath: 1
 --- !u!114 &5071958131434653994
 MonoBehaviour:

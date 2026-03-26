@@ -3,15 +3,18 @@ using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    [SerializeField] private Transform playerTransform;
     [SerializeField] private WaveSO[] waveSO;
 
     private WaveSO currentWave;
     private float delayBetweenWaves = 5f;
+    private Transform playerTransform;
+    private RoomManager roomManager;
 
 
     private void Start()
     {
+        playerTransform = FindFirstObjectByType<PlayerController>().transform;
+        roomManager = GetComponent<RoomManager>();
         StartNextWave();
     }
 
@@ -32,6 +35,12 @@ public class SpawnEnemy : MonoBehaviour
 
                 enemy.GetComponent<TrackPlayer>().InitializePlayerPosition(playerTransform);
                 enemy.GetComponent<AimTowardsPlayer>().InitializePlayerTransform(playerTransform);
+
+                if (roomManager != null)
+                {
+                    roomManager.RegisterEnemy();
+                }
+
                 yield return new WaitForSeconds(currentWave.GetSpawnDelay());
             }
             yield return new WaitForSeconds(delayBetweenWaves);

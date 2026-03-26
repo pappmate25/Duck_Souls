@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private SceneDataSO sceneData;
+    [SerializeField] private DungeonProgressSO dungeonProgress;
 
-    //Events
+    [Header("Events")]
     //MainMenuUIController
     [SerializeField] private GameEventSO MainMenuUIController_onStartGame;
     [SerializeField] private GameEventSO MainMenuUIController_onExitGame;
@@ -17,6 +18,8 @@ public class SceneLoader : MonoBehaviour
     //PauseMenuController
     [SerializeField] private GameEventSO PauseMenuController_onLeaveDungeon;
     [SerializeField] private GameEventSO PauseMenuController_onExitGame;
+
+    [SerializeField] private GameEventSO ReturnToHubEvent;
 
 
     private void OnEnable()
@@ -29,7 +32,7 @@ public class SceneLoader : MonoBehaviour
         PauseMenuController_onLeaveDungeon.Subscribe(LoadHub);
         PauseMenuController_onExitGame.Subscribe(ExitGame);
 
-        //ExitDoor.OnReturnToHub += LoadHub;
+        ReturnToHubEvent.Subscribe(LoadHub);
     }
 
     private void OnDisable()
@@ -42,11 +45,12 @@ public class SceneLoader : MonoBehaviour
         PauseMenuController_onLeaveDungeon.UnSubscribe(LoadHub);
         PauseMenuController_onExitGame.UnSubscribe(ExitGame);
 
-        //ExitDoor.OnReturnToHub -= LoadHub;
+        ReturnToHubEvent.UnSubscribe(LoadHub);
     }
 
     private void StartGame()
     {
+        dungeonProgress.LoadProgress();
         SceneManager.LoadScene(sceneData.HubScene);
     }
 

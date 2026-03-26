@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
   sceneData: {fileID: 11400000, guid: c11fdccb073d73f438baf53e34f96487, type: 2}
+  dungeonProgress: {fileID: 11400000, guid: e2c6287708f5f0c45b23c405a5a09602, type: 2}
   MainMenuUIController_onStartGame: {fileID: 11400000, guid: 25f869a8f91212744810830f61103bb4, type: 2}
   MainMenuUIController_onExitGame: {fileID: 11400000, guid: c79530a41b41d9c4085641b9b102cc5a, type: 2}
   DungeonSelectUI_onDungeonSelect: {fileID: 11400000, guid: f032fbe7e05ed9f4e8784bf861f85f27, type: 2}
   PauseMenuController_onLeaveDungeon: {fileID: 11400000, guid: cedfa38085825884aa9bacee915857c1, type: 2}
   PauseMenuController_onExitGame: {fileID: 11400000, guid: 9f5b208a335451245bf87157e29d1baa, type: 2}
+  ReturnToHubEvent: {fileID: 11400000, guid: 945b828e82cdd8842bfc002dd78f7866, type: 2}
