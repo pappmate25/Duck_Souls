@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DungeonSelectUI
   uiManager: {fileID: 333687724}
+  dungeonProgress: {fileID: 11400000, guid: e2c6287708f5f0c45b23c405a5a09602, type: 2}
   DungeonSelectUI_onDungeonSelect: {fileID: 11400000, guid: f032fbe7e05ed9f4e8784bf861f85f27, type: 2}
   NPC_onInteraction: {fileID: 11400000, guid: 404c82aa41b201d46959cfdf151e4b58, type: 2}
 --- !u!1 &415165946
