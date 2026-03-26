@@ -1,9 +1,12 @@
 using System;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    //[SerializeField] private GameEventIntSO onHpChange;
+    [SerializeField] private GameEventSO deathEvent;
+    [SerializeField] private bool destroyOnDeath = true;
+
     public Action<int> OnHpChange;
 
     private Character character;
@@ -19,11 +22,16 @@ public class Health : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        OnHpChange.Invoke(health);
+        OnHpChange?.Invoke(health);
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            deathEvent.Invoke();
+
+            if(destroyOnDeath) //enemy
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

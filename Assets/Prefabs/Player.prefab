@@ -385,6 +385,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a12b5a1d4544b44c9d86875381fc3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
+  Health_onDeath: {fileID: 11400000, guid: 41b91e9c072b05943ac97a2d3f9fa3bb, type: 2}
+  destroyOnDeath: 0
 --- !u!114 &2830815064534910962
 MonoBehaviour:
   m_ObjectHideFlags: 0
