@@ -3,57 +3,92 @@ using UnityEngine;
 public class DungeonManager : MonoBehaviour
 {
     [SerializeField] private DungeonDataSO dungeonData;
+    [SerializeField] private DungeonProgressSO dungeonProgress;
+
+    [Header("Events")]
+    [SerializeField] private GameEventSO DungeonManager_onDungeonCompleted;
+    [SerializeField] private GameEventSO PlayerDeathEvent;
+    [SerializeField] private GameEventSO ReturnToHubEvent;
 
     private int currentRoomIndex;
     private GameObject currentRoomInstance;
+    private Transform playerTransform;
 
+    private void OnEnable()
+    {
+        DungeonManager_onDungeonCompleted.Subscribe(OnDungeonCompleted);
+    }
+
+    private void OnDisable()
+    {
+        DungeonManager_onDungeonCompleted.UnSubscribe(OnDungeonCompleted);
+    }
 
     private void Start()
     {
-        StartDungeon();
-    }
-    //private void OnEnable()
-    //{
-    //    DungeonSelectUI.OnDungeonSelect += StartDungeon;
-    //}
-
-    //private void OnDisable()
-    //{
-    //    DungeonSelectUI.OnDungeonSelect -= StartDungeon;
-    //}
-
-    public void StartDungeon()
-    {
-        currentRoomIndex = 0;
-        LoadRoom(currentRoomIndex);
+        PlayerController player = FindFirstObjectByType<PlayerController>();
+        playerTransform = player.transform;
+        LoadRoom(0);
     }
 
     public void LoadRoom(int index)
     {
-        if (currentRoomInstance != null)
+        if(currentRoomInstance != null)
         {
-            //currentRoomInstance.SetActive(true);
+            Destroy(currentRoomInstance);
         }
 
         currentRoomIndex = index;
+        RoomData roomData = dungeonData.Rooms[index];
+        currentRoomInstance = Instantiate(roomData.RoomPrefab);
 
-        RoomData room = dungeonData.Rooms[index];
-        currentRoomInstance = room.RoomPrefab;
-        Instantiate(currentRoomInstance);
-    }
-
-    public void LoadNextRoom()
-    {
-        int[] connections = dungeonData.Rooms[currentRoomIndex].ConnectedRooms;
-
-        if (connections.Length > 0)
+        //Set player to SpawnPoint
+        Transform spawnPoint = currentRoomInstance.transform.Find("PlayerSpawnPoint");
+        if (spawnPoint != null)
         {
-            LoadRoom(connections[0]);
+            playerTransform.position = spawnPoint.position;
+        }
+
+
+        if (roomData.RoomType == RoomType.Start)
+        {
+            RoomManager roomManager = currentRoomInstance.GetComponent<RoomManager>();
+            if (roomManager != null)
+            {
+                roomManager.ClearImmediately();
+            }
+        }
+        else if (roomData.RoomType == RoomType.Normal)
+        {
+            RandomizeDoors(roomData);
         }
     }
 
-    public bool IsBoosRoom()
+    private void RandomizeDoors(RoomData roomData)
     {
-        return dungeonData.Rooms[currentRoomIndex].RoomType == RoomType.Boss;
+        DungeonDoor[] doors = currentRoomInstance.GetComponentsInChildren<DungeonDoor>(true);
+
+        if (doors.Length <= 1) return;
+
+        int doorsToActivate = Random.Range(1, Mathf.Min(doors.Length + 1, 4));
+
+        //Shuffle doors
+        for (int i = doors.Length - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            DungeonDoor temp = doors[i];
+            doors[i] = doors[j];
+            doors[j] = temp;
+        }
+
+        for (int i = 0; i < doors.Length; i++)
+        {
+            doors[i].gameObject.SetActive(i < doorsToActivate);
+        }
+    }
+
+    private void OnDungeonCompleted()
+    {
+        dungeonProgress.CompleteDungeon(dungeonData.DungeonIndex);
     }
 }
