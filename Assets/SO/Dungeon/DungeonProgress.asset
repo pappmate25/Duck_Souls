@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabebf4beaf1c25468d78b0b52aaa223, type: 3}
+  m_Name: DungeonProgress
+  m_EditorClassIdentifier: Assembly-CSharp::DungeonProgressSO
+  allDungeons:
+  - {fileID: 11400000, guid: 575708a994ae7e045af3aeeb98d0d6c4, type: 2}
+  - {fileID: 11400000, guid: 2d702305156a04747824df35cf1f3a6f, type: 2}
+  - {fileID: 11400000, guid: c560ce762a3be054d93244e53af87b4c, type: 2}
