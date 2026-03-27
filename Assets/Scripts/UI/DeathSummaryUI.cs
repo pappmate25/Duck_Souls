@@ -69,7 +69,7 @@ public class DeathSummaryUI : MonoBehaviour
 
     private void CloseSummary(InputAction.CallbackContext context)
     {
-        uiManager.CloseTopUI();
+        uiManager.CloseTopUI(true);
         DeathSummaryUI_onReturnToHub.Invoke();
     }
 

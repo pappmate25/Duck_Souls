@@ -33,46 +33,37 @@ public class ActionMapController : MonoBehaviour
     private void OnEnable()
     {
         UIController_onPauseGame.Subscribe(SetToUI);
-        UIManager_onPauseClosed.Subscribe(SetToPrevious);
+        UIManager_onPauseClosed.Subscribe(SetToDefault);
 
         DeathSummaryUI_onOpenSummary.Subscribe(SetToSummary);
-        DeathSummaryUI_onReturnToHub.Subscribe(SetToHub);
+        DeathSummaryUI_onReturnToHub.Subscribe(SetToDefault);
     }
 
     private void OnDisable()
     {
         UIController_onPauseGame.UnSubscribe(SetToUI);
-        UIManager_onPauseClosed.UnSubscribe(SetToPrevious);
+        UIManager_onPauseClosed.UnSubscribe(SetToDefault);
 
         DeathSummaryUI_onOpenSummary.UnSubscribe(SetToSummary);
-        DeathSummaryUI_onReturnToHub.UnSubscribe(SetToHub);
+        DeathSummaryUI_onReturnToHub.UnSubscribe(SetToDefault);
     }
 
     private void SetToUI()
     {
-        previousActionMap = playerInput.currentActionMap;
         playerInput.SwitchCurrentActionMap(ActionMaps.UI.ToString());
-    }
-
-    private void SetToPrevious()
-    {
-        if(previousActionMap.name == ActionMaps.Hub.ToString())
-        {            
-            playerInput.SwitchCurrentActionMap(ActionMaps.Hub.ToString());
-        }
-        else
-        {
-            playerInput.SwitchCurrentActionMap(ActionMaps.Dungeon.ToString());
-        }       
     }
 
     private void SetToSummary()
     {
         playerInput.SwitchCurrentActionMap(ActionMaps.Summary.ToString());
     }
-
-    private void SetToHub()
+    private void SetToDefault()
     {
-        playerInput.SwitchCurrentActionMap(ActionMaps.Hub.ToString());
+        playerInput.SwitchCurrentActionMap(playerInput.defaultActionMap);
     }
+
+    //private void SetToHub()
+    //{
+    //    playerInput.SwitchCurrentActionMap(ActionMaps.Hub.ToString());
+    //}
 }

@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void CloseTopUI()
+    public void CloseTopUI(bool isSummary)
     {
         if (uiStack.Count == 0) return;
 
@@ -34,7 +34,10 @@ public class UIManager : MonoBehaviour
         if (uiStack.Count == 0)
         {
             Time.timeScale = 1f;
-            UIManager_onPauseClosed.Invoke();
+            if(!isSummary)
+            {
+                UIManager_onPauseClosed.Invoke();
+            }
         }
     }
 

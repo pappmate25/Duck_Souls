@@ -67,7 +67,7 @@ public class PauseMenuController : MonoBehaviour
 
     private void ContinueButton_clicked()
     {
-        uiManager.CloseTopUI();
+        uiManager.CloseTopUI(false);
     }
 
     private void OptionsButton_clicked()

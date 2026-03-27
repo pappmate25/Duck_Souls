@@ -53,7 +53,7 @@ public class MeleeAttack : BaseAttack
         meleeWeapon.SetActive(false);
     }
 
-    //Check if the player is in attack range
+    //Checks if the player is in attack range
     private void OnTriggerEnter2D(Collider2D other)
     {
         int layerIndex = LayerMask.NameToLayer("Player");

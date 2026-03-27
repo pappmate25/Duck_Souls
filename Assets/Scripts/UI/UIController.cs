@@ -41,7 +41,7 @@ public class UIController : MonoBehaviour
 
         if (uiManager.HasOpenUI())
         {
-            uiManager.CloseTopUI();
+            uiManager.CloseTopUI(false);
             return;
         }
         UIController_onPauseGame.Invoke();    
