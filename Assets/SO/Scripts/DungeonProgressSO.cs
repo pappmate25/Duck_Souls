@@ -14,7 +14,7 @@ public class DungeonProgressSO : ScriptableObject
     public void CompleteDungeon(int dungeonIndex)
     {
         int i = dungeonIndex - 1;
-        if (i >= 0 && i <= allDungeons.Length)
+        if (i >= 0 && i < allDungeons.Length)
         {
             allDungeons[i].SetCompletion(true);
             PlayerPrefs.SetInt($"Dungeon_{dungeonIndex}_Completed", 1);

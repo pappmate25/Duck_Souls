@@ -7,8 +7,8 @@ public class DungeonManager : MonoBehaviour
 
     [Header("Events")]
     [SerializeField] private GameEventSO DungeonManager_onDungeonCompleted;
-    [SerializeField] private GameEventSO PlayerDeathEvent;
-    [SerializeField] private GameEventSO DeathSummaryUI_onReturnToHub;
+    //[SerializeField] private GameEventSO PlayerDeathEvent;
+    //[SerializeField] private GameEventSO DeathSummaryUI_onReturnToHub;
 
     private int currentRoomIndex;
     private GameObject currentRoomInstance;

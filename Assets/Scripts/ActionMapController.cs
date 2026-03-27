@@ -18,7 +18,6 @@ public class ActionMapController : MonoBehaviour
     [SerializeField] private GameEventSO DeathSummaryUI_onOpenSummary;
 
     private PlayerInput playerInput;
-    private InputActionMap previousActionMap;
 
     private void Awake()
     {

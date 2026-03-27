@@ -14,6 +14,10 @@ public class DeathSummaryUI : MonoBehaviour
 
     private VisualElement root;
     private Label killCountLabel;
+    private Label continueLabel;
+    private float pulseDirection = -1f;
+    private float opacity = 1f;
+    private bool isActive = false;
     private int enemiesKilled;
 
     //input
@@ -26,6 +30,7 @@ public class DeathSummaryUI : MonoBehaviour
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         killCountLabel = root.Q<Label>("kill-count-label");
+        continueLabel = root.Q<Label>("continue-label");
         root.style.display = DisplayStyle.None;
 
         playerController = FindFirstObjectByType<PlayerController>();
@@ -50,6 +55,14 @@ public class DeathSummaryUI : MonoBehaviour
         closeSummaryAction.performed -= CloseSummary;
     }
 
+    private void Update()
+    {
+        if (isActive)
+        {
+            PulseLabel();
+        }
+    }
+
     private void OnEnemyKilled()
     {
         enemiesKilled++;
@@ -57,6 +70,8 @@ public class DeathSummaryUI : MonoBehaviour
 
     private void ShowDeathSummary()
     {
+        isActive = true;
+
         if (killCountLabel != null)
         {
             killCountLabel.text = $"Enemies Killed: {enemiesKilled}";
@@ -69,18 +84,28 @@ public class DeathSummaryUI : MonoBehaviour
 
     private void CloseSummary(InputAction.CallbackContext context)
     {
+        isActive = false;
+        enemiesKilled = 0;
+
         uiManager.CloseTopUI(true);
         DeathSummaryUI_onReturnToHub.Invoke();
     }
 
-    //private void Update()
-    //{
-    //    if (root.style.display == DisplayStyle.Flex && Input.GetKeyDown(KeyCode.Return))
-    //    {
-    //        root.style.display = DisplayStyle.None;
-    //        Time.timeScale = 1f;
-    //        enemiesKilled = 0;
-    //        ReturnToHubEvent.Invoke();
-    //    }
-    //}
+    private void PulseLabel()
+    {
+        opacity += pulseDirection * Time.unscaledDeltaTime * 0.5f;
+
+        if (opacity <= 0f)
+        {
+            opacity = 0f;
+            pulseDirection = 1f;
+        }
+        else if (opacity >= 1f)
+        {
+            opacity = 1f;
+            pulseDirection = -1f;
+        }
+
+        continueLabel.style.opacity = opacity;
+    }
 }
