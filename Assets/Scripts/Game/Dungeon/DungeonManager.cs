@@ -8,7 +8,7 @@ public class DungeonManager : MonoBehaviour
     [Header("Events")]
     [SerializeField] private GameEventSO DungeonManager_onDungeonCompleted;
     [SerializeField] private GameEventSO PlayerDeathEvent;
-    [SerializeField] private GameEventSO ReturnToHubEvent;
+    [SerializeField] private GameEventSO DeathSummaryUI_onReturnToHub;
 
     private int currentRoomIndex;
     private GameObject currentRoomInstance;
@@ -52,6 +52,7 @@ public class DungeonManager : MonoBehaviour
 
         if (roomData.RoomType == RoomType.Start)
         {
+            Debug.Log("DungeonManager LoadRoom Start Room: " + currentRoomInstance.gameObject.name);
             RoomManager roomManager = currentRoomInstance.GetComponent<RoomManager>();
             if (roomManager != null)
             {
@@ -60,6 +61,7 @@ public class DungeonManager : MonoBehaviour
         }
         else if (roomData.RoomType == RoomType.Normal)
         {
+            Debug.Log("DungeonManager LoadRoom Normal Room: " + currentRoomInstance.gameObject.name);
             RandomizeDoors(roomData);
         }
     }

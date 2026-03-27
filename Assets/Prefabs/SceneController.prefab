@@ -51,4 +51,4 @@ MonoBehaviour:
   DungeonSelectUI_onDungeonSelect: {fileID: 11400000, guid: f032fbe7e05ed9f4e8784bf861f85f27, type: 2}
   PauseMenuController_onLeaveDungeon: {fileID: 11400000, guid: cedfa38085825884aa9bacee915857c1, type: 2}
   PauseMenuController_onExitGame: {fileID: 11400000, guid: 9f5b208a335451245bf87157e29d1baa, type: 2}
-  ReturnToHubEvent: {fileID: 11400000, guid: 945b828e82cdd8842bfc002dd78f7866, type: 2}
+  DeathSummaryUI_onReturnToHub: {fileID: 11400000, guid: 945b828e82cdd8842bfc002dd78f7866, type: 2}

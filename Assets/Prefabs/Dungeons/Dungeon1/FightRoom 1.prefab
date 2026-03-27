@@ -265,8 +265,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DungeonDoor
   targetRoomIndex: 3
-  RoomClearedEvent: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
-  doorVisuals: {fileID: 0}
+  RoomManager_onRoomCleared: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
+  doorVisuals: {fileID: 3751117794831069631}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}
   unlockedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &3201937942301141742
@@ -579,8 +579,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DungeonDoor
   targetRoomIndex: 4
-  RoomClearedEvent: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
-  doorVisuals: {fileID: 0}
+  RoomManager_onRoomCleared: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
+  doorVisuals: {fileID: 3902432088150620999}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}
   unlockedColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &8968452569319964596
@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DungeonDoor
   targetRoomIndex: 2
-  RoomClearedEvent: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
-  doorVisuals: {fileID: 0}
+  RoomManager_onRoomCleared: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
+  doorVisuals: {fileID: 319174671776975946}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}
   unlockedColor: {r: 0, g: 1, b: 0, a: 1}

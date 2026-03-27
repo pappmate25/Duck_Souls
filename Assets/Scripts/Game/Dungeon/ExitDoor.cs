@@ -4,7 +4,7 @@ using UnityEngine;
 public class ExitDoor : MonoBehaviour
 {
     [SerializeField] private GameEventSO ExitDoor_onReturnToHub;
-    [SerializeField] private GameEventSO RoomClearedEvent;
+    [SerializeField] private GameEventSO RoomManager_onRoomCleared;
     [SerializeField] private SpriteRenderer doorVisual;
     [SerializeField] private Color lockedColor = Color.red;
     [SerializeField] private Color unlockedColor = Color.green;
@@ -16,12 +16,12 @@ public class ExitDoor : MonoBehaviour
     {
         isUnlocked = false;
         UpdateVisual();
-        RoomClearedEvent.Subscribe(Unlock);
+        RoomManager_onRoomCleared.Subscribe(Unlock);
     }
 
     private void OnDisable()
     {
-        RoomClearedEvent.UnSubscribe(Unlock);
+        RoomManager_onRoomCleared.UnSubscribe(Unlock);
     }
 
     private void Unlock()

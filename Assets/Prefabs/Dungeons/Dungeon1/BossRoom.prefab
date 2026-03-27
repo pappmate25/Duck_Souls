@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExitDoor
   ExitDoor_onReturnToHub: {fileID: 11400000, guid: 945b828e82cdd8842bfc002dd78f7866, type: 2}
-  RoomClearedEvent: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
-  doorVisual: {fileID: 0}
+  RoomManager_onRoomCleared: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
+  doorVisual: {fileID: 319174671776975946}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}
   unlockedColor: {r: 0, g: 1, b: 0, a: 1}

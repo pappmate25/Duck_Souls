@@ -5,13 +5,17 @@ public enum ActionMaps
 {
     Hub,
     Dungeon,
-    UI
+    UI,
+    Summary
 }
 
 public class ActionMapController : MonoBehaviour
 {
+    [Header("Events")]
     [SerializeField] private GameEventSO UIController_onPauseGame;
     [SerializeField] private GameEventSO UIManager_onPauseClosed;
+    [SerializeField] private GameEventSO DeathSummaryUI_onReturnToHub;
+    [SerializeField] private GameEventSO DeathSummaryUI_onOpenSummary;
 
     private PlayerInput playerInput;
     private InputActionMap previousActionMap;
@@ -19,24 +23,29 @@ public class ActionMapController : MonoBehaviour
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-        Debug.Log(ActionMaps.Hub.ToString());
     }
 
-    //private void Update()
-    //{
-    //    Debug.Log(gameObject.name + " " + playerInput.currentActionMap.name);
-    //}
+    private void Update()
+    {
+        Debug.Log(gameObject.name + " " + playerInput.currentActionMap.name);
+    }
 
     private void OnEnable()
     {
         UIController_onPauseGame.Subscribe(SetToUI);
         UIManager_onPauseClosed.Subscribe(SetToPrevious);
+
+        DeathSummaryUI_onOpenSummary.Subscribe(SetToSummary);
+        DeathSummaryUI_onReturnToHub.Subscribe(SetToHub);
     }
 
     private void OnDisable()
     {
         UIController_onPauseGame.UnSubscribe(SetToUI);
         UIManager_onPauseClosed.UnSubscribe(SetToPrevious);
+
+        DeathSummaryUI_onOpenSummary.UnSubscribe(SetToSummary);
+        DeathSummaryUI_onReturnToHub.UnSubscribe(SetToHub);
     }
 
     private void SetToUI()
@@ -55,5 +64,15 @@ public class ActionMapController : MonoBehaviour
         {
             playerInput.SwitchCurrentActionMap(ActionMaps.Dungeon.ToString());
         }       
+    }
+
+    private void SetToSummary()
+    {
+        playerInput.SwitchCurrentActionMap(ActionMaps.Summary.ToString());
+    }
+
+    private void SetToHub()
+    {
+        playerInput.SwitchCurrentActionMap(ActionMaps.Hub.ToString());
     }
 }

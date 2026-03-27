@@ -19,7 +19,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private GameEventSO PauseMenuController_onLeaveDungeon;
     [SerializeField] private GameEventSO PauseMenuController_onExitGame;
 
-    [SerializeField] private GameEventSO ReturnToHubEvent;
+    [SerializeField] private GameEventSO DeathSummaryUI_onReturnToHub;
 
 
     private void OnEnable()
@@ -32,7 +32,7 @@ public class SceneLoader : MonoBehaviour
         PauseMenuController_onLeaveDungeon.Subscribe(LoadHub);
         PauseMenuController_onExitGame.Subscribe(ExitGame);
 
-        ReturnToHubEvent.Subscribe(LoadHub);
+        DeathSummaryUI_onReturnToHub.Subscribe(LoadHub);
     }
 
     private void OnDisable()
@@ -45,12 +45,12 @@ public class SceneLoader : MonoBehaviour
         PauseMenuController_onLeaveDungeon.UnSubscribe(LoadHub);
         PauseMenuController_onExitGame.UnSubscribe(ExitGame);
 
-        ReturnToHubEvent.UnSubscribe(LoadHub);
+        DeathSummaryUI_onReturnToHub.UnSubscribe(LoadHub);
     }
 
     private void StartGame()
     {
-        dungeonProgress.LoadProgress();
+        dungeonProgress.ResetAllProgress();
         SceneManager.LoadScene(sceneData.HubScene);
     }
 
@@ -62,6 +62,7 @@ public class SceneLoader : MonoBehaviour
     private void LoadDungeon(int dungeonIndex)
     {
         string scene = sceneData.GetDungeonScene(dungeonIndex);
+        Debug.Log(scene);
 
         if(scene != null)
         {

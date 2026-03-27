@@ -14,7 +14,6 @@ public class PlayerInteraction : MonoBehaviour
         if (interactable != null)
         {
             currentInteractable = interactable;
-            Debug.Log("uuu egy NPC");
             PlayerInteraction_onShowInteractUI.Invoke(true);
         }
     }
@@ -24,7 +23,6 @@ public class PlayerInteraction : MonoBehaviour
         if (other.GetComponentInParent<IInteractable>() == currentInteractable && currentInteractable != null)
         {
             currentInteractable = null;
-            Debug.Log("Viszlát NPC");
             PlayerInteraction_onShowInteractUI.Invoke(false);
         }
     }

@@ -6,7 +6,7 @@ using static Unity.Collections.AllocatorManager;
 public class DungeonDoor : MonoBehaviour
 {
     [SerializeField] private int targetRoomIndex;
-    [SerializeField] private GameEventSO RoomClearedEvent;
+    [SerializeField] private GameEventSO RoomManager_onRoomCleared;
     [SerializeField] private SpriteRenderer doorVisuals;
     [SerializeField] private Color lockedColor = Color.red;
     [SerializeField] private Color unlockedColor = Color.green;
@@ -23,12 +23,12 @@ public class DungeonDoor : MonoBehaviour
     {
         isUnlocked = false;
         UpdateVisual();
-        RoomClearedEvent.Subscribe(Unlock);
+        RoomManager_onRoomCleared.Subscribe(Unlock);
     }
 
     private void OnDisable()
     {
-        RoomClearedEvent.UnSubscribe(Unlock);
+        RoomManager_onRoomCleared.UnSubscribe(Unlock);
     }
 
     private void Unlock()
@@ -41,7 +41,7 @@ public class DungeonDoor : MonoBehaviour
     {
         if(doorVisuals != null)
         {
-            doorVisuals.color = isUnlocked ? lockedColor : unlockedColor;
+            doorVisuals.color = isUnlocked ? unlockedColor : lockedColor;
         }
     }
 

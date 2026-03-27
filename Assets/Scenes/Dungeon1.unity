@@ -532,6 +532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 797242718}
   - component: {fileID: 797242719}
+  - component: {fileID: 797242720}
   m_Layer: 0
   m_Name: DeathSummaryUI
   m_TagString: Untagged
@@ -568,7 +569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
   m_PanelSettings: {fileID: 11400000, guid: 243f62c2bf0b7bc42b0e05d228af9a3c, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 10299983245f6b244960bc097078b7e1, type: 3}
   m_SortingOrder: 0
   m_Position: 0
   m_WorldSpaceSizeMode: 1
@@ -577,6 +578,23 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &797242720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797242717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e960ea04fb18048ac4f1f80f31d8d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeathSummaryUI
+  uiManager: {fileID: 564920371}
+  PlayerDeathEvent: {fileID: 11400000, guid: 41b91e9c072b05943ac97a2d3f9fa3bb, type: 2}
+  EnemyDeathEvent: {fileID: 11400000, guid: 66bca97f9a53e654ca0f533dfcd8ac6d, type: 2}
+  DeathSummaryUI_onReturnToHub: {fileID: 11400000, guid: 945b828e82cdd8842bfc002dd78f7866, type: 2}
+  DeathSummaryUI_onOpenSummary: {fileID: 11400000, guid: 4c293d82f411c3f4982452125ba6c775, type: 2}
 --- !u!4 &1144427160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5025069978868516384, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
@@ -615,7 +633,7 @@ MonoBehaviour:
   dungeonProgress: {fileID: 11400000, guid: e2c6287708f5f0c45b23c405a5a09602, type: 2}
   DungeonManager_onDungeonCompleted: {fileID: 11400000, guid: 0f0bae1ba5a67b2459613b84717d89d6, type: 2}
   PlayerDeathEvent: {fileID: 11400000, guid: 41b91e9c072b05943ac97a2d3f9fa3bb, type: 2}
-  ReturnToHubEvent: {fileID: 11400000, guid: 66bca97f9a53e654ca0f533dfcd8ac6d, type: 2}
+  DeathSummaryUI_onReturnToHub: {fileID: 11400000, guid: 945b828e82cdd8842bfc002dd78f7866, type: 2}
 --- !u!4 &1148162994
 Transform:
   m_ObjectHideFlags: 0
@@ -687,6 +705,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8731090846994134166, guid: 87bdad23766cead40b3ad36856e6aac7, type: 3}
+      propertyPath: DeathSummaryUI_onOpenSummary
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c293d82f411c3f4982452125ba6c775, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

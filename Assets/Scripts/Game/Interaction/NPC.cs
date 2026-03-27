@@ -7,7 +7,6 @@ public class NPC : MonoBehaviour, IInteractable
 
     public void DungeonInteract()
     {
-        Debug.Log("Talking with dungeon guardian");
         NPC_onInteraction.Invoke();
     }
 }

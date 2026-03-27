@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DungeonProgressSO
   allDungeons:
   - {fileID: 11400000, guid: 575708a994ae7e045af3aeeb98d0d6c4, type: 2}
-  - {fileID: 11400000, guid: 2d702305156a04747824df35cf1f3a6f, type: 2}
-  - {fileID: 11400000, guid: c560ce762a3be054d93244e53af87b4c, type: 2}
+  - {fileID: 11400000, guid: da7648bed8b70f4428b60ca32f296476, type: 2}
+  - {fileID: 11400000, guid: c5f284b1eda168f4fb7054ada04b19ce, type: 2}
