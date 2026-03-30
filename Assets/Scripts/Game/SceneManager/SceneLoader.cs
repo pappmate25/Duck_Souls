@@ -62,7 +62,6 @@ public class SceneLoader : MonoBehaviour
     private void LoadDungeon(int dungeonIndex)
     {
         string scene = sceneData.GetDungeonScene(dungeonIndex);
-        Debug.Log(scene);
 
         if(scene != null)
         {

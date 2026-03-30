@@ -24,10 +24,10 @@ public class ActionMapController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
     }
 
-    private void Update()
-    {
-        Debug.Log(gameObject.name + " " + playerInput.currentActionMap.name);
-    }
+    //private void Update()
+    //{
+    //    Debug.Log(gameObject.name + " " + playerInput.currentActionMap.name);
+    //}
 
     private void OnEnable()
     {

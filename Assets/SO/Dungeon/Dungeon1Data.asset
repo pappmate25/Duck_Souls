@@ -22,13 +22,13 @@ MonoBehaviour:
     roomPrefab: {fileID: 49928247921156905, guid: 1ae24a9a68f0a0a43bfb24d388b3c9cf, type: 3}
     connectedRooms: 020000000300000004000000
   - roomType: 1
-    roomPrefab: {fileID: 49928247921156905, guid: ac152d801f466b149abb39f01e6927bc, type: 3}
+    roomPrefab: {fileID: 49928247921156905, guid: 80d6c69e3e8c32e4c929e0c992b71285, type: 3}
     connectedRooms: 030000000400000005000000
   - roomType: 1
-    roomPrefab: {fileID: 49928247921156905, guid: 89df6937fa092bc4ebfb6d9b4ee5779c, type: 3}
+    roomPrefab: {fileID: 49928247921156905, guid: b390370eed2597a41b20ed259983582e, type: 3}
     connectedRooms: 0400000005000000
   - roomType: 1
-    roomPrefab: {fileID: 49928247921156905, guid: 98b9ee89175085d4fbe9771a5dc9fdf2, type: 3}
+    roomPrefab: {fileID: 49928247921156905, guid: 94f0600a64d604e43b4d9202797a7ed3, type: 3}
     connectedRooms: 05000000
   - roomType: 2
     roomPrefab: {fileID: 49928247921156905, guid: af736b520d4b5f443a5eb564d59b00ca, type: 3}

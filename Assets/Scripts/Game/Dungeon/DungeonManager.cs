@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class DungeonManager : MonoBehaviour
@@ -19,6 +20,8 @@ public class DungeonManager : MonoBehaviour
     private List<int>[] forwardConnections;
     private int[] parentRoom;
     private HashSet<int> clearedRooms = new HashSet<int>();
+    private Dictionary<int, Dictionary<int, WallSide>> storedDoorAssignments = new();
+    private Dictionary<int, WallSide> storedBackDoorWalls = new();
 
 
     private void OnEnable()
@@ -128,12 +131,14 @@ public class DungeonManager : MonoBehaviour
     {
         if(currentRoomInstance != null)
         {
+            currentRoomInstance.SetActive(false); // triggers OnDisable --> unsubscribes events immediately
             Destroy(currentRoomInstance);
         }
 
         currentRoomIndex = index;
         RoomData roomData = dungeonData.Rooms[index];
         currentRoomInstance = Instantiate(roomData.RoomPrefab);
+        Debug.Log("jelenleg szoba: " + currentRoomInstance.gameObject.name);
 
         //Set player to SpawnPoint
         Transform spawnPoint = currentRoomInstance.transform.Find("PlayerSpawnPoint");
@@ -176,8 +181,6 @@ public class DungeonManager : MonoBehaviour
 
         List<int> forwardTargets = forwardConnections[roomIndex];
         int parent = parentRoom[roomIndex];
-        WallSide? backDoorWall = entryWall.HasValue ? GetOpposite(entryWall.Value) : null;
-
         List<DungeonDoor> forwardDoors = new List<DungeonDoor>();
         List<DungeonDoor> backDoors = new List<DungeonDoor>();
 
@@ -193,9 +196,24 @@ public class DungeonManager : MonoBehaviour
             }
         }
 
+        // --- Resolve back door wall (use stored on revisit) ---
+        WallSide? backDoorWall;
+        if (storedBackDoorWalls.TryGetValue(roomIndex, out WallSide storedWall))
+        {
+            backDoorWall = storedWall;
+        }
+        else if (entryWall.HasValue)
+        {
+            backDoorWall = GetOpposite(entryWall.Value);
+            storedBackDoorWalls[roomIndex] = backDoorWall.Value;
+        }
+        else
+        {
+            backDoorWall = null;
+        }
 
         // --- Configure back doors ---
-        // Activate only the back door on the opposite wall of entry
+        // Activate only the back door on the stored wall
         foreach (DungeonDoor backDoor in backDoors)
         {
             if (backDoorWall.HasValue && backDoor.WallSide == backDoorWall.Value && parent >= 0)
@@ -210,28 +228,64 @@ public class DungeonManager : MonoBehaviour
         }
 
         // --- Configure forward doors ---
-        // Skip any forward door on the same wall as the active back door
-        int forwardAssigned = 0;
-        foreach (DungeonDoor forwardDoor in forwardDoors)
+        if (storedDoorAssignments.TryGetValue(roomIndex, out var stored))
         {
-            // Don't put a forward door on the wall where the back door is
-            if (backDoorWall.HasValue && forwardDoor.WallSide == backDoorWall.Value)
-            {
-                forwardDoor.gameObject.SetActive(false);
-                continue;
-            }
-            
-            if (forwardAssigned < forwardTargets.Count)
-            {
-                forwardDoor.gameObject.SetActive(true);
-                forwardDoor.SetTarget(forwardTargets[forwardAssigned]);
-                forwardAssigned++;
-            }
-            else
-            {
-                forwardDoor.gameObject.SetActive(false);
-            }
 
+            // REVISIT: use stored wall assignments
+            foreach (DungeonDoor forwardDoor in forwardDoors)
+            {
+                bool assigned = false;
+                foreach (var kvp in stored) //kvp --> KeyValuePair
+                {
+                    if (kvp.Value == forwardDoor.WallSide)
+                    {
+                        forwardDoor.gameObject.SetActive(true);
+                        forwardDoor.SetTarget(kvp.Key);
+                        assigned = true;
+                        break;
+                    }
+                }
+                if (!assigned)
+                {
+                    forwardDoor.gameObject.SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            // FIRST VISIT: assign sequentially, store mapping
+            Dictionary<int, WallSide> assignments = new Dictionary<int, WallSide>();
+            int forwardAssigned = 0;
+
+            foreach (DungeonDoor forwardDoor in forwardDoors)
+            {
+                if (backDoorWall.HasValue && forwardDoor.WallSide == backDoorWall.Value)
+                {
+                    forwardDoor.gameObject.SetActive(false);
+                    continue;
+                }
+
+                //no bottom door on Start room
+                if (dungeonData.Rooms[roomIndex].RoomType == RoomType.Start
+                    && forwardDoor.WallSide == WallSide.Bottom)
+                {
+                    forwardDoor.gameObject.SetActive(false);
+                    continue;
+                }
+
+                if (forwardAssigned < forwardTargets.Count)
+                {
+                    forwardDoor.gameObject.SetActive(true);
+                    forwardDoor.SetTarget(forwardTargets[forwardAssigned]);
+                    assignments[forwardTargets[forwardAssigned]] = forwardDoor.WallSide;
+                    forwardAssigned++;
+                }
+                else
+                {
+                    forwardDoor.gameObject.SetActive(false);
+                }
+            }
+            storedDoorAssignments[roomIndex] = assignments;
         }
     }
 
