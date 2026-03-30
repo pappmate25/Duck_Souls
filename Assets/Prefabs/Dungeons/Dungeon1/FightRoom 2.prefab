@@ -744,7 +744,7 @@ MonoBehaviour:
   RoomManager_onRoomCleared: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
   doorVisuals: {fileID: 139144382620531429}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}
-  unlockedColor: {r: 0, g: 1, b: 0, a: 1}
+  unlockedColor: {r: 1, g: 0, b: 0.6784314, a: 1}
 --- !u!1 &4575480325301386957
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +901,7 @@ MonoBehaviour:
   RoomManager_onRoomCleared: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
   doorVisuals: {fileID: 3907974724977867922}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}
-  unlockedColor: {r: 0, g: 1, b: 0, a: 1}
+  unlockedColor: {r: 1, g: 0, b: 0.6784314, a: 1}
 --- !u!1 &5515484872666215586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,7 +1058,7 @@ MonoBehaviour:
   RoomManager_onRoomCleared: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
   doorVisuals: {fileID: 3673119634613011009}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}
-  unlockedColor: {r: 0, g: 1, b: 0, a: 1}
+  unlockedColor: {r: 1, g: 0, b: 0.6784314, a: 1}
 --- !u!1 &6693875233700881036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,7 +1438,7 @@ MonoBehaviour:
   RoomManager_onRoomCleared: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
   doorVisuals: {fileID: 6339739120677343133}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}
-  unlockedColor: {r: 0, g: 1, b: 0, a: 1}
+  unlockedColor: {r: 1, g: 0, b: 0.6784314, a: 1}
 --- !u!1 &8968452569319964596
 GameObject:
   m_ObjectHideFlags: 0
