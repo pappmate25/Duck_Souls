@@ -35,6 +35,11 @@ public class PlayerController : MonoBehaviour
     private PlayerInteraction playerInteraction;
     private bool interactRequested;
 
+    //Choose weapon through Interaction
+    [SerializeField] private GameEventSO Spear_onSpearChoose;
+    [SerializeField] private GameEventSO Sword_onSwordChoose;
+    private bool isWeaponChoosed = false;
+
 
 
     private void Awake()
@@ -51,8 +56,6 @@ public class PlayerController : MonoBehaviour
         dodgeAction = playerInput.actions["Dodge"];
         attackAction = playerInput.actions["Attack"];
         interactAction = playerInput.actions["Interact"];
-
-        SetRangedOrMelee(character.Data.WeaponType);
     }
 
     private void OnEnable()
@@ -66,6 +69,9 @@ public class PlayerController : MonoBehaviour
         attackAction.canceled += OnAttackCancel;
 
         interactAction.performed += OnInteract;
+
+        Spear_onSpearChoose.Subscribe(SetRanged);
+        Sword_onSwordChoose.Subscribe(SetMelee);
     }
     private void OnDisable()
     {
@@ -78,6 +84,9 @@ public class PlayerController : MonoBehaviour
         attackAction.canceled -= OnAttackCancel;
 
         interactAction.performed -= OnInteract;
+
+        Spear_onSpearChoose.UnSubscribe(SetRanged);
+        Sword_onSwordChoose.UnSubscribe(SetMelee);
     }
 
     private void FixedUpdate()
@@ -87,7 +96,7 @@ public class PlayerController : MonoBehaviour
         {
             HandleMovement();
 
-            if(attackRequested)
+            if(attackRequested && isWeaponChoosed)
                 HandleAttack();
         }
 
@@ -135,8 +144,15 @@ public class PlayerController : MonoBehaviour
         interactRequested = false;
     }
 
-    public void SetRangedOrMelee(WeaponType weaponType)
+    private void SetRanged()
     {
-        isRanged = weaponType == WeaponType.Ranged;
+        isRanged = true;
+        isWeaponChoosed = true;
+    }
+
+    private void SetMelee()
+    {
+        isRanged = false;
+        isWeaponChoosed = true;
     }
 }

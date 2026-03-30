@@ -321,6 +321,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
   PlayerController_onStartAttack: {fileID: 11400000, guid: 3c215d2dc4353554292457c382577109, type: 2}
+  Spear_onSpearChoose: {fileID: 11400000, guid: 926af47137955f64085a3cb3257e9cff, type: 2}
+  Sword_onSwordChoose: {fileID: 11400000, guid: 21d8797a21303a54d8a7c6554c68d81e, type: 2}
 --- !u!114 &5444043488151404850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,6 +435,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   PlayerInteraction_onShowInteractUI: {fileID: 11400000, guid: 9aef925802c71654b89520581e2167e7, type: 2}
+  PlayerInteraction_onShowSpearUI: {fileID: 11400000, guid: 3727ab48044ecf4458eb6ce2633b8bbe, type: 2}
+  PlayerInteraction_onShowSwordUI: {fileID: 11400000, guid: efb7ab41ecbc9c44faf65d96d8829593, type: 2}
 --- !u!1 &5247917424298839590
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4465053184114985677}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Aim-rotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
