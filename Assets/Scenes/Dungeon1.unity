@@ -632,8 +632,7 @@ MonoBehaviour:
   dungeonData: {fileID: 11400000, guid: 575708a994ae7e045af3aeeb98d0d6c4, type: 2}
   dungeonProgress: {fileID: 11400000, guid: e2c6287708f5f0c45b23c405a5a09602, type: 2}
   DungeonManager_onDungeonCompleted: {fileID: 11400000, guid: 0f0bae1ba5a67b2459613b84717d89d6, type: 2}
-  PlayerDeathEvent: {fileID: 11400000, guid: 41b91e9c072b05943ac97a2d3f9fa3bb, type: 2}
-  DeathSummaryUI_onReturnToHub: {fileID: 11400000, guid: 945b828e82cdd8842bfc002dd78f7866, type: 2}
+  RoomManager_onRoomCleared: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
 --- !u!4 &1148162994
 Transform:
   m_ObjectHideFlags: 0

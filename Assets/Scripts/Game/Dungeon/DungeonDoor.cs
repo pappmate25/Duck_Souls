@@ -1,18 +1,36 @@
-using System.Runtime.CompilerServices;
-using Unity.Cinemachine;
 using UnityEngine;
-using static Unity.Collections.AllocatorManager;
+
+public enum DoorType
+{
+    Forward,
+    Back
+}
+
+public enum WallSide
+{
+    Top,
+    Bottom,
+    Left,
+    Right
+}
+
+
 
 public class DungeonDoor : MonoBehaviour
 {
-    [SerializeField] private int targetRoomIndex;
+    [SerializeField] private DoorType doorType;
+    [SerializeField] private WallSide wallSide;
     [SerializeField] private GameEventSO RoomManager_onRoomCleared;
     [SerializeField] private SpriteRenderer doorVisuals;
     [SerializeField] private Color lockedColor = Color.red;
     [SerializeField] private Color unlockedColor = Color.green;
 
     private DungeonManager dungeonManager;
+    private int targetRoomIndex;
     private bool isUnlocked;
+
+    public DoorType DoorType => doorType;
+    public WallSide WallSide => wallSide;
 
     private void Awake()
     {
@@ -29,6 +47,11 @@ public class DungeonDoor : MonoBehaviour
     private void OnDisable()
     {
         RoomManager_onRoomCleared.UnSubscribe(Unlock);
+    }
+
+    public void SetTarget(int roomIndex)
+    {
+        targetRoomIndex = roomIndex;
     }
 
     private void Unlock()
@@ -52,7 +75,8 @@ public class DungeonDoor : MonoBehaviour
         int layerIndex = LayerMask.NameToLayer("Player");
         if(other.gameObject.layer == layerIndex)
         {
-            dungeonManager.LoadRoom(targetRoomIndex);
+            // Tell DungeonManager which wall the player is exiting through
+            dungeonManager.LoadRoom(targetRoomIndex, wallSide);
         }
     }
 }
