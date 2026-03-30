@@ -34,7 +34,7 @@ public class ExitDoor : MonoBehaviour
     {
         if(doorVisual != null)
         {
-            doorVisual.color = isUnlocked ? lockedColor : unlockedColor;
+            doorVisual.color = isUnlocked ? unlockedColor : lockedColor;
         }
     }
 
