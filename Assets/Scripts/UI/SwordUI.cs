@@ -21,11 +21,11 @@ public class SwordUI : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerInteraction_onShowSwordUI.Subscribe(ToggleUI);
+        PlayerInteraction_onShowSwordUI.UnSubscribe(ToggleUI);
     }
 
     private void ToggleUI(bool activate)
     {
-        root.style.display = activate ? DisplayStyle.Flex : DisplayStyle.None;
+        root.style.display = activate? DisplayStyle.Flex : DisplayStyle.None;
     }
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class SpearUI : MonoBehaviour
@@ -22,7 +21,7 @@ public class SpearUI : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerInteraction_onShowSpearUI.Subscribe(ToggleUI);
+        PlayerInteraction_onShowSpearUI.UnSubscribe(ToggleUI);
     }
 
     private void ToggleUI(bool activate)
