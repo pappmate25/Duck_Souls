@@ -154,21 +154,25 @@ public class DungeonManager : MonoBehaviour
         //Handle room state
         bool alreadyCleared = clearedRooms.Contains(index);
 
-        if (roomData.RoomType == RoomType.Start || alreadyCleared)
+        if (alreadyCleared)
         {
-            //Debug.Log("DungeonManager LoadRoom Start Room: " + currentRoomInstance.gameObject.name);
             RoomManager roomManager = currentRoomInstance.GetComponent<RoomManager>();
             if (roomManager != null)
             {
                 roomManager.ClearImmediately();
             }
 
-            if (alreadyCleared)
+            SpawnEnemy spawner = currentRoomInstance.GetComponentInChildren<SpawnEnemy>();
+            if (spawner != null)
             {
-                SpawnEnemy spawner = currentRoomInstance.GetComponentInChildren<SpawnEnemy>();
-                if(spawner != null)
+                spawner.enabled = false;
+            }
+
+            if (roomData.RoomType == RoomType.Start)
+            {
+                foreach(var weapon in currentRoomInstance.GetComponentsInChildren<Weaponchoice>(true))
                 {
-                    spawner.enabled = false;
+                    (weapon as MonoBehaviour)?.gameObject.SetActive(false);
                 }
             }
         }

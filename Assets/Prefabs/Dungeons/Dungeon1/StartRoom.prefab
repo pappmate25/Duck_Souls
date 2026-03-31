@@ -926,6 +926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Weaponchoice
   Weaponchoice_onChooseThis: {fileID: 11400000, guid: 21d8797a21303a54d8a7c6554c68d81e, type: 2}
   Weaponchoice_onChooseOther: {fileID: 11400000, guid: 926af47137955f64085a3cb3257e9cff, type: 2}
+  RoomManager_onRoomCleared: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
 --- !u!1 &6088263662546885705
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,6 +976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Weaponchoice
   Weaponchoice_onChooseThis: {fileID: 11400000, guid: 926af47137955f64085a3cb3257e9cff, type: 2}
   Weaponchoice_onChooseOther: {fileID: 11400000, guid: 21d8797a21303a54d8a7c6554c68d81e, type: 2}
+  RoomManager_onRoomCleared: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
 --- !u!1 &7464639447795918045
 GameObject:
   m_ObjectHideFlags: 0
