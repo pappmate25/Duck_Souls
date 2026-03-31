@@ -64,13 +64,9 @@ public class DungeonSelectUI : MonoBehaviour
     {
         button.SetEnabled(!locked);
         if (locked)
-        {
             button.AddToClassList("locked");
-        }
         else
-        {
             button.RemoveFromClassList("locked");
-        }
     }
 
 

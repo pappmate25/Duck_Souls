@@ -24,6 +24,7 @@ public class DungeonDoor : MonoBehaviour
     [SerializeField] private SpriteRenderer doorVisuals;
     [SerializeField] private Color lockedColor = Color.red;
     [SerializeField] private Color unlockedColor = Color.green;
+    [SerializeField] private Color unlockedBossDoorColor = Color.black;
 
     private DungeonManager dungeonManager;
     private int targetRoomIndex;
@@ -52,6 +53,12 @@ public class DungeonDoor : MonoBehaviour
     public void SetTarget(int roomIndex)
     {
         targetRoomIndex = roomIndex;
+    }
+
+    public void SetAsBossDoor()
+    {
+        unlockedColor = unlockedBossDoorColor;
+        UpdateVisual();
     }
 
     private void Unlock()

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.Cinemachine;
 using UnityEngine;
 
 public class DungeonManager : MonoBehaviour
@@ -230,22 +229,25 @@ public class DungeonManager : MonoBehaviour
         // --- Configure forward doors ---
         if (storedDoorAssignments.TryGetValue(roomIndex, out var stored))
         {
+            // Build wall --> target lookup once
+            Dictionary<WallSide, int> wallToTarget = new Dictionary<WallSide, int>();
+            foreach (var kvp in stored)
+                wallToTarget[kvp.Value] = kvp.Key;
 
-            // REVISIT: use stored wall assignments
+            // Then for each door:
             foreach (DungeonDoor forwardDoor in forwardDoors)
             {
-                bool assigned = false;
-                foreach (var kvp in stored) //kvp --> KeyValuePair
+                if (wallToTarget.TryGetValue(forwardDoor.WallSide, out int target))
                 {
-                    if (kvp.Value == forwardDoor.WallSide)
+                    forwardDoor.gameObject.SetActive(true);
+                    forwardDoor.SetTarget(target);
+
+                    if (dungeonData.Rooms[target].RoomType == RoomType.Boss)
                     {
-                        forwardDoor.gameObject.SetActive(true);
-                        forwardDoor.SetTarget(kvp.Key);
-                        assigned = true;
-                        break;
+                        forwardDoor.SetAsBossDoor();
                     }
                 }
-                if (!assigned)
+                else
                 {
                     forwardDoor.gameObject.SetActive(false);
                 }
@@ -277,6 +279,10 @@ public class DungeonManager : MonoBehaviour
                 {
                     forwardDoor.gameObject.SetActive(true);
                     forwardDoor.SetTarget(forwardTargets[forwardAssigned]);
+                    if (dungeonData.Rooms[forwardTargets[forwardAssigned]].RoomType == RoomType.Boss)
+                    {
+                        forwardDoor.SetAsBossDoor();
+                    }
                     assignments[forwardTargets[forwardAssigned]] = forwardDoor.WallSide;
                     forwardAssigned++;
                 }
