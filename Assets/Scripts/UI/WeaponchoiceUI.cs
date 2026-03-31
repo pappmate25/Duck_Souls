@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class SwordUI : MonoBehaviour
+public class WeaponchoiceUI : MonoBehaviour
 {
-    [SerializeField] private GameEventBoolSO PlayerInteraction_onShowSwordUI;
+    [SerializeField] private GameEventBoolSO WeaponchoiceUI_onShowUI;
 
     private VisualElement root;
 
@@ -16,16 +16,16 @@ public class SwordUI : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerInteraction_onShowSwordUI.Subscribe(ToggleUI);
+        WeaponchoiceUI_onShowUI.Subscribe(ToggleUI);
     }
 
     private void OnDisable()
     {
-        PlayerInteraction_onShowSwordUI.UnSubscribe(ToggleUI);
+        WeaponchoiceUI_onShowUI.UnSubscribe(ToggleUI);
     }
 
     private void ToggleUI(bool activate)
     {
-        root.style.display = activate? DisplayStyle.Flex : DisplayStyle.None;
+        root.style.display = activate ? DisplayStyle.Flex : DisplayStyle.None;
     }
 }

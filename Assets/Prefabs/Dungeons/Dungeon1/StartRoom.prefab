@@ -209,6 +209,7 @@ MonoBehaviour:
   doorVisuals: {fileID: 5732645239182841993}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}
   unlockedColor: {r: 0, g: 1, b: 0, a: 1}
+  unlockedBossDoorColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &196852770030707521
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6503606108272908014}
   - component: {fileID: 2675911482159109208}
-  - component: {fileID: 3956505535335848404}
+  - component: {fileID: 135012357626038106}
   m_Layer: 5
   m_Name: SwordUI
   m_TagString: Untagged
@@ -465,7 +466,7 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
---- !u!114 &3956505535335848404
+--- !u!114 &135012357626038106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -474,10 +475,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2763001138241436591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b47228c80c3574f8ef73709bc8c089, type: 3}
+  m_Script: {fileID: 11500000, guid: 6864bdb51253a8247b67c9f8be7f6a5a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwordUI
-  PlayerInteraction_onShowSwordUI: {fileID: 11400000, guid: efb7ab41ecbc9c44faf65d96d8829593, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponchoiceUI
+  WeaponchoiceUI_onShowUI: {fileID: 11400000, guid: efb7ab41ecbc9c44faf65d96d8829593, type: 2}
 --- !u!1 &2844224464975620979
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,6 +636,7 @@ MonoBehaviour:
   doorVisuals: {fileID: 9008597452791515143}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}
   unlockedColor: {r: 0, g: 1, b: 0, a: 1}
+  unlockedBossDoorColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &2885827681506749052
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,7 +715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 236742443269701724}
   - component: {fileID: 7713645328541688134}
-  - component: {fileID: 3873591507141094530}
+  - component: {fileID: 4670273297517186673}
   m_Layer: 5
   m_Name: SpearUI
   m_TagString: Untagged
@@ -759,7 +761,7 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
---- !u!114 &3873591507141094530
+--- !u!114 &4670273297517186673
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -768,10 +770,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3325623844771693562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b47228c80c3574f8ef73709bc8c089, type: 3}
+  m_Script: {fileID: 11500000, guid: 6864bdb51253a8247b67c9f8be7f6a5a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwordUI
-  PlayerInteraction_onShowSwordUI: {fileID: 11400000, guid: 3727ab48044ecf4458eb6ce2633b8bbe, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponchoiceUI
+  WeaponchoiceUI_onShowUI: {fileID: 11400000, guid: 3727ab48044ecf4458eb6ce2633b8bbe, type: 2}
 --- !u!1 &3685675894348115475
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,7 +886,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2966284782617256644}
-  - component: {fileID: 7698123133000874514}
+  - component: {fileID: 3501573529657096695}
   m_Layer: 11
   m_Name: Sword
   m_TagString: Untagged
@@ -910,7 +912,7 @@ Transform:
   - {fileID: 6503606108272908014}
   m_Father: {fileID: 8298332108807076513}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7698123133000874514
+--- !u!114 &3501573529657096695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -919,11 +921,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5867642242067973005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99c822043728f694aa4e538a74d4f41e, type: 3}
+  m_Script: {fileID: 11500000, guid: d43bb2436901b4747bea1cf41ed068e2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Sword
-  Sword_onSwordChoose: {fileID: 11400000, guid: 21d8797a21303a54d8a7c6554c68d81e, type: 2}
-  Spear_onSpearChoose: {fileID: 11400000, guid: 926af47137955f64085a3cb3257e9cff, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Weaponchoice
+  Weaponchoice_onChooseThis: {fileID: 11400000, guid: 21d8797a21303a54d8a7c6554c68d81e, type: 2}
+  Weaponchoice_onChooseOther: {fileID: 11400000, guid: 926af47137955f64085a3cb3257e9cff, type: 2}
 --- !u!1 &6088263662546885705
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,7 +935,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3329111480789004072}
-  - component: {fileID: 5604474776767554182}
+  - component: {fileID: 3767815893842508724}
   m_Layer: 10
   m_Name: Spear
   m_TagString: Untagged
@@ -959,7 +961,7 @@ Transform:
   - {fileID: 236742443269701724}
   m_Father: {fileID: 8298332108807076513}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5604474776767554182
+--- !u!114 &3767815893842508724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -968,11 +970,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6088263662546885705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 365a95f30e3b4364781b60e985897ff4, type: 3}
+  m_Script: {fileID: 11500000, guid: d43bb2436901b4747bea1cf41ed068e2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Spear
-  Spear_onSpearChoose: {fileID: 11400000, guid: 926af47137955f64085a3cb3257e9cff, type: 2}
-  Sword_onSwordChoose: {fileID: 11400000, guid: 21d8797a21303a54d8a7c6554c68d81e, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Weaponchoice
+  Weaponchoice_onChooseThis: {fileID: 11400000, guid: 926af47137955f64085a3cb3257e9cff, type: 2}
+  Weaponchoice_onChooseOther: {fileID: 11400000, guid: 21d8797a21303a54d8a7c6554c68d81e, type: 2}
 --- !u!1 &7464639447795918045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,6 +1132,7 @@ MonoBehaviour:
   doorVisuals: {fileID: 7823182175523311486}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}
   unlockedColor: {r: 0, g: 1, b: 0, a: 1}
+  unlockedBossDoorColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &8588405091886217730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,6 +1381,7 @@ MonoBehaviour:
   doorVisuals: {fileID: 6092441346253056790}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}
   unlockedColor: {r: 0, g: 1, b: 0, a: 1}
+  unlockedBossDoorColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &9090223312983656904
 GameObject:
   m_ObjectHideFlags: 0

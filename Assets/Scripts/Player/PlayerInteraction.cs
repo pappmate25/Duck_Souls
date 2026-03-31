@@ -9,11 +9,18 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private GameEventBoolSO PlayerInteraction_onShowSpearUI;
     [SerializeField] private GameEventBoolSO PlayerInteraction_onShowSwordUI;
 
+    private int spearLayerIndex;
+    private int swordLayerIndex;
+
+    private void Awake()
+    {
+        spearLayerIndex = LayerMask.NameToLayer("Spear");
+        swordLayerIndex = LayerMask.NameToLayer("Sword");
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         IInteractable interactable = other.GetComponentInParent<IInteractable>();
-        int spearLayerIndex = LayerMask.NameToLayer("Spear");
-        int swordLayerIndex = LayerMask.NameToLayer("Sword");
 
         if (interactable != null)
         {
@@ -39,8 +46,6 @@ public class PlayerInteraction : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         IInteractable interactable = other.GetComponentInParent<IInteractable>();
-        int spearLayerIndex = LayerMask.NameToLayer("Spear");
-        int swordLayerIndex = LayerMask.NameToLayer("Sword");
 
         if (interactable == currentInteractable && currentInteractable != null)
         {
