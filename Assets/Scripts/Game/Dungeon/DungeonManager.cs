@@ -140,12 +140,7 @@ public class DungeonManager : MonoBehaviour
         Debug.Log("jelenleg szoba: " + currentRoomInstance.gameObject.name);
 
         //Set player to SpawnPoint
-        Transform spawnPoint = currentRoomInstance.transform.Find("PlayerSpawnPoint");
-        if (spawnPoint != null)
-        {
-            playerTransform.position = spawnPoint.position;
-        }
-
+        playerTransform.position = GetSpawnPosition(entryWall);
 
         // Configure doors based on generated layout
         ConfigureDoors(index, entryWall);
@@ -176,6 +171,20 @@ public class DungeonManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    private Vector2 GetSpawnPosition(WallSide? entrywall)
+    {
+        if (!entrywall.HasValue) return Vector2.zero;
+
+        return entrywall.Value switch
+        {
+            WallSide.Left => new Vector2(25f, 0f),
+            WallSide.Right => new Vector2(-25f, 0),
+            WallSide.Top => new Vector2(0f, -25f),
+            WallSide.Bottom => new Vector2(0f, 25f),
+            _ => Vector2.zero,
+        };
     }
 
     private void ConfigureDoors(int roomIndex, WallSide? entryWall)
@@ -262,6 +271,15 @@ public class DungeonManager : MonoBehaviour
             // FIRST VISIT: assign sequentially, store mapping
             Dictionary<int, WallSide> assignments = new Dictionary<int, WallSide>();
             int forwardAssigned = 0;
+
+
+            // Shuffle forward doors so active doors are randomized
+            for (int i = forwardDoors.Count - 1; i > 0; i--)
+            {
+                int j = Random.Range(0, i + 1);
+                (forwardDoors[i], forwardDoors[j]) = (forwardDoors[j], forwardDoors[i]);
+            }
+
 
             foreach (DungeonDoor forwardDoor in forwardDoors)
             {
