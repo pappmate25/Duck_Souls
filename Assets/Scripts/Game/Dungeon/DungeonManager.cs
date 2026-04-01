@@ -73,7 +73,8 @@ public class DungeonManager : MonoBehaviour
         while (remaining.Count > 0)
         {
             int maxChildren = Mathf.Min(remaining.Count, 3);
-            int childCount = Random.Range(1, maxChildren + 1);
+            //push StartRoom towards less doors
+            int childCount = Mathf.Min(Random.Range(1, maxChildren + 1), Random.Range(1, maxChildren + 1));
 
             List<int> children = new List<int>();
             for (int i = 0; i < childCount; i++)
