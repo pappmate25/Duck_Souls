@@ -58,6 +58,7 @@ public class SpawnEnemy : MonoBehaviour
 
         Vector2 spawnPoint = randomDirection * randomRadius;
         
-        return  (Vector2)playerLocation.position + spawnPoint;
+        //return  (Vector2)playerLocation.position + spawnPoint;
+        return  Vector2.zero + spawnPoint;
     }
 }
