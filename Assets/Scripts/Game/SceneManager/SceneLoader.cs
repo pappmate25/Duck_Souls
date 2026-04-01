@@ -8,8 +8,10 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private DungeonProgressSO dungeonProgress;
 
     [Header("Events")]
+    [SerializeField] private GameEventSO NewGameWarningPopup_onStartGame;
+
     //MainMenuUIController
-    [SerializeField] private GameEventSO MainMenuUIController_onStartGame;
+    [SerializeField] private GameEventSO MainMenuUIController_onContinueGame;
     [SerializeField] private GameEventSO MainMenuUIController_onExitGame;
 
     //DungeonSelectUI
@@ -24,7 +26,9 @@ public class SceneLoader : MonoBehaviour
 
     private void OnEnable()
     {
-        MainMenuUIController_onStartGame.Subscribe(StartGame);
+        NewGameWarningPopup_onStartGame.Subscribe(StartGame);
+
+        MainMenuUIController_onContinueGame.Subscribe(ContinueGame);
         MainMenuUIController_onExitGame.Subscribe(ExitGame);
 
         DungeonSelectUI_onDungeonSelect.Subscribe(LoadDungeon);
@@ -37,7 +41,8 @@ public class SceneLoader : MonoBehaviour
 
     private void OnDisable()
     {
-        MainMenuUIController_onStartGame.UnSubscribe(StartGame);
+        NewGameWarningPopup_onStartGame.UnSubscribe(StartGame);
+        MainMenuUIController_onContinueGame.UnSubscribe(ContinueGame);
         MainMenuUIController_onExitGame.UnSubscribe(ExitGame);
 
         DungeonSelectUI_onDungeonSelect.UnSubscribe(LoadDungeon);
@@ -51,6 +56,12 @@ public class SceneLoader : MonoBehaviour
     private void StartGame()
     {
         dungeonProgress.ResetAllProgress();
+        SceneManager.LoadScene(sceneData.HubScene);
+    }
+
+    private void ContinueGame()
+    {
+        dungeonProgress.LoadProgress();
         SceneManager.LoadScene(sceneData.HubScene);
     }
 

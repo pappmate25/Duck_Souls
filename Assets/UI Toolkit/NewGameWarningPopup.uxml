@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="background" style="position: absolute; width: 960px; height: 540px; top: 270px; align-self: center; background-color: rgba(0, 0, 0, 0.98);">
+        <ui:Label text="All progression will be lost.&#10;Are you sure you want to proceed?" name="warning-label" style="position: absolute; align-self: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; color: rgb(255, 255, 255); -unity-text-align: middle-center; font-size: 45px; top: 150px; height: 120px;"/>
+        <ui:Button text="Cancel" name="warning-cancel-button" style="position: absolute; top: 360px; left: 240px; width: 120px; height: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 25px; color: rgb(0, 0, 0); -unity-font-style: bold;"/>
+        <ui:Button text="Confirm" name="warning-confirm-button" style="position: absolute; top: 360px; left: auto; width: 120px; height: 60px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 25px; color: rgb(0, 0, 0); -unity-font-style: bold; right: 240px;"/>
+    </ui:VisualElement>
+</ui:UXML>

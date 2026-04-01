@@ -1,8 +1,8 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=368b4281cdd40d64eaae542ed2f13e33&amp;type=3#MainMenuStyle"/>
+    <Style src="project://database/Assets/UI%20Toolkit/MenuStyle.uss?fileID=7433441132597879392&amp;guid=368b4281cdd40d64eaae542ed2f13e33&amp;type=3#MenuStyle"/>
     <ui:VisualElement name="Background" style="background-color: rgba(0, 0, 0, 0.59); position: absolute; width: 100%; height: 100%;"/>
     <ui:Label text="Duck Duck Duck" name="game-title-label" class="main-title-label"/>
-    <ui:Button text="Start" name="start-game-button" class="buttons" style="bottom: 390px;"/>
-    <ui:Button text="Options" name="options-button" class="buttons" style="bottom: 270px;"/>
+    <ui:Button text="New Game" name="start-game-button" class="buttons" style="bottom: 390px;"/>
+    <ui:Button text="Continue" name="continue-game-button" class="buttons" style="bottom: 270px;"/>
     <ui:Button text="Exit" name="exit-game-button" class="buttons"/>
 </ui:UXML>

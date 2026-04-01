@@ -119,6 +119,79 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &31506478
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 230780962}
+    m_Modifications:
+    - target: {fileID: 2811166248286265289, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+      propertyPath: m_Name
+      value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712929744376409668, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.50791
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712929744376409668, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.07425
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712929744376409668, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712929744376409668, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712929744376409668, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712929744376409668, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712929744376409668, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712929744376409668, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712929744376409668, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712929744376409668, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+--- !u!114 &31506479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6734477564443435546, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+  m_PrefabInstance: {fileID: 31506478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f03a3dd2cf2da24595de0dfd045962e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+--- !u!4 &31506480 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4712929744376409668, guid: 211b9fe4c51dfdd4b82d87c1eb86c46a, type: 3}
+  m_PrefabInstance: {fileID: 31506478}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &230780961
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,9 +221,82 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 31506480}
+  - {fileID: 293737878}
   - {fileID: 1144108198}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &293737876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 293737878}
+  - component: {fileID: 293737877}
+  - component: {fileID: 293737879}
+  m_Layer: 5
+  m_Name: Warning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &293737877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293737876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 243f62c2bf0b7bc42b0e05d228af9a3c, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 860eb5871ccea774c9fad2676c02ed60, type: 3}
+  m_SortingOrder: 1
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &293737878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293737876}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 230780962}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &293737879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293737876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f83edc0d364044b876930b7add13df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewGameWarningPopup
+  NewGameWarningPopup_onStartGame: {fileID: 11400000, guid: 25f869a8f91212744810830f61103bb4, type: 2}
+  MainMenuUIController_onStartGame: {fileID: 11400000, guid: 0b01e485e7791be489a8d7c3f729c1f3, type: 2}
+  uiManager: {fileID: 31506479}
 --- !u!1 &1144108196
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,8 +365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85ff33649e9f244ca5f289a860b3ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
-  MainMenuUIController_onStartGame: {fileID: 11400000, guid: 25f869a8f91212744810830f61103bb4, type: 2}
-  MainMenuUIController_onOptions: {fileID: 11400000, guid: 482c3aca87abb1e4f9a677450911d661, type: 2}
+  MainMenuUIController_onStartGame: {fileID: 11400000, guid: 0b01e485e7791be489a8d7c3f729c1f3, type: 2}
+  MainMenuUIController_onContinueGame: {fileID: 11400000, guid: 482c3aca87abb1e4f9a677450911d661, type: 2}
   MainMenuUIController_onExitGame: {fileID: 11400000, guid: c79530a41b41d9c4085641b9b102cc5a, type: 2}
 --- !u!1 &1284810496
 GameObject:
@@ -502,6 +648,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3705332033934683687, guid: 16da4251eaf859143b250bb76551304d, type: 3}
+      propertyPath: NewGameWarningPopup_onStartGame
+      value: 
+      objectReference: {fileID: 11400000, guid: 25f869a8f91212744810830f61103bb4, type: 2}
     - target: {fileID: 5728982969746577343, guid: 16da4251eaf859143b250bb76551304d, type: 3}
       propertyPath: m_Name
       value: SceneController
