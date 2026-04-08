@@ -555,6 +555,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DungeonManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4755638398441428658, guid: a979347ff25f42348b821185a2cbc8b6, type: 3}
+      propertyPath: dungeonData
+      value: 
+      objectReference: {fileID: 11400000, guid: c89efe2754ab4bc439951625112d8b52, type: 2}
     - target: {fileID: 7334259048046729949, guid: a979347ff25f42348b821185a2cbc8b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.50791
