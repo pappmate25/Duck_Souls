@@ -44,7 +44,6 @@ public class RoomManager : MonoBehaviour
             if (isBossRoom)
             {
                 DungeonManager_onDungeonCompleted.Invoke();
-                print("boss dead, dungeon completed");
             }
         }
     }

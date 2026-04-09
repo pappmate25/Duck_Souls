@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Wave 1
   m_EditorClassIdentifier: Assembly-CSharp::WaveSO
   enemyPrefabs:
-  - {fileID: 4149669099040673152, guid: 9b08bbf679afd754bbf58ac26147df6f, type: 3}
-  - {fileID: 4149669099040673152, guid: 9b08bbf679afd754bbf58ac26147df6f, type: 3}
-  - {fileID: 4149669099040673152, guid: 9b08bbf679afd754bbf58ac26147df6f, type: 3}
-  - {fileID: 4149669099040673152, guid: 9b08bbf679afd754bbf58ac26147df6f, type: 3}
-  - {fileID: 4149669099040673152, guid: 9b08bbf679afd754bbf58ac26147df6f, type: 3}
+  - {fileID: 7707540380139625195, guid: 6ba4725293625fd42be4dd516982030a, type: 3}
+  - {fileID: 7707540380139625195, guid: 6ba4725293625fd42be4dd516982030a, type: 3}
+  - {fileID: 7707540380139625195, guid: 6ba4725293625fd42be4dd516982030a, type: 3}
+  - {fileID: 7707540380139625195, guid: 6ba4725293625fd42be4dd516982030a, type: 3}
+  - {fileID: 7707540380139625195, guid: 6ba4725293625fd42be4dd516982030a, type: 3}
   delayBetweenEnemySpawn: 0.2
