@@ -10,7 +10,7 @@ public class RangedAttack : BaseAttack
     private AimTowardsPlayer aimTowardsPlayer;
 
     //bullet pool
-    private int poolSize = 8;
+    private int poolSize = 15;
     private Queue<GameObject> pool = new Queue<GameObject>();
 
     protected override void Awake()
