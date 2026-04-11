@@ -1,26 +1,8 @@
-.main-title-label {
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    font-size: 100px;
-    color: rgb(190, 0, 0);
-    -unity-text-align: middle-center;
-    position: absolute;
-    -unity-font-style: bold;
-    top: 80px;
-    align-self: center;
-}
-
 .buttons {
     position: absolute;
     bottom: 150px;
-    width: 400px;
-    height: 80px;
+    width: 451.5px;
+    height: 89px;
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;
@@ -31,10 +13,37 @@
     padding-left: 0;
     font-size: 42px;
     -unity-text-align: middle-center;
-    background-color: rgb(255, 255, 255);
     left: 120px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+    background-position-y: top 4px;
 }
 
-.buttons:active {
-    background-color: rgb(190, 0, 0);
+.newgame {
+    background-image: url("project://database/Assets/Sprites/NewGameButton-inactive.png?fileID=2800000&guid=eb8b155909fe8984fa411e0c9929caa9&type=3#NewGameButton-inactive");
+}
+
+.newgame:hover {
+    background-image: url("project://database/Assets/Sprites/NewGameButton-active.png?fileID=2800000&guid=e7a7a6dac7e3f8f4fa92117115a0d8ed&type=3#NewGameButton-active");
+}
+
+.continue {
+    background-image: url("project://database/Assets/Sprites/ContinueGameButton-inactive.png?fileID=2800000&guid=fcd10abd974774a4f87c6a0d97dff6cc&type=3#ContinueGameButton-inactive");
+}
+
+.continue:hover {
+}
+
+.exit {
+    background-image: url("project://database/Assets/Sprites/ExitGameButton-inactive.png?fileID=2800000&guid=1ce36a9681814714cb277c9ed5feb60f&type=3#ExitGameButton-inactive");
+}
+
+.exit:hover {
 }

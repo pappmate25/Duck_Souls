@@ -1,8 +1,9 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MenuStyle.uss?fileID=7433441132597879392&amp;guid=368b4281cdd40d64eaae542ed2f13e33&amp;type=3#MenuStyle"/>
-    <ui:VisualElement name="Background" style="background-color: rgba(0, 0, 0, 0.59); position: absolute; width: 100%; height: 100%;"/>
-    <ui:Label text="Duck Duck Duck" name="game-title-label" class="main-title-label"/>
-    <ui:Button text="New Game" name="start-game-button" class="buttons" style="bottom: 390px;"/>
-    <ui:Button text="Continue" name="continue-game-button" class="buttons" style="bottom: 270px;"/>
-    <ui:Button text="Exit" name="exit-game-button" class="buttons"/>
+    <ui:VisualElement name="Background" style="background-color: rgba(0, 0, 0, 0); position: absolute; width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Sprites/MainMenuBackground.png?fileID=2800000&amp;guid=389087893592b7b4a81a819aa4fe9170&amp;type=3#MainMenuBackground&quot;);">
+        <ui:VisualElement name="main-title" style="background-image: url(&quot;project://database/Assets/Sprites/MainTitle.png?fileID=2800000&amp;guid=ac01c4ae407229b4eab33d3eafd0c471&amp;type=3#MainTitle&quot;); width: 545px; height: 285px; position: absolute; top: 244px; left: 687.5px;"/>
+    </ui:VisualElement>
+    <ui:Button text="" name="start-game-button" class="newgame buttons" style="bottom: 390px;"/>
+    <ui:Button text="" name="continue-game-button" class="buttons continue" style="bottom: 270px;"/>
+    <ui:Button text="" name="exit-game-button" class="buttons exit"/>
 </ui:UXML>
