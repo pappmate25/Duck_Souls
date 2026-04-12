@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d34fe733881ac4bb5fa65da35fe822, type: 3}
   m_Name: D3 BossData
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDataSO
-  hp: 300
+  hp: 600
   level: 0
   exp: 0
   moveSpeed: 6

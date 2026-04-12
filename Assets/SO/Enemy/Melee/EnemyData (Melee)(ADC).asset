@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d34fe733881ac4bb5fa65da35fe822, type: 3}
   m_Name: EnemyData (Melee)(ADC)
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDataSO
-  hp: 100
+  hp: 125
   level: 1
   exp: 0
-  moveSpeed: 5
+  moveSpeed: 10
   weaponType: 1

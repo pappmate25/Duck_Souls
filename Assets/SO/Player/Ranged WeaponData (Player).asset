@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa68d188e8b5c846a5edc2d22e288c0, type: 3}
   m_Name: Ranged WeaponData (Player)
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
-  damage: 25
+  damage: 15
   attackRate: 0.25
   projectileSpeed: 40
   projectileLifespan: 1

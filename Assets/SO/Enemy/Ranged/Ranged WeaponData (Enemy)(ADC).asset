@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa68d188e8b5c846a5edc2d22e288c0, type: 3}
   m_Name: Ranged WeaponData (Enemy)(ADC)
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
-  damage: 2
-  attackRate: 0.2
+  damage: 5
+  attackRate: 0.15
   projectileSpeed: 25
   projectileLifespan: 2
   weaponType: 0
