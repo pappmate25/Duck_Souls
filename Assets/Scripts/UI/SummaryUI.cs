@@ -15,6 +15,7 @@ public class SummaryUI : MonoBehaviour
 
     private VisualElement root;
     private Label killCountLabel;
+    private Label runResultLabel;
     private Label continueLabel;
     private float pulseDirection = -1f;
     private float opacity = 1f;
@@ -31,6 +32,7 @@ public class SummaryUI : MonoBehaviour
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         killCountLabel = root.Q<Label>("kill-count-label");
+        runResultLabel = root.Q<Label>("run-result-label");
         continueLabel = root.Q<Label>("continue-label");
         root.style.display = DisplayStyle.None;
 
@@ -42,8 +44,8 @@ public class SummaryUI : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerDeathEvent.Subscribe(ShowSummary);
-        ExitDoor_onReturnToHub.Subscribe(ShowSummary);
+        PlayerDeathEvent.Subscribe(OnDeathSummary);
+        ExitDoor_onReturnToHub.Subscribe(OnDungeonCompletionSummary);
 
         EnemyDeathEvent.Subscribe(OnEnemyKilled);
 
@@ -52,8 +54,8 @@ public class SummaryUI : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerDeathEvent.UnSubscribe(ShowSummary);
-        ExitDoor_onReturnToHub.UnSubscribe(ShowSummary);
+        PlayerDeathEvent.UnSubscribe(OnDeathSummary);
+        ExitDoor_onReturnToHub.UnSubscribe(OnDungeonCompletionSummary);
 
         EnemyDeathEvent.UnSubscribe(OnEnemyKilled);
 
@@ -71,6 +73,18 @@ public class SummaryUI : MonoBehaviour
     private void OnEnemyKilled()
     {
         enemiesKilled++;
+    }
+
+    private void OnDeathSummary()
+    {
+        runResultLabel.text = $"You Died";
+        ShowSummary();
+    }
+
+    private void OnDungeonCompletionSummary()
+    {
+        runResultLabel.text = $"Dungeon Completed";
+        ShowSummary();
     }
 
     private void ShowSummary()
