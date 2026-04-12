@@ -15,5 +15,5 @@ MonoBehaviour:
   hp: 100
   level: 1
   exp: 0
-  moveSpeed: 2
+  moveSpeed: 3
   weaponType: 0
