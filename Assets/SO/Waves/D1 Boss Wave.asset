@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: D1 Boss Wave
   m_EditorClassIdentifier: Assembly-CSharp::WaveSO
   enemyPrefabs:
-  - {fileID: 6068786130715855196, guid: 6de370fb093528c459bdba31cc3d1dcc, type: 3}
+  - {fileID: 3926274879168847189, guid: dbf3c7b56ff80b24099e33715f430b7e, type: 3}
   delayBetweenEnemySpawn: 0.25
