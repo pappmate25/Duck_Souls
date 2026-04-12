@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4869759973830758886}
   - component: {fileID: 2010750653581998523}
   m_Layer: 0
-  m_Name: D1 FightRoom 3
+  m_Name: D3 FightRoom 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemy
   waveSO:
-  - {fileID: 11400000, guid: e2ff2be86a31b714ca2e0f44c5bf8ddf, type: 2}
+  - {fileID: 11400000, guid: 0847fab1813ef5242b5fbbfcf30477c6, type: 2}
 --- !u!1 &1026175111173449287
 GameObject:
   m_ObjectHideFlags: 0

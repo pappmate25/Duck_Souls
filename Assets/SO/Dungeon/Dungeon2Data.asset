@@ -25,5 +25,7 @@ MonoBehaviour:
     roomPrefab: {fileID: 49928247921156905, guid: c69415161497e0144899cd043ec2149a, type: 3}
   - roomType: 1
     roomPrefab: {fileID: 49928247921156905, guid: 41d2a940cec2daa4c91802430295f25e, type: 3}
+  - roomType: 1
+    roomPrefab: {fileID: 49928247921156905, guid: c276b50b84ef34d41b33e46f97467108, type: 3}
   - roomType: 2
     roomPrefab: {fileID: 49928247921156905, guid: e666e7e812ef6d54198fe9cbf1e66051, type: 3}

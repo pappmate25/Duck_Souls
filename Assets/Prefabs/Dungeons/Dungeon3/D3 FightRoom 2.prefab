@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemy
   waveSO:
-  - {fileID: 11400000, guid: 285c9f349bbdfc7499b696cb861c014d, type: 2}
+  - {fileID: 11400000, guid: aac9c55c92c2e74478d4704f71326da9, type: 2}
 --- !u!1 &1026175111173449287
 GameObject:
   m_ObjectHideFlags: 0
