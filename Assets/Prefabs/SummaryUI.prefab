@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6274015884891094302}
   - component: {fileID: 5029115891936167397}
   - component: {fileID: 8694684641810699291}
+  - component: {fileID: -3366595607179468017}
   m_Layer: 0
   m_Name: SummaryUI
   m_TagString: Untagged
@@ -74,3 +75,18 @@ MonoBehaviour:
   SummaryUI_onReturnToHub: {fileID: 11400000, guid: 945b828e82cdd8842bfc002dd78f7866, type: 2}
   SummaryUI_onOpenSummary: {fileID: 11400000, guid: 4c293d82f411c3f4982452125ba6c775, type: 2}
   ExitDoor_onReturnToHub: {fileID: 11400000, guid: 68bc42981509546439f11d8cbfa7ef2d, type: 2}
+--- !u!114 &-3366595607179468017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988108164054118430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a925955fad905447b425df1bd542c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SummaryStopper
+  DungeonSelectUI_onDungeonSelect: {fileID: 11400000, guid: f032fbe7e05ed9f4e8784bf861f85f27, type: 2}
+  ExitDoor_onReturnToHub: {fileID: 11400000, guid: 68bc42981509546439f11d8cbfa7ef2d, type: 2}
+  PlayerDeathEvent: {fileID: 11400000, guid: 41b91e9c072b05943ac97a2d3f9fa3bb, type: 2}
