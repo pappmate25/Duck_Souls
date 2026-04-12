@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fa68d188e8b5c846a5edc2d22e288c0, type: 3}
-  m_Name: Ranged WeaponData (Player)
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
-  damage: 150
-  attackRate: 0.25
-  projectileSpeed: 40
-  projectileLifespan: 1
-  weaponType: 0
+  m_Script: {fileID: 11500000, guid: 947c7358f3fc3264e94822baa1165163, type: 3}
+  m_Name: ExitDoorEvent
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventSO

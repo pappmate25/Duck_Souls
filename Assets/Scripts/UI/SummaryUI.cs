@@ -2,15 +2,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-public class DeathSummaryUI : MonoBehaviour
+public class SummaryUI : MonoBehaviour
 {
     [SerializeField] private UIManager uiManager;
 
     [Header("Events")]
     [SerializeField] private GameEventSO PlayerDeathEvent;
     [SerializeField] private GameEventSO EnemyDeathEvent;
-    [SerializeField] private GameEventSO DeathSummaryUI_onReturnToHub;
-    [SerializeField] private GameEventSO DeathSummaryUI_onOpenSummary;
+    [SerializeField] private GameEventSO SummaryUI_onReturnToHub;
+    [SerializeField] private GameEventSO SummaryUI_onOpenSummary;
+    [SerializeField] private GameEventSO ExitDoor_onReturnToHub;
 
     private VisualElement root;
     private Label killCountLabel;
@@ -41,7 +42,9 @@ public class DeathSummaryUI : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerDeathEvent.Subscribe(ShowDeathSummary);
+        PlayerDeathEvent.Subscribe(ShowSummary);
+        ExitDoor_onReturnToHub.Subscribe(ShowSummary);
+
         EnemyDeathEvent.Subscribe(OnEnemyKilled);
 
         closeSummaryAction.performed += CloseSummary;
@@ -49,7 +52,9 @@ public class DeathSummaryUI : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerDeathEvent.UnSubscribe(ShowDeathSummary);
+        PlayerDeathEvent.UnSubscribe(ShowSummary);
+        ExitDoor_onReturnToHub.UnSubscribe(ShowSummary);
+
         EnemyDeathEvent.UnSubscribe(OnEnemyKilled);
 
         closeSummaryAction.performed -= CloseSummary;
@@ -68,7 +73,7 @@ public class DeathSummaryUI : MonoBehaviour
         enemiesKilled++;
     }
 
-    private void ShowDeathSummary()
+    private void ShowSummary()
     {
         isActive = true;
 
@@ -77,7 +82,7 @@ public class DeathSummaryUI : MonoBehaviour
             killCountLabel.text = $"Enemies Killed: {enemiesKilled}";
         }
 
-        DeathSummaryUI_onOpenSummary.Invoke();
+        SummaryUI_onOpenSummary.Invoke();
 
         uiManager.OpenUI(root, true);
     }
@@ -88,7 +93,7 @@ public class DeathSummaryUI : MonoBehaviour
         enemiesKilled = 0;
 
         uiManager.CloseTopUI(true);
-        DeathSummaryUI_onReturnToHub.Invoke();
+        SummaryUI_onReturnToHub.Invoke();
     }
 
     private void PulseLabel()

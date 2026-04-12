@@ -138,7 +138,6 @@ public class DungeonManager : MonoBehaviour
         currentRoomIndex = index;
         RoomData roomData = dungeonData.Rooms[index];
         currentRoomInstance = Instantiate(roomData.RoomPrefab);
-        Debug.Log("jelenleg szoba: " + currentRoomInstance.gameObject.name);
 
         //Set player to SpawnPoint
         playerTransform.position = GetSpawnPosition(entryWall);

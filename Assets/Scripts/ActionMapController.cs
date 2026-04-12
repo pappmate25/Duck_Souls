@@ -14,8 +14,8 @@ public class ActionMapController : MonoBehaviour
     [Header("Events")]
     [SerializeField] private GameEventSO UIController_onPauseGame;
     [SerializeField] private GameEventSO UIManager_onPauseClosed;
-    [SerializeField] private GameEventSO DeathSummaryUI_onReturnToHub;
-    [SerializeField] private GameEventSO DeathSummaryUI_onOpenSummary;
+    [SerializeField] private GameEventSO SummaryUI_onReturnToHub;
+    [SerializeField] private GameEventSO SummaryUI_onOpenSummary;
 
     private PlayerInput playerInput;
 
@@ -34,8 +34,8 @@ public class ActionMapController : MonoBehaviour
         UIController_onPauseGame.Subscribe(SetToUI);
         UIManager_onPauseClosed.Subscribe(SetToDefault);
 
-        DeathSummaryUI_onOpenSummary.Subscribe(SetToSummary);
-        DeathSummaryUI_onReturnToHub.Subscribe(SetToDefault);
+        SummaryUI_onOpenSummary.Subscribe(SetToSummary);
+        SummaryUI_onReturnToHub.Subscribe(SetToDefault);
     }
 
     private void OnDisable()
@@ -43,8 +43,8 @@ public class ActionMapController : MonoBehaviour
         UIController_onPauseGame.UnSubscribe(SetToUI);
         UIManager_onPauseClosed.UnSubscribe(SetToDefault);
 
-        DeathSummaryUI_onOpenSummary.UnSubscribe(SetToSummary);
-        DeathSummaryUI_onReturnToHub.UnSubscribe(SetToDefault);
+        SummaryUI_onOpenSummary.UnSubscribe(SetToSummary);
+        SummaryUI_onReturnToHub.UnSubscribe(SetToDefault);
     }
 
     private void SetToUI()

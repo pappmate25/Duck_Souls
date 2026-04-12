@@ -362,8 +362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ActionMapController
   UIController_onPauseGame: {fileID: 11400000, guid: 0b5a61461b233d74f95ec331a64c8e65, type: 2}
   UIManager_onPauseClosed: {fileID: 11400000, guid: e32880c77c156f5489f35647c9a842a5, type: 2}
-  DeathSummaryUI_onReturnToHub: {fileID: 11400000, guid: 945b828e82cdd8842bfc002dd78f7866, type: 2}
-  DeathSummaryUI_onOpenSummary: {fileID: 11400000, guid: 4c293d82f411c3f4982452125ba6c775, type: 2}
+  SummaryUI_onReturnToHub: {fileID: 11400000, guid: 945b828e82cdd8842bfc002dd78f7866, type: 2}
+  SummaryUI_onOpenSummary: {fileID: 11400000, guid: 4c293d82f411c3f4982452125ba6c775, type: 2}
 --- !u!114 &8179460314725518454
 MonoBehaviour:
   m_ObjectHideFlags: 0

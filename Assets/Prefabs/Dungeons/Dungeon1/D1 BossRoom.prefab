@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b69975631ff2184eab4488e0a79b9ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExitDoor
-  ExitDoor_onReturnToHub: {fileID: 11400000, guid: 945b828e82cdd8842bfc002dd78f7866, type: 2}
+  ExitDoor_onReturnToHub: {fileID: 11400000, guid: 68bc42981509546439f11d8cbfa7ef2d, type: 2}
   RoomManager_onRoomCleared: {fileID: 11400000, guid: d1715ba52cd58fd41bda5a06a10efb3f, type: 2}
   doorVisual: {fileID: 319174671776975946}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}

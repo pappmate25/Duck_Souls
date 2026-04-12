@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5029115891936167397}
   - component: {fileID: 8694684641810699291}
   m_Layer: 0
-  m_Name: DeathSummaryUI
+  m_Name: SummaryUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,5 +71,6 @@ MonoBehaviour:
   uiManager: {fileID: 0}
   PlayerDeathEvent: {fileID: 11400000, guid: 41b91e9c072b05943ac97a2d3f9fa3bb, type: 2}
   EnemyDeathEvent: {fileID: 11400000, guid: 66bca97f9a53e654ca0f533dfcd8ac6d, type: 2}
-  DeathSummaryUI_onReturnToHub: {fileID: 11400000, guid: 945b828e82cdd8842bfc002dd78f7866, type: 2}
-  DeathSummaryUI_onOpenSummary: {fileID: 11400000, guid: 4c293d82f411c3f4982452125ba6c775, type: 2}
+  SummaryUI_onReturnToHub: {fileID: 11400000, guid: 945b828e82cdd8842bfc002dd78f7866, type: 2}
+  SummaryUI_onOpenSummary: {fileID: 11400000, guid: 4c293d82f411c3f4982452125ba6c775, type: 2}
+  ExitDoor_onReturnToHub: {fileID: 11400000, guid: 68bc42981509546439f11d8cbfa7ef2d, type: 2}

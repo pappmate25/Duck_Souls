@@ -535,7 +535,7 @@ Transform:
   - {fileID: 471844953}
   - {fileID: 1331828940}
   - {fileID: 368973654}
-  - {fileID: 1857714833}
+  - {fileID: 1519394779}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1144427160 stripped
@@ -946,7 +946,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &1857714832
+--- !u!1001 &1519394778
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -956,15 +956,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5988108164054118430, guid: a1c4e8882cd66a343accfe63ff0d1ada, type: 3}
       propertyPath: m_Name
-      value: DeathSummaryUI
+      value: SummaryUI
       objectReference: {fileID: 0}
     - target: {fileID: 6274015884891094302, guid: a1c4e8882cd66a343accfe63ff0d1ada, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.771709
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6274015884891094302, guid: a1c4e8882cd66a343accfe63ff0d1ada, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.31368017
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6274015884891094302, guid: a1c4e8882cd66a343accfe63ff0d1ada, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1007,10 +1007,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1c4e8882cd66a343accfe63ff0d1ada, type: 3}
---- !u!4 &1857714833 stripped
+--- !u!4 &1519394779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6274015884891094302, guid: a1c4e8882cd66a343accfe63ff0d1ada, type: 3}
-  m_PrefabInstance: {fileID: 1857714832}
+  m_PrefabInstance: {fileID: 1519394778}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &681477376486638887
 PrefabInstance:

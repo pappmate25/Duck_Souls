@@ -21,7 +21,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private GameEventSO PauseMenuController_onLeaveDungeon;
     [SerializeField] private GameEventSO PauseMenuController_onExitGame;
 
-    [SerializeField] private GameEventSO DeathSummaryUI_onReturnToHub;
+    [SerializeField] private GameEventSO SummaryUI_onReturnToHub;
 
 
     private void OnEnable()
@@ -36,7 +36,7 @@ public class SceneLoader : MonoBehaviour
         PauseMenuController_onLeaveDungeon.Subscribe(LoadHub);
         PauseMenuController_onExitGame.Subscribe(ExitGame);
 
-        DeathSummaryUI_onReturnToHub.Subscribe(LoadHub);
+        SummaryUI_onReturnToHub.Subscribe(LoadHub);
     }
 
     private void OnDisable()
@@ -50,7 +50,7 @@ public class SceneLoader : MonoBehaviour
         PauseMenuController_onLeaveDungeon.UnSubscribe(LoadHub);
         PauseMenuController_onExitGame.UnSubscribe(ExitGame);
 
-        DeathSummaryUI_onReturnToHub.UnSubscribe(LoadHub);
+        SummaryUI_onReturnToHub.UnSubscribe(LoadHub);
     }
 
     private void StartGame()
