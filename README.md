@@ -4,7 +4,7 @@
 
 ▶ [Play it on itch.io](https://pappmate25.itch.io/duck-souls)
 
-![Duck Souls cover](screenshots/cover.png)
+![Duck Souls cover](Screenshots/duck_souls_cover.png)
 
 ## About
 Duck Souls is a 2D top-down roguelike built solo in Unity, inspired by 
