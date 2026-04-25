@@ -56,10 +56,6 @@ features. Key patterns:
 - Unity UI Toolkit
 - Unity Input System (action maps)
 
-## Screenshots
-
-
-
 ## Controls
 - **Move:** WASD
 - **Aim:** Mouse
