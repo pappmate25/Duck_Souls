@@ -72,4 +72,4 @@ features. Key patterns:
 In active development. Current focus: dungeon and wave content, boss encounters, inventory + stats system, and visual polish.
 
 
-*Built by Máté Papp — [[LinkedIn](www.linkedin.com/in/mate-papp25)] | [[pappmate25.itch.io](https://pappmate25.itch.io/)]*
+*Built by Máté Papp — [[LinkedIn](https://www.linkedin.com/in/mate-papp25/)] | [[pappmate25.itch.io](https://pappmate25.itch.io/)]*
