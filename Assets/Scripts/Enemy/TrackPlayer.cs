@@ -1,4 +1,3 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class TrackPlayer : MonoBehaviour
@@ -26,7 +25,7 @@ public class TrackPlayer : MonoBehaviour
 
     private void FollowingPlayer()
     {
-        Vector2 direction = (playerTransform.position - transform.position).normalized; //irányvektor
+        Vector2 direction = (playerTransform.position - transform.position).normalized; //iranyvektor
 
         enemyRigidbody.linearVelocity = direction * character.Data.MoveSpeed;
     }
